@@ -1,20 +1,22 @@
-import tensorflow as tf
+# %%
 from dpsCalc import Damage
 from finalCalc import finalResult2
 from itertools import product
-import tensorflow as tf
 import pandas as pd
 import pickle
 import numpy as np
 import psutil
 import gc
 import sqlite3 as sql
-
+from heapq import nlargest
 # %%
 
 baseStat = {'WD': 0, 'Int': 447, 'DH': 400,
             'Crit': 400, 'Det': 390, 'Sps': 400}
+
 statKeys = ['DH', 'Crit', 'Det', 'Sps']
+
+gearType = ['Weapon', 'Head', 'Body', 'Hand', 'Legs', 'Feet', 'Earing','Necklace', 'Bracelet', 'Left Ring', 'Right Ring']
 
 wepDic = [{'Name': 'Asphodelos Staff', 'Type': 'Weapon', 'WD': 120,
            'Int': 304, 'DH': 0, 'Crit': 188, 'Det': 0, 'Sps': 269,
@@ -103,7 +105,7 @@ rrinDic = [{'Name': 'Augmented Radiant\'s Ring of Casting', 'Type': 'Right Ring'
 
 foodDic = [{'Name': 'Archon Burger',
             'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
-            'MaxDH': 93, 'MaxCrit': 0, 'MaxDet': 54, 'MaxSps': 0},
+            'MaxDH': 90, 'MaxCrit': 0, 'MaxDet': 54, 'MaxSps': 0},
            {'Name': 'Pumpkin Potage',
             'DH': 0, 'Crit': 1.1, 'Det': 1.1, 'Sps': 0,
             'MaxDH': 0, 'MaxCrit': 54, 'MaxDet': 90, 'MaxSps': 0},
@@ -117,7 +119,17 @@ foodDic = [{'Name': 'Archon Burger',
 
 
 # %%
-def getAvgDamage(GearStat, hasBrd=0, hasDrg=0, hasSch=0, hasDnc=0):
+def getAvgDamage(GearStat,crit: bool=False):
+    if crit:
+        hasBrd=1
+        hasDrg=1
+        hasSch=1
+        hasDnc=1
+    else:
+        hasBrd=0
+        hasDrg=0
+        hasSch=0
+        hasDnc=0
     firePps, thunderPps = finalResult2(GearStat['Sps'])
     fireDamage = Damage(firePps, GearStat['WD'], 115, GearStat['Int'], GearStat['Det'],
                         GearStat['Crit'], GearStat['DH'], 400, 400, hasBrd, hasDrg, hasSch, hasDnc, 5)
@@ -161,7 +173,6 @@ def getAllMeldOption(num=0):
                         posibleMeldSets.append([i, j, k])
     return posibleMeldSets
 
-
 def getEveryMeld(Gear):
     baseMeldStat = {'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
     meldedGear = []
@@ -187,16 +198,35 @@ def getEveryMeld(Gear):
             for stat in statKeys:
                 tempGearStat[stat] += tempStat[stat]
             if (tempGearStat['DH'] > tempGearStat['MaxStat']
-                        or tempGearStat['Crit'] > tempGearStat['MaxStat']
-                        or tempGearStat['Det'] > tempGearStat['MaxStat']
-                        or tempGearStat['Sps'] > tempGearStat['MaxStat']
-                    ):
+                or tempGearStat['Crit'] > tempGearStat['MaxStat']
+                or tempGearStat['Det'] > tempGearStat['MaxStat']
+                or tempGearStat['Sps'] > tempGearStat['MaxStat']
+                ):
                 pass
             else:
+                del tempGearStat["Slots"]
+                del tempGearStat["MaxStat"]
                 meldedGear.append(tempGearStat)
-    print(len(meldedGear))
+    # print(len(meldedGear))
     return meldedGear
 
+def getHighiestStats(stat1,n=2):
+    stat = statsToArray(stat1)[2:6]
+    return [stat.index(i) for i in sorted(stat, reverse=True)][:n]
+
+def findBestFood(stat1):
+    best = 0
+    a = getHighiestStats(stat1)
+    first = 'Max'+statKeys[a[0]]
+    second = 'Max'+statKeys[a[1]]
+    for i in range(len(foodDic)):
+        if(foodDic[i][first] == 90 and foodDic[i][second] == 54):
+            best = foodDic[i]
+    if best == 0:
+        for i in range(len(foodDic)):
+            if (foodDic[i][first] == 90):
+                best = foodDic[i]
+    return best
 
 def statWithFood(Gear, Food):
     tempGear = Gear.copy()
@@ -207,6 +237,7 @@ def statWithFood(Gear, Food):
             tempStat[stat] = Food['Max'+stat]
         tempGear[stat] += tempStat[stat]
     return tempGear
+
 
 def unmeldedRaidGear():
     return [wepDic[0],
@@ -222,8 +253,9 @@ def unmeldedRaidGear():
             rrinDic[0]
             ]
 
-def damageGainOverBaseSet(stat):
-    _, tpps = getAvgDamage(getGearStat(baseStat.copy(), unmeldedRaidGear()))
+
+def damageGainOverBaseSet(stat, crit: bool=False):
+    _, tpps = getAvgDamage(getGearStat(baseStat.copy(), unmeldedRaidGear()),crit)
     return ((stat[1]/tpps)-1)*100
 
 
@@ -239,77 +271,116 @@ def statsToArray(stat: dict):
     for g in stat.keys():
         statlist.append(stat[g])
     return statlist
+
+# %%
+
+def test(*args, crit: bool=False):
+    crit = 1 if crit else 0
+    bestgear = []
+    for seq in args:
+        temp = []
+        # print(bestgear)
+        item = getEveryMeld(seq)
+        for i in range(len(item)):
+            copy = bestgear.copy()
+            copy.append(item[i])
+
+            stat = getGearStat(baseStat.copy(), copy)
+            damage = getAvgDamage(stat,crit)
+            gain = damageGainOverBaseSet(damage,crit)
+
+            temp.append(gain)
+            # temp.append(damage[1])
+        bestgear.append(item[np.argmax(temp)])
+    return bestgear
+
+
+crit = False
+best = test(wepDic2, headDic, bodyDic,
+            handDic, legsDic, feetDic,
+            eariDic, neckDic, bracDic,
+            lrinDic, rrinDic, crit=crit)
+
+
+stato = getGearStat(baseStat.copy(), best)
+food = findBestFood(stato)
+stat = statWithFood(stato, food)
+damage = getAvgDamage(stat,crit)
+gain = damageGainOverBaseSet(damage,crit)
+
+stato, stat, food['Name'], damage, gain
+
 # %%
 
 # %%
 
-def getAllGear(weplist, headlist, bodylist, handlist, legslist, feetlist, earilist, necklist, braclist, lrinlist, rrinlist, foodlist):
-    columns = ['WD','Int','DH','Crit','Det','Sps','Fire pps','Thunder pps','Gain','Weapon','Head','Body','Hand','Legs','Feet','Earrings','Necklace','Bracelet','Left Ring','Right Ring','Food']
-    gc.collect()
-    char = baseStat.copy()
-    Gear = []
-    i = 0
-    n = 0
-    for sequnce in product(weplist, headlist, bodylist,
-                           handlist, legslist, feetlist,
-                           earilist, necklist, braclist,
-                           lrinlist, rrinlist, foodlist
-                           ):
+def test2(*args,crit=0):
+    crit = 1 if crit else 0
+    start = getEveryMeld(args[0])
+    bestgear2 = []
+    for i in start:
+        bestgear = [i]
+        bestgearcrit = [i]
+        bestgeardh = [i]
+        bestgeardet = [i]
+        bestgearsps = [i]
+        for seq in args[1:]:
+            tempgain = []
+            tempcrit = []
+            tempdh = []
+            tempdet = []
+            tempsps = []
+            item = getEveryMeld(seq)
+            for i in range(len(item)):
+                copy = bestgear.copy()
+                copy.append(item[i])
 
-        stats = getGearStat(char, sequnce[0:-1])
-        statswithfood = statWithFood(stats, sequnce[-1])
-        damage = getAvgDamage(statswithfood)
-        gain = damageGainOverBaseSet(damage)
-        temp = statsToArray(statswithfood)
+                stat = getGearStat(baseStat.copy(), copy)
+                damage = getAvgDamage(stat,crit)
+                gain = damageGainOverBaseSet(damage,crit)
+                tempgain.append(gain)
+                tempcrit.append(stat['Crit'])
+                tempdh.append(stat['DH'])
+                tempdet.append(stat['Det'])
+                tempsps.append(stat['Sps'])
+            bestgear.append(item[np.argmax(tempgain)])
+            bestgearcrit.append(item[np.argmax(tempcrit)])
+            bestgeardh.append(item[np.argmax(tempdh)])
+            bestgeardet.append(item[np.argmax(tempdet)])
+            bestgearsps.append(item[np.argmax(tempsps)])
+        bestgear2.append(bestgear)
+        bestgear2.append(bestgearcrit)
+        bestgear2.append(bestgeardh)
+        bestgear2.append(bestgeardet)
+        bestgear2.append(bestgearsps)
+    return bestgear2
 
-        Gear.append([
-                    temp[0], temp[1], temp[2],
-                    temp[3], temp[4], temp[5],
-                    damage[0], damage[1], gain,
-                    sequnce[0]['Name'], sequnce[1]['Name'], sequnce[2]['Name'],
-                    sequnce[3]['Name'], sequnce[4]['Name'], sequnce[5]['Name'],
-                    sequnce[6]['Name'], sequnce[7]['Name'], sequnce[8]['Name'],
-                    sequnce[9]['Name'],sequnce[10]['Name'], sequnce[11]['Name']
-                    ])
-        n += 1
-        if psutil.virtual_memory()[2] > 80:
-            print('AYO mMEMORY OVER 80%')
-            print('loop number ' + str(n) + ' out of 86400000000 ' + str(round(n/86400000000, 3)) + '% loops remaining ')
-            pd.DataFrame(Gear, columns=columns).to_parquet('D:/data/' + 'X' + str(i) + '.gzip', index=False, compression='gzip')
-
-            i += 1
-            del Gear
-            del stats
-            del statswithfood
-            del damage
-            del gain
-            del temp
-            while True:
-                gc.collect()
-                if psutil.virtual_memory()[2] < 50:
-                    break
-            Gear = []
-
-    pd.DataFrame(Gear, columns=columns).to_parquet('D:/data/' + 'X' + str(i) + '.gzip', index=False, compression='gzip')
-    # return Gear
-
-test = getAllGear(getEveryMeld(wepDic),
-                  getEveryMeld(headDic),
-                  getEveryMeld(bodyDic),
-                  getEveryMeld(handDic),
-                  getEveryMeld(legsDic),
-                  getEveryMeld(feetDic),
-                  getEveryMeld(eariDic),
-                  getEveryMeld(neckDic),
-                  getEveryMeld(bracDic),
-                  getEveryMeld(lrinDic),
-                  getEveryMeld(rrinDic),
-                  foodDic
-                )
+crit = 0
+eh = test2(wepDic, headDic, bodyDic,
+           handDic, legsDic, feetDic,
+           eariDic, neckDic, bracDic,
+           lrinDic, rrinDic, crit=crit)
 
 
-# %%
-gc.collect()
-# %%
 
+new = []
+for i in range(len(eh)):
+    for food in foodDic:
+        stato = getGearStat(baseStat.copy(), eh[i])
+        # food = findBestFood(stato)
+        stat = statWithFood(stato, food)
+        damage = getAvgDamage(stat,crit)
+        gain = damageGainOverBaseSet(damage,crit)
+
+        a = statsToArray(stat)
+        a.extend(pd.DataFrame(eh[i])['Name'].to_numpy().tolist())
+        a.append(food['Name'])
+        a.extend(damage)
+        a.append(gain)
+        new.append(a)
+
+pd.set_option('display.max_columns', None)
+df = pd.DataFrame(new,columns=(['WD', 'Int', 'DH', 'Crit', 'Det', 'Sps', 'Weapon', 'Head', 'Body', 'Hands', 'Legs', 'Feet', 'Earing', 'Necklace', ' Bracelet', 'Left Ring', 'Right Ring', 'Food', 'Fire Proc', 'Thunder Proc', 'Gain']))
+df.drop_duplicates().sort_values('Gain', ascending=False, ignore_index=True)
+df.to_csv('test2.csv', index=False)
 # %%
