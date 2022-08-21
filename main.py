@@ -1,4 +1,5 @@
 # %%
+import itertools
 from dpsCalc import Damage
 from finalCalc import finalResult2
 from itertools import product
@@ -18,104 +19,143 @@ statKeys = ['DH', 'Crit', 'Det', 'Sps']
 
 gearType = ['Weapon', 'Head', 'Body', 'Hand', 'Legs', 'Feet', 'Earing','Necklace', 'Bracelet', 'Left Ring', 'Right Ring']
 
-wepDic = [{'Name': 'Asphodelos Staff', 'Type': 'Weapon', 'WD': 120,
-           'Int': 304, 'DH': 0, 'Crit': 188, 'Det': 0, 'Sps': 269,
-           'Slots': 2, 'MaxStat': 269},
-          ]
+wepDic=[
+        {'id': 35254,
+        'Name': 'Asphodelos Staff', 'Type': 'Weapon', 'WD': 120,
+        'Int': 304, 'DH': 0, 'Crit': 188, 'Det': 0, 'Sps': 269,
+        'Slots': 2, 'MaxStat': 269, 'AM': False}
+        ]
 
-wepDic2 = [
-          {'Name': 'Ultimate Staff', 'Type': 'Weapon', 'WD': 120,
-           'Int': 304, 'DH': 0, 'Crit': 188, 'Det': 0, 'Sps': 269,
-           'Slots': 3, 'MaxStat': 269}
-          ]
+wepDic2=[
+        {'id': 36952,
+        'Name': 'Ultimate Staff', 'Type': 'Weapon', 'WD': 120,
+        'Int': 304, 'DH': 0, 'Crit': 188, 'Det': 0, 'Sps': 269,
+        'Slots': 3, 'MaxStat': 269, 'AM': False}
+        ]
 
-headDic = [{'Name': 'Asphodelos Headgear of Casting', 'Type': 'Head',
-            'Int': 180, 'DH': 113, 'Crit': 162, 'Det': 0, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 162},
-           {'Name': 'Augmented Radiant\'s Visor of Casting', 'Type': 'Head',
-            'Int': 180, 'DH': 0, 'Crit': 0, 'Det': 113, 'Sps': 162,
-            'Slots': 2, 'MaxStat': 162}
+wepDic3=[
+        {'id': 0,
+        'Name': 'Classical Longpole', 'Type': 'Weapon', 'WD': 115,
+        'Int': 266, 'DH': 0, 'Crit': 253, 'Det': 0, 'Sps': 177,
+        'Slots': 2, 'MaxStat': 253, 'AM': True}
+        ]
+
+headDic=[
+        {'id': 35295,
+        'Name': 'Asphodelos Headgear of Casting', 'Type': 'Head',
+        'Int': 180, 'DH': 113, 'Crit': 162, 'Det': 0, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 162, 'AM': False},
+        {'id': 35220,
+        'Name': 'Augmented Radiant\'s Visor of Casting', 'Type': 'Head',
+        'Int': 180, 'DH': 0, 'Crit': 0, 'Det': 113, 'Sps': 162,
+        'Slots': 2, 'MaxStat': 162, 'AM': False}
+        ]
+
+bodyDic=[
+        {'id': 35296,
+        'Name': 'Asphodelos Chiton of Casting ', 'Type': 'Body',
+        'Int': 285, 'DH': 0, 'Crit': 257, 'Det': 180, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 257, 'AM': False},
+        {'id': 35220,
+        'Name': 'Augmented Radiant\'s Mail of Casting', 'Type': 'Body',
+        'Int': 285, 'DH': 257, 'Crit': 0, 'Det': 0, 'Sps': 180,
+        'Slots': 2, 'MaxStat': 257, 'AM': False}
+        ]
+
+handDic=[
+        {'id':35297,
+        'Name': 'Asphodelos Wristbands of Casting', 'Type': 'Hand',
+        'Int': 180, 'DH': 0, 'Crit': 162, 'Det': 113, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 162, 'AM': False},
+       {'id': 35222,
+        'Name': 'Augmented Radiant\'s Gloves of Casting', 'Type': 'Hand',
+        'Int': 180, 'DH': 113, 'Crit': 0, 'Det': 0, 'Sps': 162,
+        'Slots': 2, 'MaxStat': 162, 'AM': False}
+        ]
+
+legsDic=[
+        {'id': 35298,
+        'Name': 'Asphodelos Trousers of Casting', 'Type': 'Legs',
+        'Int': 285, 'DH': 0, 'Crit': 0, 'Det': 180, 'Sps': 257,
+        'Slots': 2, 'MaxStat': 257, 'AM': False},
+       {'id': 35223,
+        'Name': 'Augmented Radiant\'s Hose of Casting', 'Type': 'Legs',
+        'Int': 285, 'DH': 0, 'Crit': 180, 'Det': 257, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 257, 'AM': False}
            ]
 
-bodyDic = [{'Name': 'Asphodelos Chiton of Casting ', 'Type': 'Body',
-            'Int': 285, 'DH': 0, 'Crit': 257, 'Det': 180, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 257},
-           {'Name': 'Augmented Radiant\'s Mail of Casting', 'Type': 'Body',
-            'Int': 285, 'DH': 257, 'Crit': 0, 'Det': 0, 'Sps': 180,
-            'Slots': 2, 'MaxStat': 257}
-           ]
+feetDic=[
+        {'id': 35299,
+        'Name': 'Asphodelos Gaiters of Casting', 'Type': 'Feet',
+        'Int': 180, 'DH': 162, 'Crit': 0, 'Det': 0, 'Sps': 113,
+        'Slots': 2, 'MaxStat': 162, 'AM': False},
+       {'id': 35224,
+        'Name': 'Augmented Radiant\'s Greaves of Casting', 'Type': 'Feet',
+        'Int': 180, 'DH': 113, 'Crit': 162, 'Det': 0, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 162, 'AM': False}
+        ]
 
-handDic = [{'Name': 'Asphodelos Wristbands of Casting', 'Type': 'Hand',
-            'Int': 180, 'DH': 0, 'Crit': 162, 'Det': 113, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 162},
-           {'Name': 'Augmented Radiant\'s Gloves of Casting', 'Type': 'Hand',
-            'Int': 180, 'DH': 113, 'Crit': 0, 'Det': 0, 'Sps': 162,
-            'Slots': 2, 'MaxStat': 162}
-           ]
+eariDic=[
+        {'id': 35304,
+        'Name': 'Asphodelos Earrings of Casting', 'Type': 'Earing',
+        'Int': 142, 'DH': 127, 'Crit': 0, 'Det': 0, 'Sps': 89,
+        'Slots': 2, 'MaxStat': 127, 'AM': False},
+        {'id': 35229,
+        'Name': 'Augmented Radiant\'s Earrings of Casting', 'Type': 'Earing',
+        'Int': 142, 'DH': 0, 'Crit': 89, 'Det': 127, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 127, 'AM': False}
+        ]
 
-legsDic = [{'Name': 'Asphodelos Trousers of Casting', 'Type': 'Legs',
-            'Int': 285, 'DH': 0, 'Crit': 0, 'Det': 180, 'Sps': 257,
-            'Slots': 2, 'MaxStat': 257},
-           {'Name': 'Augmented Radiant\'s Hose of Casting', 'Type': 'Legs',
-            'Int': 285, 'DH': 0, 'Crit': 180, 'Det': 257, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 257}
-           ]
+neckDic=[
+        {'id': 35309,
+        'Name': 'Asphodelos Necklace of Casting', 'Type': 'Necklace',
+        'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 127, 'AM': False},
+        {'id': 35234,
+        'Name': 'Augmented Radiant\'s Choker of Casting', 'Type': 'Necklace',
+        'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 127, 'Sps': 89,
+        'Slots': 2, 'MaxStat': 127, 'AM': False}
+        ]
 
-feetDic = [{'Name': 'Asphodelos Gaiters of Casting', 'Type': 'Feet',
-            'Int': 180, 'DH': 162, 'Crit': 0, 'Det': 0, 'Sps': 113,
-            'Slots': 2, 'MaxStat': 162},
-           {'Name': 'Augmented Radiant\'s Greaves of Casting', 'Type': 'Feet',
-            'Int': 180, 'DH': 113, 'Crit': 162, 'Det': 0, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 162}
-           ]
+bracDic=[
+        {'id': 35314,
+        'Name': 'Asphodelos Amulet of Casting', 'Type': 'Bracelet',
+        'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 89, 'Sps': 127,
+        'Slots': 2, 'MaxStat': 127, 'AM': False},
+        {'id': 35239,
+        'Name': 'Augmented Radiant\'s Bracelet of Casting', 'Type': 'Bracelet',
+        'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 127, 'AM': False}
+        ]
 
-eariDic = [{'Name': 'Asphodelos Earrings of Casting', 'Type': 'Earing',
-            'Int': 142, 'DH': 127, 'Crit': 0, 'Det': 0, 'Sps': 89,
-            'Slots': 2, 'MaxStat': 127},
-           {'Name': 'Augmented Radiant\'s Earrings of Casting', 'Type': 'Earing',
-            'Int': 142, 'DH': 0, 'Crit': 89, 'Det': 127, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 127}
-           ]
+lrinDic=[
+        {'id': 35319,
+        'Name': 'Asphodelos Ring of Casting', 'Type': 'Left Ring',
+        'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 127, 'Sps': 89,
+        'Slots': 2, 'MaxStat': 127, 'AM': False}
+        ]
 
-neckDic = [{'Name': 'Asphodelos Necklace of Casting', 'Type': 'Necklace',
-            'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 127},
-           {'Name': 'Augmented Radiant\'s Choker of Casting', 'Type': 'Necklace',
-            'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 127, 'Sps': 89,
-            'Slots': 2, 'MaxStat': 127}
-           ]
+rrinDic=[
+        {'id': 35244,
+        'Name': 'Augmented Radiant\'s Ring of Casting', 'Type': 'Right Ring',
+        'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
+        'Slots': 2, 'MaxStat': 127, 'AM': False}
+        ]
 
-bracDic = [{'Name': 'Asphodelos Amulet of Casting', 'Type': 'Bracelet',
-            'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 89, 'Sps': 127,
-            'Slots': 2, 'MaxStat': 127},
-           {'Name': 'Augmented Radiant\'s Bracelet of Casting', 'Type': 'Bracelet',
-            'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 127}
-           ]
-
-lrinDic = [{'Name': 'Asphodelos Ring of Casting', 'Type': 'Left Ring',
-            'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 127, 'Sps': 89,
-            'Slots': 2, 'MaxStat': 127}
-           ]
-
-rrinDic = [{'Name': 'Augmented Radiant\'s Ring of Casting', 'Type': 'Right Ring',
-            'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
-            'Slots': 2, 'MaxStat': 127}
-           ]
-
-foodDic = [{'Name': 'Archon Burger',
-            'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
-            'MaxDH': 90, 'MaxCrit': 0, 'MaxDet': 54, 'MaxSps': 0},
-           {'Name': 'Pumpkin Potage',
-            'DH': 0, 'Crit': 1.1, 'Det': 1.1, 'Sps': 0,
-            'MaxDH': 0, 'MaxCrit': 54, 'MaxDet': 90, 'MaxSps': 0},
-           {'Name': 'Sykon Cookie',
-            'DH': 1.1, 'Crit': 0, 'Det': 0, 'Sps': 1.1,
-            'MaxDH': 54, 'MaxCrit': 0, 'MaxDet': 0, 'MaxSps': 90},
-           {'Name': 'Thavnarian Chai',
-            'DH': 0, 'Crit': 1.1, 'Det': 0, 'Sps': 1.1,
-            'MaxDH': 0, 'MaxCrit': 90, 'MaxDet': 0, 'MaxSps': 54}
-           ]
+foodDic=[
+        {'Name': 'Archon Burger',
+        'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
+        'MaxDH': 90, 'MaxCrit': 0, 'MaxDet': 54, 'MaxSps': 0},
+        {'Name': 'Pumpkin Potage',
+        'DH': 0, 'Crit': 1.1, 'Det': 1.1, 'Sps': 0,
+        'MaxDH': 0, 'MaxCrit': 54, 'MaxDet': 90, 'MaxSps': 0},
+        {'Name': 'Sykon Cookie',
+        'DH': 1.1, 'Crit': 0, 'Det': 0, 'Sps': 1.1,
+        'MaxDH': 54, 'MaxCrit': 0, 'MaxDet': 0, 'MaxSps': 90},
+        {'Name': 'Thavnarian Chai',
+        'DH': 0, 'Crit': 1.1, 'Det': 0, 'Sps': 1.1,
+        'MaxDH': 0, 'MaxCrit': 90, 'MaxDet': 0, 'MaxSps': 54}
+        ]
 
 
 # %%
@@ -148,29 +188,11 @@ def getGearStat(charStat, gear):
                 pass
     return tempCharStat
 
-
 def getAllMeldOption(num=0):
     posibleMeldSets = []
-    if num == 2:
-        for i in statKeys:
-            for j in statKeys:
-                if [j, i] in posibleMeldSets:
-                    pass
-                else:
-                    posibleMeldSets.append([i, j])
-    if num == 3:
-        for i in statKeys:
-            for j in statKeys:
-                for k in statKeys:
-                    if (([j, i, k] in posibleMeldSets
-                         or [k, j, i] in posibleMeldSets
-                         or [i, k, j] in posibleMeldSets
-                         or [j, k, i] in posibleMeldSets
-                         or [k, i, j] in posibleMeldSets
-                         or [i, j, k] in posibleMeldSets)):
-                        pass
-                    else:
-                        posibleMeldSets.append([i, j, k])
+    p = itertools.combinations_with_replacement(statKeys, r=num)
+    for i in p:
+        posibleMeldSets.append([*i])
     return posibleMeldSets
 
 def getEveryMeld(Gear):
@@ -208,6 +230,67 @@ def getEveryMeld(Gear):
                 del tempGearStat["MaxStat"]
                 meldedGear.append(tempGearStat)
     # print(len(meldedGear))
+    return meldedGear
+
+def getEveryMeld(Gear):
+    baseMeldStat = {'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
+    meldedGear = []
+    for item in range(len(Gear)):
+        AM = Gear[item]['AM']
+        meldSlot = Gear[item]['Slots']
+        avalableMelds = getAllMeldOption(meldSlot)
+        if AM:
+            meldSlot = meldSlot + 1
+            avalableMelds = []
+            a = itertools.product(getAllMeldOption(meldSlot), getAllMeldOption(2))
+            for i in a:
+                avalableMelds.append([*i[0], *i[1]])
+        for option in range(len(avalableMelds)):
+            tempStat = baseMeldStat.copy()
+            tempGearStat = Gear[item].copy()
+            for i in range(meldSlot):
+                if avalableMelds[option][i] == 'DH':
+                    tempGearStat['Name'] += ' DH'
+                    tempStat['DH'] += 36
+                if avalableMelds[option][i] == 'Crit':
+                    tempGearStat['Name'] += ' Crit'
+                    tempStat['Crit'] += 36
+                if avalableMelds[option][i] == 'Det':
+                    tempGearStat['Name'] += ' Det'
+                    tempStat['Det'] += 36
+                if avalableMelds[option][i] == 'Sps':
+                    tempGearStat['Name'] += ' Sps'
+                    tempStat['Sps'] += 36
+
+            if AM:
+                for i in range(3, 5):
+                    if avalableMelds[option][i] == 'DH':
+                        tempGearStat['Name'] += ' DH'
+                        tempStat['DH'] += 12
+                    if avalableMelds[option][i] == 'Crit':
+                        tempGearStat['Name'] += ' Crit'
+                        tempStat['Crit'] += 12
+                    if avalableMelds[option][i] == 'Det':
+                        tempGearStat['Name'] += ' Det'
+                        tempStat['Det'] += 12
+                    if avalableMelds[option][i] == 'Sps':
+                        tempGearStat['Name'] += ' Sps'
+                        tempStat['Sps'] += 12
+
+            for stat in statKeys:
+                tempGearStat[stat] += tempStat[stat]
+
+            if (tempGearStat['DH'] > tempGearStat['MaxStat']
+                or tempGearStat['Crit'] > tempGearStat['MaxStat']
+                or tempGearStat['Det'] > tempGearStat['MaxStat']
+                or tempGearStat['Sps'] > tempGearStat['MaxStat']):
+                pass
+            else:
+                del tempGearStat["Slots"]
+                del tempGearStat["MaxStat"]
+                del tempGearStat["AM"]
+                meldedGear.append(tempGearStat)
+            # print(len(meldedGear))
     return meldedGear
 
 def getHighiestStats(stat1,n=2):
@@ -272,8 +355,10 @@ def statsToArray(stat: dict):
         statlist.append(stat[g])
     return statlist
 
-# %%
+def all_equal(iterator):
+    return len(set(iterator)) <= 1
 
+# %%
 def test(*args, crit: bool=False):
     crit = 1 if crit else 0
     bestgear = []
@@ -290,13 +375,12 @@ def test(*args, crit: bool=False):
             gain = damageGainOverBaseSet(damage,crit)
 
             temp.append(gain)
-            # temp.append(damage[1])
         bestgear.append(item[np.argmax(temp)])
     return bestgear
 
 
 crit = False
-best = test(wepDic2, headDic, bodyDic,
+best = test(wepDic3, headDic, bodyDic,
             handDic, legsDic, feetDic,
             eariDic, neckDic, bracDic,
             lrinDic, rrinDic, crit=crit)
@@ -311,76 +395,17 @@ gain = damageGainOverBaseSet(damage,crit)
 stato, stat, food['Name'], damage, gain
 
 # %%
-
-# %%
-
-def test2(*args,crit=0):
-    crit = 1 if crit else 0
-    start = getEveryMeld(args[0])
-    bestgear2 = []
-    for i in start:
-        bestgear = [i]
-        bestgearcrit = [i]
-        bestgeardh = [i]
-        bestgeardet = [i]
-        bestgearsps = [i]
-        for seq in args[1:]:
-            tempgain = []
-            tempcrit = []
-            tempdh = []
-            tempdet = []
-            tempsps = []
-            item = getEveryMeld(seq)
-            for i in range(len(item)):
-                copy = bestgear.copy()
-                copy.append(item[i])
-
-                stat = getGearStat(baseStat.copy(), copy)
-                damage = getAvgDamage(stat,crit)
-                gain = damageGainOverBaseSet(damage,crit)
-                tempgain.append(gain)
-                tempcrit.append(stat['Crit'])
-                tempdh.append(stat['DH'])
-                tempdet.append(stat['Det'])
-                tempsps.append(stat['Sps'])
-            bestgear.append(item[np.argmax(tempgain)])
-            bestgearcrit.append(item[np.argmax(tempcrit)])
-            bestgeardh.append(item[np.argmax(tempdh)])
-            bestgeardet.append(item[np.argmax(tempdet)])
-            bestgearsps.append(item[np.argmax(tempsps)])
-        bestgear2.append(bestgear)
-        bestgear2.append(bestgearcrit)
-        bestgear2.append(bestgeardh)
-        bestgear2.append(bestgeardet)
-        bestgear2.append(bestgearsps)
-    return bestgear2
-
-crit = 0
-eh = test2(wepDic, headDic, bodyDic,
-           handDic, legsDic, feetDic,
-           eariDic, neckDic, bracDic,
-           lrinDic, rrinDic, crit=crit)
+pd.DataFrame(best)
 
 
 
-new = []
-for i in range(len(eh)):
-    for food in foodDic:
-        stato = getGearStat(baseStat.copy(), eh[i])
-        # food = findBestFood(stato)
-        stat = statWithFood(stato, food)
-        damage = getAvgDamage(stat,crit)
-        gain = damageGainOverBaseSet(damage,crit)
 
-        a = statsToArray(stat)
-        a.extend(pd.DataFrame(eh[i])['Name'].to_numpy().tolist())
-        a.append(food['Name'])
-        a.extend(damage)
-        a.append(gain)
-        new.append(a)
 
-pd.set_option('display.max_columns', None)
-df = pd.DataFrame(new,columns=(['WD', 'Int', 'DH', 'Crit', 'Det', 'Sps', 'Weapon', 'Head', 'Body', 'Hands', 'Legs', 'Feet', 'Earing', 'Necklace', ' Bracelet', 'Left Ring', 'Right Ring', 'Food', 'Fire Proc', 'Thunder Proc', 'Gain']))
-df.drop_duplicates().sort_values('Gain', ascending=False, ignore_index=True)
-df.to_csv('test2.csv', index=False)
+
+
+
+
+
+
+
 # %%
