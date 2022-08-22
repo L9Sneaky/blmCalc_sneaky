@@ -38,7 +38,7 @@ url2 = 'https://etro.gg/gearset/28423d0d-2583-494a-8fde-d0e41e4d1f12'
 t1 = get_set_from_etro(url1)
 t2 = get_set_from_etro(url2)
 t1['materia']['36952']
-
+t2
 for gear in list:
     print(gear + ' ' + str(t1[gear]))
     #

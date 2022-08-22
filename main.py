@@ -2,13 +2,9 @@
 import itertools
 from dpsCalc import Damage
 from finalCalc import finalResult2
-from itertools import product
 import pandas as pd
 import pickle
 import numpy as np
-import psutil
-import gc
-import sqlite3 as sql
 from heapq import nlargest
 # %%
 
@@ -42,6 +38,13 @@ wepDic3=[
         'Slots': 2, 'MaxStat': 253, 'AM': True}
         ]
 
+wepDicR=[
+        {'id': 'relic',
+        'Name': 'Blades Fury', 'Type': 'Weapon', 'WD': 125,
+        'Int': 306, 'DH': 172, 'Crit': 0, 'Det': 126, 'Sps': 170,
+        'Slots': 5, 'MaxStat': 999, 'AM': True}
+        ]
+
 headDic=[
         {'id': 35295,
         'Name': 'Asphodelos Headgear of Casting', 'Type': 'Head',
@@ -70,6 +73,7 @@ bodyDic1=[
         'Int': 256, 'DH': 171, 'Crit': 0, 'Det': 244, 'Sps': 0,
         'Slots': 5, 'MaxStat': 244, 'AM': False}
         ]
+
 handDic=[
         {'id':35297,
         'Name': 'Asphodelos Wristbands of Casting', 'Type': 'Hand',
@@ -213,7 +217,7 @@ def getEveryMeld(Gear):
         meldSlot = Gear[item]['Slots']
         avalableMelds = getAllMeldOption(meldSlot)
         if AM:
-            meldSlot = meldSlot + 1
+            meldSlot = min(meldSlot + 1, 5)
             avalableMelds = []
             a = itertools.product(getAllMeldOption(meldSlot), getAllMeldOption(2))
             for i in a:
@@ -356,9 +360,9 @@ def test(*args, crit: bool=False):
             bestgear.append(item[np.argmax(temp)])
     return bestgear
 
-
-crit = 1
-best = test(wepDic2, headDic, bodyDic,
+# %%
+crit = 0
+best = test(wepDicR, headDic, bodyDic1,
             handDic, legsDic, feetDic,
             eariDic, neckDic, bracDic,
             lrinDic, rrinDic, crit=crit)
@@ -374,8 +378,7 @@ stat, food['Name'], damage, gain
 
 # %%
 pd.DataFrame(best)
-
-
+best[0]['Name']
 
 
 
