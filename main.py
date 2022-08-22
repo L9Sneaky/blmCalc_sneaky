@@ -195,42 +195,7 @@ def getAllMeldOption(num=0):
         posibleMeldSets.append([*i])
     return posibleMeldSets
 
-def getEveryMeld(Gear):
-    baseMeldStat = {'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
-    meldedGear = []
-    for item in range(len(Gear)):
-        meldSlot = Gear[item]['Slots']
-        avalableMelds = getAllMeldOption(Gear[item]['Slots'])
-        for option in range(len(avalableMelds)):
-            tempStat = baseMeldStat.copy()
-            tempGearStat = Gear[item].copy()
-            for i in range(meldSlot):
-                if avalableMelds[option][i] == 'DH':
-                    tempGearStat['Name'] += ' DH'
-                    tempStat['DH'] += 36
-                if avalableMelds[option][i] == 'Crit':
-                    tempGearStat['Name'] += ' Crit'
-                    tempStat['Crit'] += 36
-                if avalableMelds[option][i] == 'Det':
-                    tempGearStat['Name'] += ' Det'
-                    tempStat['Det'] += 36
-                if avalableMelds[option][i] == 'Sps':
-                    tempGearStat['Name'] += ' Sps'
-                    tempStat['Sps'] += 36
-            for stat in statKeys:
-                tempGearStat[stat] += tempStat[stat]
-            if (tempGearStat['DH'] > tempGearStat['MaxStat']
-                or tempGearStat['Crit'] > tempGearStat['MaxStat']
-                or tempGearStat['Det'] > tempGearStat['MaxStat']
-                or tempGearStat['Sps'] > tempGearStat['MaxStat']
-                ):
-                pass
-            else:
-                del tempGearStat["Slots"]
-                del tempGearStat["MaxStat"]
-                meldedGear.append(tempGearStat)
-    # print(len(meldedGear))
-    return meldedGear
+
 
 def getEveryMeld(Gear):
     baseMeldStat = {'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
