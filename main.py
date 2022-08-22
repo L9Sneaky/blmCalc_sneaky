@@ -55,7 +55,7 @@ headDic=[
 
 bodyDic=[
         {'id': 35296,
-        'Name': 'Asphodelos Chiton of Casting ', 'Type': 'Body',
+        'Name': 'Asphodelos Chiton of Casting', 'Type': 'Body',
         'Int': 285, 'DH': 0, 'Crit': 257, 'Det': 180, 'Sps': 0,
         'Slots': 2, 'MaxStat': 257, 'AM': False},
         {'id': 35220,
@@ -64,6 +64,12 @@ bodyDic=[
         'Slots': 2, 'MaxStat': 257, 'AM': False}
         ]
 
+bodyDic1=[
+        {'id': 1,
+        'Name': 'Ornate Classical Signifer\'s Chiton', 'Type': 'Body',
+        'Int': 256, 'DH': 171, 'Crit': 0, 'Det': 244, 'Sps': 0,
+        'Slots': 5, 'MaxStat': 244, 'AM': False}
+        ]
 handDic=[
         {'id':35297,
         'Name': 'Asphodelos Wristbands of Casting', 'Type': 'Hand',
@@ -331,6 +337,7 @@ def test(*args, crit: bool=False):
     bestgear = []
     for seq in args:
         temp = []
+        temp2 = []
         # print(bestgear)
         item = getEveryMeld(seq)
         for i in range(len(item)):
@@ -340,14 +347,18 @@ def test(*args, crit: bool=False):
             stat = getGearStat(baseStat.copy(), copy)
             damage = getAvgDamage(stat,crit)
             gain = damageGainOverBaseSet(damage,crit)
-
+            temp2.append(stat['Crit'])
             temp.append(gain)
-        bestgear.append(item[np.argmax(temp)])
+
+        if crit and not all_equal(temp2):
+            bestgear.append(item[np.argmax(temp2)])
+        else:
+            bestgear.append(item[np.argmax(temp)])
     return bestgear
 
 
-crit = False
-best = test(wepDic3, headDic, bodyDic,
+crit = 1
+best = test(wepDic2, headDic, bodyDic,
             handDic, legsDic, feetDic,
             eariDic, neckDic, bracDic,
             lrinDic, rrinDic, crit=crit)
@@ -359,11 +370,10 @@ stat = statWithFood(stato, food)
 damage = getAvgDamage(stat,crit)
 gain = damageGainOverBaseSet(damage,crit)
 
-stato, stat, food['Name'], damage, gain
+stat, food['Name'], damage, gain
 
 # %%
 pd.DataFrame(best)
-
 
 
 
