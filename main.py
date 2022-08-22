@@ -19,6 +19,8 @@ statKeys = ['DH', 'Crit', 'Det', 'Sps']
 
 gearType = ['Weapon', 'Head', 'Body', 'Hand', 'Legs', 'Feet', 'Earing','Necklace', 'Bracelet', 'Left Ring', 'Right Ring']
 
+# %%
+
 wepDic=[
         {'id': 35254,
         'Name': 'Asphodelos Staff', 'Type': 'Weapon', 'WD': 120,
@@ -228,7 +230,7 @@ def getEveryMeld(Gear):
                     tempStat['Sps'] += 36
 
             if AM:
-                for i in range(3, 5):
+                for i in range(meldSlot, 5):
                     if avalableMelds[option][i] == 'DH':
                         tempGearStat['Name'] += ' DH'
                         tempStat['DH'] += 12
