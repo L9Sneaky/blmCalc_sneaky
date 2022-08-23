@@ -1,20 +1,77 @@
 import pandas as pd
 import numpy as np
 from math import floor
+import yaml
 # %%
-lvlmain = 390
-lvldiv = 1900
-INT = 2571
-# f(DET) = ⌊ 140 × ( DET - Level Lv, MAIN )/ Level Lv, DIV + 1000 ⌋
-def det_Mult(det = 0):
-    return floor(140*(det - lvlmain)/lvldiv+1000)/1000
+stat = ['DH' , 'Crit' , 'Det', 'Sps']
+stats  = ['Direct Hit Rate', 'Critical Hit','Determination', 'Spell Speed']
+name = []
+type = []
+ilvl = []
+wd = []
+int = []
+DH = []
+Crit = []
+Det = []
+Sps = []
+slots = []
+maxstat = []
+AM = []
+df = pd.read_csv('new 1.txt', sep='\t')
+df.head()
+df['Primary Substat'].unique()
+for i in range(len(df)):
+    w = df.iloc[i]
+    name.append(w['Name'])
+    type.append('Weapon' if w['ItemUICategory'] == 'Two–handed Thaumaturge\'s Arm' else w['ItemUICategory'])
+    ilvl.append(w['Level'])
+    wd.append(w['WD'])
+    int.append(w['Main Stat'])
+    dh = 0
+    crit = 0
+    det = 0
+    sps = 0
+    b = w['P. Value']
+    a = stats.index(w['Primary Substat'])
+    if a == 0:
+        dh = b
+    elif a == 1:
+        crit = b
+    elif a == 2:
+        det = b
+    elif a == 3:
+        sps = b
 
-arr = np.asarray(range(390,2691))
+    b = w['S. Value']
+    a = stats.index(w['Secondary Substat'])
+    if a == 0:
+        dh = b
+    elif a == 1:
+        crit = b
+    elif a == 2:
+        det = b
+    elif a == 3:
+        sps = b
 
-det_arr = []
-for i in arr:
-    det_arr.append(det_Mult(i))
-det_arr = np.asarray(det_arr)
+    DH.append(dh)
+    Crit.append(crit)
+    Det.append(det)
+    Sps.append(sps)
+    slots.append(w['# Slots'])
+    maxstat.append(w['P. Value'])
+    AM.append(w['Overmeld'])
+
+t =pd.DataFrame(np.array([name, type, ilvl, wd, int, DH, Crit, Det, Sps, slots, maxstat, AM]).transpose(), columns=['Name' ,'Type','ilvl' ,'WD' ,'Int' ,'DH' ,'Crit' ,'Det', 'Sps', 'Slots', 'MaxStat', 'AM'])
+t = t.sort_values('Type', ascending=bool)
+# %%
+t = t.reset_index().to_dict(orient='records')
+t
+with open(r'Gear_6.2.yaml', 'w') as file:
+    documents = yaml.dump(t, file, sort_keys=False)
 
 
-pd.DataFrame(np.asarray([arr, det_arr]).T, columns = ['det', 'multiplyer']).plot()
+
+
+
+
+# %%

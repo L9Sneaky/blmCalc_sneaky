@@ -1,0 +1,42 @@
+Name	ItemUICategory	iLvl	ClassJobCategory	Level	WD	VIT	Main Stat	Primary Substat	P. Value	Secondary Substat	S. Value	# Slots	Overmeld
+Abyssos Rod	Two–handed Thaumaturge's Arm	635	THM BLM	90	126	350	358	Spell Speed	287	Critical Hit	201	2	FALSE
+Augmented Lunar Envoy's Staff	Two–handed Thaumaturge's Arm	630	THM BLM	90	125	338	348	Determination	283	Direct Hit Rate	198	2	FALSE
+Augmented Lunar Envoy's Hairpin of Casting	Head	630	THM ACN BLM SMN RDM BLU	90	0	205	211	Critical Hit	172	Determination	120	2	FALSE
+Augmented Lunar Envoy's Justaucorps of Casting	Body	630	THM ACN BLM SMN RDM BLU	90	0	327	336	Direct Hit Rate	273	Spell Speed	191	2	FALSE
+Augmented Lunar Envoy's Gloves of Casting	Hands	630	THM ACN BLM SMN RDM BLU	90	0	205	211	Spell Speed	172	Direct Hit Rate	120	2	FALSE
+Augmented Lunar Envoy's Longkilt of Casting	Legs	630	THM ACN BLM SMN RDM BLU	90	0	327	336	Critical Hit	273	Determination	191	2	FALSE
+Augmented Lunar Envoy's Boots of Casting	Feet	630	THM ACN BLM SMN RDM BLU	90	0	205	211	Direct Hit Rate	172	Critical Hit	120	2	FALSE
+Augmented Lunar Envoy's Earring of Casting	Earrings	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Spell Speed	136	Determination	95	2	FALSE
+Augmented Lunar Envoy's Necklace of Casting	Necklace	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Determination	136	Critical Hit	95	2	FALSE
+Augmented Lunar Envoy's Bracelets of Casting	Bracelets	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Spell Speed	136	Determination	95	2	FALSE
+Augmented Lunar Envoy's Ring of Casting	Ring	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Direct Hit Rate	136	Determination	95	2	FALSE
+Abyssos Helm of Casting	Head	630	THM ACN BLM SMN RDM BLU	90	0	205	211	Direct Hit Rate	172	Spell Speed	120	2	FALSE
+Abyssos Surcoat of Casting	Body	630	THM ACN BLM SMN RDM BLU	90	0	327	336	Critical Hit	273	Determination	191	2	FALSE
+Abyssos Armguards of Casting	Hands	630	THM ACN BLM SMN RDM BLU	90	0	205	211	Critical Hit	172	Determination	120	2	FALSE
+Abyssos Culottes of Casting	Legs	630	THM ACN BLM SMN RDM BLU	90	0	327	336	Spell Speed	273	Direct Hit Rate	191	2	FALSE
+Abyssos Boots of Casting	Feet	630	THM ACN BLM SMN RDM BLU	90	0	205	211	Spell Speed	172	Direct Hit Rate	120	2	FALSE
+Abyssos Earrings of Casting	Earrings	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Determination	136	Critical Hit	95	2	FALSE
+Abyssos Choker of Casting	Necklace	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Spell Speed	136	Direct Hit Rate	95	2	FALSE
+Abyssos Amulet of Casting	Bracelets	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Critical Hit	136	Direct Hit Rate	95	2	FALSE
+Abyssos Ring of Casting	Ring	630	THM ACN BLM SMN RDM BLU	90	0	162	167	Critical Hit	136	Spell Speed	95	2	FALSE
+Lunar Envoy's Staff	Two–handed Thaumaturge's Arm	620	THM BLM	90	123	318	330	Determination	277	Direct Hit Rate	194	2	FALSE
+Lunar Envoy's Hairpin of Casting	Head	620	THM ACN BLM SMN RDM BLU	90	0	193	200	Critical Hit	168	Determination	118	2	FALSE
+Lunar Envoy's Justaucorps of Casting	Body	620	THM ACN BLM SMN RDM BLU	90	0	306	318	Direct Hit Rate	268	Spell Speed	188	2	FALSE
+Lunar Envoy's Gloves of Casting	Hands	620	THM ACN BLM SMN RDM BLU	90	0	193	200	Spell Speed	168	Direct Hit Rate	118	2	FALSE
+Lunar Envoy's Longkilt of Casting	Legs	620	THM ACN BLM SMN RDM BLU	90	0	306	318	Critical Hit	268	Determination	188	2	FALSE
+Lunar Envoy's Boots of Casting	Feet	620	THM ACN BLM SMN RDM BLU	90	0	193	200	Direct Hit Rate	168	Critical Hit	118	2	FALSE
+Lunar Envoy's Earring of Casting	Earrings	620	THM ACN BLM SMN RDM BLU	90	0	152	158	Spell Speed	133	Determination	93	2	FALSE
+Lunar Envoy's Necklace of Casting	Necklace	620	THM ACN BLM SMN RDM BLU	90	0	152	158	Determination	133	Critical Hit	93	2	FALSE
+Lunar Envoy's Bracelets of Casting	Bracelets	620	THM ACN BLM SMN RDM BLU	90	0	152	158	Spell Speed	133	Determination	93	2	FALSE
+Lunar Envoy's Ring of Casting	Ring	620	THM ACN BLM SMN RDM BLU	90	0	152	158	Direct Hit Rate	133	Determination	93	2	FALSE
+Windswept Rod	Two–handed Thaumaturge's Arm	615	THM BLM	90	122	308	321	Critical Hit	275	Spell Speed	193	2	FALSE
+Rinascita Rod	Two–handed Thaumaturge's Arm	610	THM BLM	90	121	297	312	Spell Speed	272	Critical Hit	190	2	TRUE
+Rinascita Hood of Casting	Head	610	THM ACN BLM SMN RDM BLU	90	0	181	190	Critical Hit	165	Direct Hit Rate	116	2	TRUE
+Rinascita Coat of Casting	Body	610	THM ACN BLM SMN RDM BLU	90	0	287	301	Determination	262	Spell Speed	183	2	TRUE
+Rinascita Armguards of Casting	Hands	610	THM ACN BLM SMN RDM BLU	90	0	181	190	Critical Hit	165	Direct Hit Rate	116	2	TRUE
+Rinascita Poleyns of Casting	Legs	610	THM ACN BLM SMN RDM BLU	90	0	287	301	Critical Hit	262	Determination	183	2	TRUE
+Rinascita Shoes of Casting	Feet	610	THM ACN BLM SMN RDM BLU	90	0	181	190	Spell Speed	165	Determination	116	2	TRUE
+Rinascita Earring of Casting	Earrings	610	THM ACN BLM SMN RDM BLU	90	0	142	149	Critical Hit	130	Direct Hit Rate	91	1	TRUE
+Rinascita Necklace of Casting	Necklace	610	THM ACN BLM SMN RDM BLU	90	0	142	149	Spell Speed	130	Direct Hit Rate	91	1	TRUE
+Rinascita Bracelet of Casting	Bracelets	610	THM ACN BLM SMN RDM BLU	90	0	142	149	Direct Hit Rate	130	Spell Speed	91	1	TRUE
+Rinascita Ring of Casting	Ring	610	THM ACN BLM SMN RDM BLU	90	0	142	149	Critical Hit	130	Spell Speed	91	1	TRUE
