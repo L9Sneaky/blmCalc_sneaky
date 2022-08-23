@@ -1,0 +1,290 @@
+Weapon :
+  - id: 35254
+    Name: Asphodelos Staff
+    Type: Weapon
+    WD: 120
+    Int: 304
+    DH: 0
+    Crit: 188
+    Det: 0
+    Sps: 269
+    Slots: 2
+    MaxStat: 269
+    AM: False
+
+  - id: 36952
+    Name: Ultimate Staff
+    Type: Weapon
+    WD: 120
+    Int: 304
+    DH: 0
+    Crit: 188
+    Det: 0
+    Sps: 269
+    Slots: 3
+    MaxStat: 269
+    AM: False
+
+  - id: 1
+    Name: Classical Longpole
+    Type: Weapon
+    WD: 115
+    Int: 266
+    DH: 0
+    Crit: 253
+    Det: 0
+    Sps: 177
+    Slots: 2
+    MaxStat: 253
+    AM: True
+
+  - id: relic
+    Name: Blades Fury
+    Type: Weapon
+    WD: 125
+    Int: 315
+    DH: 172
+    Crit: 0
+    Det: 126
+    Sps: 170
+    Slots: 5
+    MaxStat: 999
+    AM: True
+
+Head :
+  - id: 35295
+    Name: Asphodelos Headgear of Casting
+    Type: Head
+    Int: 180
+    DH: 113
+    Crit: 162
+    Det: 0
+    Sps: 0
+    Slots: 2
+    MaxStat: 162
+    AM: False
+
+  - id: 35220
+    Name: Augmented Radiants Visor of Casting
+    Type: Head
+    Int: 180
+    DH: 0
+    Crit: 0
+    Det: 113
+    Sps: 162
+    Slots: 2
+    MaxStat: 162
+    AM: False
+
+Body :
+  - id: 35296
+    Name: Asphodelos Chiton of Casting
+    Type: Body
+    Int: 285
+    DH: 0
+    Crit: 257
+    Det: 180
+    Sps: 0
+    Slots: 2
+    MaxStat: 257
+    AM: False
+
+  - id: 35220
+    Name: Augmented Radiants Mail of Casting
+    Type: Body
+    Int: 285
+    DH: 257
+    Crit: 0
+    Det: 0
+    Sps: 180
+    Slots: 2
+    MaxStat: 257
+    AM: False
+
+  - id: 1
+    Name: Ornate Classical Signifers Chiton
+    Type: Body
+    Int: 256
+    DH: 171
+    Crit: 0
+    Det: 244
+    Sps: 0
+    Slots: 5
+    MaxStat: 244
+    AM: False
+
+Hands :
+  - id: 35297
+    Name: Asphodelos Wristbands of Casting
+    Type: Hand
+    Int: 180
+    DH: 0
+    Crit: 162
+    Det: 113
+    Sps: 0
+    Slots: 2
+    MaxStat: 162
+    AM: False
+
+  - id: 35222
+    Name: Augmented Radiants Gloves of Casting
+    Type: Hand
+    Int: 180
+    DH: 113
+    Crit: 0
+    Det: 0
+    Sps: 162
+    Slots: 2
+    MaxStat: 162
+    AM: False
+
+Legs :
+  - id: 35298
+    Name: Asphodelos Trousers of Casting
+    Type: Legs
+    Int: 285
+    DH: 0
+    Crit: 0
+    Det: 180
+    Sps: 257
+    Slots: 2
+    MaxStat: 257
+    AM: False
+
+  - id: 35223
+    Name: Augmented Radiants Hose of Casting
+    Type: Legs
+    Int: 285
+    DH: 0
+    Crit: 180
+    Det: 257
+    Sps: 0
+    Slots: 2
+    MaxStat: 257
+    AM: False
+
+Feet:
+  - id: 35299
+    Name: Asphodelos Gaiters of Casting
+    Type: Feet
+    Int: 180
+    DH: 162
+    Crit: 0
+    Det: 0
+    Sps: 113
+    Slots: 2
+    MaxStat: 162
+    AM: False
+
+  - id: 35224
+    Name: Augmented Radiants Greaves of Casting
+    Type: Feet
+    Int: 180
+    DH: 113
+    Crit: 162
+    Det: 0
+    Sps: 0
+    Slots: 2
+    MaxStat: 162
+    AM: False
+
+Earrings:
+  - id: 35304
+    Name: Asphodelos Earrings of Casting
+    Type: Earing
+    Int: 142
+    DH: 127
+    Crit: 0
+    Det: 0
+    Sps: 89
+    Slots: 2
+    MaxStat: 127
+    AM: False
+
+  - id: 35229
+    Name: Augmented Radiants Earrings of Casting
+    Type: Earing
+    Int: 142
+    DH: 0
+    Crit: 89
+    Det: 127
+    Sps: 0
+    Slots: 2
+    MaxStat: 127
+    AM: False
+
+Necklace:
+  - id: 35309
+    Name: Asphodelos Necklace of Casting
+    Type: Necklace
+    Int: 142
+    DH: 89
+    Crit: 127
+    Det: 0
+    Sps: 0
+    Slots: 2
+    MaxStat: 127
+    AM: False
+
+  - id: 35234
+    Name: Augmented Radiants Choker of Casting
+    Type: Necklace
+    Int: 142
+    DH: 0
+    Crit: 0
+    Det: 127
+    Sps: 89
+    Slots: 2
+    MaxStat: 127
+    AM: False
+
+Bracelet:
+  - id: 35314
+    Name: Asphodelos Amulet of Casting
+    Type: Bracelet
+    Int: 142
+    DH: 0
+    Crit: 0
+    Det: 89
+    Sps: 127
+    Slots: 2
+    MaxStat: 127
+    AM: False
+
+  - id: 35239
+    Name: Augmented Radiants Bracelet of Casting
+    Type: Bracelet
+    Int: 142
+    DH: 89
+    Crit: 127
+    Det: 0
+    Sps: 0
+    Slots: 2
+    MaxStat: 127
+    AM: False
+
+Left Ring:
+  - id: 35319
+    Name: Asphodelos Ring of Casting
+    Type: Left Ring
+    Int: 142
+    DH: 0
+    Crit: 0
+    Det: 127
+    Sps: 89
+    Slots: 2
+    MaxStat: 127
+    AM: False
+
+Right Ring:
+  - id: 35244
+    Name: Augmented Radiants Ring of Casting
+    Type: Right Ring
+    Int: 142
+    DH: 89
+    Crit: 127
+    Det: 0
+    Sps: 0
+    Slots: 2
+    MaxStat: 127
+    AM: False

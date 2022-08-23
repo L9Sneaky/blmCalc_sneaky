@@ -6,6 +6,7 @@ import pandas as pd
 import pickle
 import numpy as np
 from heapq import nlargest
+import yaml
 # %%
 
 baseStat = {'WD': 0, 'Int': 447, 'DH': 400,
@@ -16,143 +17,9 @@ statKeys = ['DH', 'Crit', 'Det', 'Sps']
 gearType = ['Weapon', 'Head', 'Body', 'Hand', 'Legs', 'Feet', 'Earing','Necklace', 'Bracelet', 'Left Ring', 'Right Ring']
 
 # %%
+with open("gear.yaml", 'r') as stream:
+    gear = yaml.safe_load(stream)
 
-wepDic=[
-        {'id': 35254,
-        'Name': 'Asphodelos Staff', 'Type': 'Weapon', 'WD': 120,
-        'Int': 304, 'DH': 0, 'Crit': 188, 'Det': 0, 'Sps': 269,
-        'Slots': 2, 'MaxStat': 269, 'AM': False}
-        ]
-
-wepDic2=[
-        {'id': 36952,
-        'Name': 'Ultimate Staff', 'Type': 'Weapon', 'WD': 120,
-        'Int': 304, 'DH': 0, 'Crit': 188, 'Det': 0, 'Sps': 269,
-        'Slots': 3, 'MaxStat': 269, 'AM': False}
-        ]
-
-wepDic3=[
-        {'id': 0,
-        'Name': 'Classical Longpole', 'Type': 'Weapon', 'WD': 115,
-        'Int': 266, 'DH': 0, 'Crit': 253, 'Det': 0, 'Sps': 177,
-        'Slots': 2, 'MaxStat': 253, 'AM': True}
-        ]
-
-wepDicR=[
-        {'id': 'relic',
-        'Name': 'Blades Fury', 'Type': 'Weapon', 'WD': 125,
-        'Int': 306, 'DH': 172, 'Crit': 0, 'Det': 126, 'Sps': 170,
-        'Slots': 5, 'MaxStat': 999, 'AM': True}
-        ]
-
-headDic=[
-        {'id': 35295,
-        'Name': 'Asphodelos Headgear of Casting', 'Type': 'Head',
-        'Int': 180, 'DH': 113, 'Crit': 162, 'Det': 0, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 162, 'AM': False},
-        {'id': 35220,
-        'Name': 'Augmented Radiant\'s Visor of Casting', 'Type': 'Head',
-        'Int': 180, 'DH': 0, 'Crit': 0, 'Det': 113, 'Sps': 162,
-        'Slots': 2, 'MaxStat': 162, 'AM': False}
-        ]
-
-bodyDic=[
-        {'id': 35296,
-        'Name': 'Asphodelos Chiton of Casting', 'Type': 'Body',
-        'Int': 285, 'DH': 0, 'Crit': 257, 'Det': 180, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 257, 'AM': False},
-        {'id': 35220,
-        'Name': 'Augmented Radiant\'s Mail of Casting', 'Type': 'Body',
-        'Int': 285, 'DH': 257, 'Crit': 0, 'Det': 0, 'Sps': 180,
-        'Slots': 2, 'MaxStat': 257, 'AM': False}
-        ]
-
-bodyDic1=[
-        {'id': 1,
-        'Name': 'Ornate Classical Signifer\'s Chiton', 'Type': 'Body',
-        'Int': 256, 'DH': 171, 'Crit': 0, 'Det': 244, 'Sps': 0,
-        'Slots': 5, 'MaxStat': 244, 'AM': False}
-        ]
-
-handDic=[
-        {'id':35297,
-        'Name': 'Asphodelos Wristbands of Casting', 'Type': 'Hand',
-        'Int': 180, 'DH': 0, 'Crit': 162, 'Det': 113, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 162, 'AM': False},
-       {'id': 35222,
-        'Name': 'Augmented Radiant\'s Gloves of Casting', 'Type': 'Hand',
-        'Int': 180, 'DH': 113, 'Crit': 0, 'Det': 0, 'Sps': 162,
-        'Slots': 2, 'MaxStat': 162, 'AM': False}
-        ]
-
-legsDic=[
-        {'id': 35298,
-        'Name': 'Asphodelos Trousers of Casting', 'Type': 'Legs',
-        'Int': 285, 'DH': 0, 'Crit': 0, 'Det': 180, 'Sps': 257,
-        'Slots': 2, 'MaxStat': 257, 'AM': False},
-       {'id': 35223,
-        'Name': 'Augmented Radiant\'s Hose of Casting', 'Type': 'Legs',
-        'Int': 285, 'DH': 0, 'Crit': 180, 'Det': 257, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 257, 'AM': False}
-           ]
-
-feetDic=[
-        {'id': 35299,
-        'Name': 'Asphodelos Gaiters of Casting', 'Type': 'Feet',
-        'Int': 180, 'DH': 162, 'Crit': 0, 'Det': 0, 'Sps': 113,
-        'Slots': 2, 'MaxStat': 162, 'AM': False},
-       {'id': 35224,
-        'Name': 'Augmented Radiant\'s Greaves of Casting', 'Type': 'Feet',
-        'Int': 180, 'DH': 113, 'Crit': 162, 'Det': 0, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 162, 'AM': False}
-        ]
-
-eariDic=[
-        {'id': 35304,
-        'Name': 'Asphodelos Earrings of Casting', 'Type': 'Earing',
-        'Int': 142, 'DH': 127, 'Crit': 0, 'Det': 0, 'Sps': 89,
-        'Slots': 2, 'MaxStat': 127, 'AM': False},
-        {'id': 35229,
-        'Name': 'Augmented Radiant\'s Earrings of Casting', 'Type': 'Earing',
-        'Int': 142, 'DH': 0, 'Crit': 89, 'Det': 127, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 127, 'AM': False}
-        ]
-
-neckDic=[
-        {'id': 35309,
-        'Name': 'Asphodelos Necklace of Casting', 'Type': 'Necklace',
-        'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 127, 'AM': False},
-        {'id': 35234,
-        'Name': 'Augmented Radiant\'s Choker of Casting', 'Type': 'Necklace',
-        'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 127, 'Sps': 89,
-        'Slots': 2, 'MaxStat': 127, 'AM': False}
-        ]
-
-bracDic=[
-        {'id': 35314,
-        'Name': 'Asphodelos Amulet of Casting', 'Type': 'Bracelet',
-        'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 89, 'Sps': 127,
-        'Slots': 2, 'MaxStat': 127, 'AM': False},
-        {'id': 35239,
-        'Name': 'Augmented Radiant\'s Bracelet of Casting', 'Type': 'Bracelet',
-        'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 127, 'AM': False}
-        ]
-
-lrinDic=[
-        {'id': 35319,
-        'Name': 'Asphodelos Ring of Casting', 'Type': 'Left Ring',
-        'Int': 142, 'DH': 0, 'Crit': 0, 'Det': 127, 'Sps': 89,
-        'Slots': 2, 'MaxStat': 127, 'AM': False}
-        ]
-
-rrinDic=[
-        {'id': 35244,
-        'Name': 'Augmented Radiant\'s Ring of Casting', 'Type': 'Right Ring',
-        'Int': 142, 'DH': 89, 'Crit': 127, 'Det': 0, 'Sps': 0,
-        'Slots': 2, 'MaxStat': 127, 'AM': False}
-        ]
 
 foodDic=[
         {'Name': 'Archon Burger',
@@ -171,6 +38,7 @@ foodDic=[
 
 
 # %%
+
 def getAvgDamage(GearStat,crit: bool=False):
     if crit:
         hasBrd=1
@@ -206,8 +74,6 @@ def getAllMeldOption(num=0):
     for i in p:
         posibleMeldSets.append([*i])
     return posibleMeldSets
-
-
 
 def getEveryMeld(Gear):
     baseMeldStat = {'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
@@ -300,31 +166,20 @@ def statWithFood(Gear, Food):
 
 
 def unmeldedRaidGear():
-    return [wepDic[0],
-            headDic[0],
-            bodyDic[0],
-            handDic[0],
-            legsDic[0],
-            feetDic[0],
-            eariDic[0],
-            neckDic[0],
-            bracDic[0],
-            lrinDic[0],
-            rrinDic[0]
-            ]
-
+    dic = []
+    for keys in gear.keys():
+        dic.append(gear[keys][0])
+    return dic
 
 def damageGainOverBaseSet(stat, crit: bool=False):
     _, tpps = getAvgDamage(getGearStat(baseStat.copy(), unmeldedRaidGear()),crit)
     return ((stat[1]/tpps)-1)*100
-
 
 def getGearNameList(gear):
     names = []
     for g in range(len(gear)):
         names.append(gear[g]['Name'])
     return names
-
 
 def statsToArray(stat: dict):
     statlist = []
@@ -361,12 +216,12 @@ def test(*args, crit: bool=False):
     return bestgear
 
 # %%
-crit = 0
-best = test(wepDicR, headDic, bodyDic1,
-            handDic, legsDic, feetDic,
-            eariDic, neckDic, bracDic,
-            lrinDic, rrinDic, crit=crit)
 
+crit = 0
+best = test(gear['Weapon'], gear['Head'], gear['Body'],
+            gear['Hands'], gear['Legs'], gear['Feet'],
+            gear['Earrings'], gear['Necklace'], gear['Bracelet'],
+            gear['Left Ring'], gear['Right Ring'], crit=crit)
 
 stato = getGearStat(baseStat.copy(), best)
 food = findBestFood(stato)
@@ -379,8 +234,7 @@ stat, food['Name'], damage, gain
 # %%
 pd.DataFrame(best)
 best[0]['Name']
-
-
+# %%
 
 
 
