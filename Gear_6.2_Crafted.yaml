@@ -1,0 +1,129 @@
+Weapon:
+- Name: Rinascita Rod
+  Type: Weapon
+  ilvl: 610
+  WD: 121
+  Int: 312
+  DH: 0
+  Crit: 190
+  Det: 0
+  Sps: 272
+  Slots: 2
+  MaxStat: 272
+  AM: True
+  
+Head:
+- Name: Rinascita Hood of Casting
+  Type: Head
+  ilvl: 610
+  Int: 190
+  DH: 116
+  Crit: 165
+  Det: 0
+  Sps: 0
+  Slots: 2
+  MaxStat: 165
+  AM: True
+
+Body:
+- Name: Rinascita Coat of Casting
+  Type: Body
+  ilvl: 610
+  Int: 301
+  DH: 0
+  Crit: 0
+  Det: 262
+  Sps: 183
+  Slots: 2
+  MaxStat: 262
+  AM: True
+
+Hands:
+- Name: Rinascita Armguards of Casting
+  Type: Hands
+  ilvl: 610
+  Int: 190
+  DH: 116
+  Crit: 165
+  Det: 0
+  Sps: 0
+  Slots: 2
+  MaxStat: 165
+  AM: True
+Legs:
+- Name: Rinascita Poleyns of Casting
+  Type: Legs
+  ilvl: 610
+  Int: 301
+  DH: 0
+  Crit: 262
+  Det: 183
+  Sps: 0
+  Slots: 2
+  MaxStat: 262
+  AM: True
+
+Feet:
+- Name: Rinascita Shoes of Casting
+  Type: Feet
+  ilvl: 610
+  Int: 190
+  DH: 0
+  Crit: 0
+  Det: 116
+  Sps: 165
+  Slots: 2
+  MaxStat: 165
+  AM: True
+
+Earrings:
+- Name: Rinascita Earring of Casting
+  Type: Earrings
+  ilvl: 610
+  Int: 149
+  DH: 91
+  Crit: 130
+  Det: 0
+  Sps: 0
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Necklace:
+- Name: Rinascita Necklace of Casting
+  Type: Necklace
+  ilvl: 610
+  Int: 149
+  DH: 91
+  Crit: 0
+  Det: 0
+  Sps: 130
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Bracelets:
+- Name: Rinascita Bracelet of Casting
+  Type: Bracelets
+  ilvl: 610
+  Int: 149
+  DH: 130
+  Crit: 0
+  Det: 0
+  Sps: 91
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Ring:
+- Name: Rinascita Ring of Casting
+  Type: Ring
+  ilvl: 610
+  Int: 149
+  DH: 0
+  Crit: 130
+  Det: 0
+  Sps: 91
+  Slots: 1
+  MaxStat: 130
+  AM: True

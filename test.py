@@ -24,7 +24,7 @@ for i in range(len(df)):
     w = df.iloc[i]
     name.append(w['Name'])
     type.append('Weapon' if w['ItemUICategory'] == 'Two–handed Thaumaturge\'s Arm' else w['ItemUICategory'])
-    ilvl.append(w['Level'])
+    ilvl.append(w['iLvl'])
     wd.append(w['WD'])
     int.append(w['Main Stat'])
     dh = 0
@@ -61,13 +61,19 @@ for i in range(len(df)):
     maxstat.append(w['P. Value'])
     AM.append(w['Overmeld'])
 
-t =pd.DataFrame(np.array([name, type, ilvl, wd, int, DH, Crit, Det, Sps, slots, maxstat, AM]).transpose(), columns=['Name' ,'Type','ilvl' ,'WD' ,'Int' ,'DH' ,'Crit' ,'Det', 'Sps', 'Slots', 'MaxStat', 'AM'])
-t = t.sort_values('Type', ascending=bool)
+t =pd.DataFrame(np.array([name, type, ilvl, wd, int, DH, Crit, Det, Sps, slots, maxstat, AM]).transpose(),
+                columns=['Name' ,'Type','ilvl' ,'WD' ,'Int' ,'DH' ,'Crit' ,'Det', 'Sps', 'Slots', 'MaxStat', 'AM'])
+t = t.drop_duplicates()
+t = t.sort_values(['Type','ilvl'], ascending=[True,False]).reset_index(drop=True)
+t['Type'].unique()
 # %%
-t = t.reset_index().to_dict(orient='records')
-t
+gear = {}
+for i in t['Type'].unique():
+    gear[i] = t[t['Type'] == i].to_dict(orient='records')
+gear
+# %%
 with open(r'Gear_6.2.yaml', 'w') as file:
-    documents = yaml.dump(t, file, sort_keys=False)
+    documents = yaml.dump(gear, file, sort_keys=False)
 
 
 

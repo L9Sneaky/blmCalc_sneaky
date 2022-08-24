@@ -1,0 +1,156 @@
+Weapon:
+- Name: Windswept Rod
+  Type: Weapon
+  ilvl: 615
+  WD: 122
+  Int: 321
+  DH: 0
+  Crit: 275
+  Det: 0
+  Sps: 193
+  Slots: 2
+  MaxStat: 275
+  AM: False
+
+Head:
+- Name: Rinascita Hood of Casting
+  Type: Head
+  ilvl: 610
+  Int: 190
+  DH: 116
+  Crit: 165
+  Det: 0
+  Sps: 0
+  Slots: 2
+  MaxStat: 165
+  AM: True
+
+Body:
+- Name: Rinascita Coat of Casting
+  Type: Body
+  ilvl: 610
+  Int: 301
+  DH: 0
+  Crit: 0
+  Det: 262
+  Sps: 183
+  Slots: 2
+  MaxStat: 262
+  AM: True
+
+Hands:
+- Name: Purgatory Armguards of Casting
+  Type: Hands
+  ilvl: 610
+  Int: 190
+  DH: 116
+  Crit: 0
+  Det: 0
+  Sps: 165
+  Slots: 2
+  MaxStat: 165
+  AM: False
+
+Legs:
+- Name: Lunar Envoys Longkilt of Casting
+  Type: Legs
+  ilvl: 620
+  Int: 318
+  DH: 0
+  Crit: 268
+  Det: 188
+  Sps: 0
+  Slots: 2
+  MaxStat: 268
+  AM: False
+
+Feet:
+- Name: Purgatory Boots of Casting
+  Type: Feet
+  ilvl: 610
+  Int: 190
+  DH: 116
+  Crit: 165
+  Det: 0
+  Sps: 0
+  Slots: 2
+  MaxStat: 165
+  AM: False
+
+Earrings:
+- Name: Rinascita Earring of Casting
+  Type: Earrings
+  ilvl: 610
+  Int: 149
+  DH: 91
+  Crit: 130
+  Det: 0
+  Sps: 0
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Necklace:
+- Name: Rinascita Necklace of Casting
+  Type: Necklace
+  ilvl: 610
+  Int: 149
+  DH: 91
+  Crit: 0
+  Det: 0
+  Sps: 130
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Bracelets:
+- Name: Rinascita Bracelet of Casting
+  Type: Bracelets
+  ilvl: 610
+  Int: 149
+  DH: 130
+  Crit: 0
+  Det: 0
+  Sps: 91
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Left Ring:
+- Name: Rinascita Ring of Casting
+  Type: Ring
+  ilvl: 610
+  Int: 149
+  DH: 0
+  Crit: 130
+  Det: 0
+  Sps: 91
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Right Ring:
+- Name: Rinascita Ring of Casting
+  Type: Ring
+  ilvl: 610
+  Int: 149
+  DH: 0
+  Crit: 130
+  Det: 0
+  Sps: 91
+  Slots: 1
+  MaxStat: 130
+  AM: True
+
+Ring:
+- Name: Rinascita Ring of Casting
+  Type: Ring
+  ilvl: 610
+  Int: 149
+  DH: 0
+  Crit: 130
+  Det: 0
+  Sps: 91
+  Slots: 1
+  MaxStat: 130
+  AM: True

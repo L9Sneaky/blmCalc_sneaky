@@ -1,0 +1,130 @@
+Weapon:
+- Name: Lunar Envoys Staff
+  Type: Weapon
+  ilvl: 620
+  WD: 123
+  Int: 330
+  DH: 194
+  Crit: 0
+  Det: 277
+  Sps: 0
+  Slots: 2
+  MaxStat: 277
+  AM: False
+
+Head:
+- Name: Lunar Envoys Hairpin of Casting
+  Type: Head
+  ilvl: 620
+  Int: 200
+  DH: 0
+  Crit: 168
+  Det: 118
+  Sps: 0
+  Slots: 2
+  MaxStat: 168
+  AM: False
+
+Body:
+- Name: Lunar Envoys Justaucorps of Casting
+  Type: Body
+  ilvl: 620
+  Int: 318
+  DH: 268
+  Crit: 0
+  Det: 0
+  Sps: 188
+  Slots: 2
+  MaxStat: 268
+  AM: False
+
+Hands:
+- Name: Lunar Envoys Gloves of Casting
+  Type: Hands
+  ilvl: 620
+  Int: 200
+  DH: 118
+  Crit: 0
+  Det: 0
+  Sps: 168
+  Slots: 2
+  MaxStat: 168
+  AM: False
+
+Legs:
+- Name: Lunar Envoys Longkilt of Casting
+  Type: Legs
+  ilvl: 620
+  Int: 318
+  DH: 0
+  Crit: 268
+  Det: 188
+  Sps: 0
+  Slots: 2
+  MaxStat: 268
+  AM: False
+
+Feet:
+- Name: Lunar Envoys Boots of Casting
+  Type: Feet
+  ilvl: 620
+  Int: 200
+  DH: 168
+  Crit: 118
+  Det: 0
+  Sps: 0
+  Slots: 2
+  MaxStat: 168
+  AM: False
+
+Earrings:
+- Name: Lunar Envoys Earring of Casting
+  Type: Earrings
+  ilvl: 620
+  Int: 158
+  DH: 0
+  Crit: 0
+  Det: 93
+  Sps: 133
+  Slots: 2
+  MaxStat: 133
+  AM: False
+
+Necklace:
+- Name: Lunar Envoys Necklace of Casting
+  Type: Necklace
+  ilvl: 620
+  Int: 158
+  DH: 0
+  Crit: 93
+  Det: 133
+  Sps: 0
+  Slots: 2
+  MaxStat: 133
+  AM: False
+
+Bracelets:
+- Name: Lunar Envoys Bracelets of Casting
+  Type: Bracelets
+  ilvl: 620
+  Int: 158
+  DH: 0
+  Crit: 0
+  Det: 93
+  Sps: 133
+  Slots: 2
+  MaxStat: 133
+  AM: False
+
+Ring:
+- Name: Lunar Envoys Ring of Casting
+  Type: Ring
+  ilvl: 620
+  Int: 158
+  DH: 133
+  Crit: 0
+  Det: 93
+  Sps: 0
+  Slots: 2
+  MaxStat: 133
+  AM: False

@@ -1,7 +1,8 @@
-# %%
+# %%.keys(t['Type'].unique())
 import itertools
 from dpsCalc import Damage
 from finalCalc import finalResult2
+from etroGetter import get_set_from_etro
 import pandas as pd
 import pickle
 import numpy as np
@@ -17,23 +18,19 @@ statKeys = ['DH', 'Crit', 'Det', 'Sps']
 gearType = ['Weapon', 'Head', 'Body', 'Hand', 'Legs', 'Feet', 'Earing','Necklace', 'Bracelet', 'Left Ring', 'Right Ring']
 
 # %%
-with open("gear.yaml", 'r') as stream:
-    gear = yaml.safe_load(stream)
-
-
 foodDic=[
-        {'Name': 'Archon Burger',
-        'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
-        'MaxDH': 90, 'MaxCrit': 0, 'MaxDet': 54, 'MaxSps': 0},
-        {'Name': 'Pumpkin Potage',
+        {'Name': 'Carrot Pudding',
         'DH': 0, 'Crit': 1.1, 'Det': 1.1, 'Sps': 0,
-        'MaxDH': 0, 'MaxCrit': 54, 'MaxDet': 90, 'MaxSps': 0},
-        {'Name': 'Sykon Cookie',
-        'DH': 1.1, 'Crit': 0, 'Det': 0, 'Sps': 1.1,
-        'MaxDH': 54, 'MaxCrit': 0, 'MaxDet': 0, 'MaxSps': 90},
-        {'Name': 'Thavnarian Chai',
+        'MaxDH': 0, 'MaxCrit': 58, 'MaxDet': 97, 'MaxSps': 0},
+        {'Name': 'Garlean Pizza',
         'DH': 0, 'Crit': 1.1, 'Det': 0, 'Sps': 1.1,
-        'MaxDH': 0, 'MaxCrit': 90, 'MaxDet': 0, 'MaxSps': 54}
+        'MaxDH': 0, 'MaxCrit': 97, 'MaxDet': 0, 'MaxSps': 58},
+        {'Name': 'Melon Pie',
+        'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
+        'MaxDH': 97, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 90},
+        {'Name': 'Piennolo Tomato Salad',
+        'DH': 0, 'Crit': 0, 'Det': 1.1, 'Sps': 1.1,
+        'MaxDH': 0, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 97}
         ]
 
 
@@ -85,7 +82,7 @@ def getEveryMeld(Gear):
         if AM:
             meldSlot = min(meldSlot + 1, 5)
             avalableMelds = []
-            a = itertools.product(getAllMeldOption(meldSlot), getAllMeldOption(2))
+            a = itertools.product(getAllMeldOption(meldSlot), getAllMeldOption(5-meldSlot))
             for i in a:
                 avalableMelds.append([*i[0], *i[1]])
         for option in range(len(avalableMelds)):
@@ -132,7 +129,8 @@ def getEveryMeld(Gear):
                 del tempGearStat["Slots"]
                 del tempGearStat["MaxStat"]
                 del tempGearStat["AM"]
-                meldedGear.append(tempGearStat)
+                meldedGear.append(tempGearStat)baseset,getAvgDamage(baseset,crit)
+
             # print(len(meldedGear))
     return meldedGear
 
@@ -146,11 +144,11 @@ def findBestFood(stat1):
     first = 'Max'+statKeys[a[0]]
     second = 'Max'+statKeys[a[1]]
     for i in range(len(foodDic)):
-        if(foodDic[i][first] == 90 and foodDic[i][second] == 54):
+        if(foodDic[i][first] == 97 and foodDic[i][second] == 58):
             best = foodDic[i]
     if best == 0:
         for i in range(len(foodDic)):
-            if (foodDic[i][first] == 90):
+            if (foodDic[i][first] == 97):
                 best = foodDic[i]
     return best
 
@@ -166,13 +164,13 @@ def statWithFood(Gear, Food):
 
 
 def unmeldedRaidGear():
-    dic = []
-    for keys in gear.keys():
-        dic.append(gear[keys][0])
-    return dic
+    path = 'https://etro.gg/gearset/54c74fd7-f9b6-4c1b-9440-87c4f2e6e62b'
+    return get_set_from_etro(path)
+
+baseset = unmeldedRaidGear()
 
 def damageGainOverBaseSet(stat, crit: bool=False):
-    _, tpps = getAvgDamage(getGearStat(baseStat.copy(), unmeldedRaidGear()),crit)
+    _, tpps = getAvgDamage(baseset,crit)
     return ((stat[1]/tpps)-1)*100
 
 def getGearNameList(gear):
@@ -216,18 +214,21 @@ def test(*args, crit: bool=False):
     return bestgear
 
 # %%
-
+with open("Gear_6.2_Crafted.yaml", 'r') as stream:
+    gear = yaml.safe_load(stream)
+# %%
 crit = 0
-best = test(gear['Weapon'], gear['Head'], gear['Body'],
-            gear['Hands'], gear['Legs'], gear['Feet'],
-            gear['Earrings'], gear['Necklace'], gear['Bracelet'],
-            gear['Left Ring'], gear['Right Ring'], crit=crit)
+best = test(gear['Weapon'], gear['Head'], gear['Body'], gear['Hands'],
+            gear['Legs'], gear['Feet'], gear['Earrings'], gear['Necklace'],
+            gear['Bracelets'], gear['Ring'], gear['Ring'], crit = crit)
 
 stato = getGearStat(baseStat.copy(), best)
 food = findBestFood(stato)
+
 stat = statWithFood(stato, food)
 damage = getAvgDamage(stat,crit)
 gain = damageGainOverBaseSet(damage,crit)
+
 
 stat, food['Name'], damage, gain
 
@@ -235,10 +236,10 @@ stat, food['Name'], damage, gain
 pd.DataFrame(best)
 best[0]['Name']
 # %%
+gear['Earrings'][3]
+getEveryMeld([gear['Earrings'][3]])
 
-
-
-
+2-5
 
 
 

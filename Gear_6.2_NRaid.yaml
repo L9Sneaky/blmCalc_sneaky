@@ -1,0 +1,116 @@
+Head:
+- Name: Purgatory Helm of Casting
+  Type: Head
+  ilvl: 610
+  Int: 190
+  DH: 0
+  Crit: 0
+  Det: 116
+  Sps: 165
+  Slots: 2
+  MaxStat: 165
+  AM: False
+
+Body:
+- Name: Purgatory Surcoat of Casting
+  Type: Body
+  ilvl: 610
+  Int: 301
+  DH: 183
+  Crit: 0
+  Det: 0
+  Sps: 262
+  Slots: 2
+  MaxStat: 262
+  AM: False
+
+Hands:
+- Name: Purgatory Armguards of Casting
+  Type: Hands
+  ilvl: 610
+  Int: 190
+  DH: 0
+  Crit: 0
+  Det: 116
+  Sps: 165
+  Slots: 2
+  MaxStat: 165
+  AM: False
+
+Legs:
+- Name: Purgatory Culottes of Casting
+  Type: Legs
+  ilvl: 610
+  Int: 301
+  DH: 262
+  Crit: 0
+  Det: 0
+  Sps: 183
+  Slots: 2
+  MaxStat: 262
+  AM: False
+
+Feet:
+- Name: Purgatory Boots of Casting
+  Type: Feet
+  ilvl: 610
+  Int: 190
+  DH: 116
+  Crit: 165
+  Det: 0
+  Sps: 0
+  Slots: 2
+  MaxStat: 165
+  AM: False
+
+Earrings:
+- Name: Purgatory Earring of Casting
+  Type: Earrings
+  ilvl: 610
+  Int: 149
+  DH: 0
+  Crit: 0
+  Det: 130
+  Sps: 91
+  Slots: 1
+  MaxStat: 130
+  AM: False
+
+Necklace:
+- Name: Purgatory Chocker of Casting
+  Type: Necklace
+  ilvl: 610
+  Int: 149
+  DH: 0
+  Crit: 130
+  Det: 91
+  Sps: 0
+  Slots: 1
+  MaxStat: 130
+  AM: False
+
+Bracelets:
+- Name: Purgatory Amulet of Casting
+  Type: Bracelets
+  ilvl: 610
+  Int: 149
+  DH: 0
+  Crit: 130
+  Det: 91
+  Sps: 0
+  Slots: 1
+  MaxStat: 130
+  AM: False
+
+Ring:
+- Name: Purgatory Ring of Casting
+  Type: Ring
+  ilvl: 610
+  Int: 149
+  DH: 130
+  Crit: 91
+  Det: 0
+  Sps: 0
+  Slots: 1
+  MaxStat: 130
+  AM: False
