@@ -129,8 +129,7 @@ def getEveryMeld(Gear):
                 del tempGearStat["Slots"]
                 del tempGearStat["MaxStat"]
                 del tempGearStat["AM"]
-                meldedGear.append(tempGearStat)baseset,getAvgDamage(baseset,crit)
-
+                meldedGear.append(tempGearStat)
             # print(len(meldedGear))
     return meldedGear
 
@@ -161,7 +160,6 @@ def statWithFood(Gear, Food):
             tempStat[stat] = Food['Max'+stat]
         tempGear[stat] += tempStat[stat]
     return tempGear
-
 
 def unmeldedRaidGear():
     path = 'https://etro.gg/gearset/54c74fd7-f9b6-4c1b-9440-87c4f2e6e62b'
@@ -214,17 +212,16 @@ def test(*args, crit: bool=False):
     return bestgear
 
 # %%
-with open("Gear_6.2_Crafted.yaml", 'r') as stream:
+with open("Gear_6.2_preBis.yaml", 'r') as stream:
     gear = yaml.safe_load(stream)
 # %%
-crit = 0
+crit = 1
 best = test(gear['Weapon'], gear['Head'], gear['Body'], gear['Hands'],
             gear['Legs'], gear['Feet'], gear['Earrings'], gear['Necklace'],
             gear['Bracelets'], gear['Ring'], gear['Ring'], crit = crit)
 
 stato = getGearStat(baseStat.copy(), best)
 food = findBestFood(stato)
-
 stat = statWithFood(stato, food)
 damage = getAvgDamage(stat,crit)
 gain = damageGainOverBaseSet(damage,crit)
@@ -234,13 +231,5 @@ stat, food['Name'], damage, gain
 
 # %%
 pd.DataFrame(best)
-best[0]['Name']
 # %%
-gear['Earrings'][3]
-getEveryMeld([gear['Earrings'][3]])
-
-2-5
-
-
-
 # %%
