@@ -162,7 +162,7 @@ def statWithFood(Gear, Food):
     return tempGear
 
 def unmeldedRaidGear():
-    path = 'https://etro.gg/gearset/31b99419-45ea-43b9-9e99-fd5b611006d4''
+    path = 'https://etro.gg/gearset/31b99419-45ea-43b9-9e99-fd5b611006d4'
     return get_set_from_etro(path)
 
 baseset = unmeldedRaidGear()
@@ -232,7 +232,9 @@ gain = damageGainOverBaseSet(damage,crit)
 
 
 # %%
-pd.DataFrame(best)
+bestgear = pd.DataFrame(best)
+bestgear
+bestgear['ilvl'].mean()
 stat, food['Name'], damage, gain
 
 # %%
