@@ -162,7 +162,7 @@ def statWithFood(Gear, Food):
     return tempGear
 
 def unmeldedRaidGear():
-    path = 'https://etro.gg/gearset/54c74fd7-f9b6-4c1b-9440-87c4f2e6e62b'
+    path = 'https://etro.gg/gearset/31b99419-45ea-43b9-9e99-fd5b611006d4''
     return get_set_from_etro(path)
 
 baseset = unmeldedRaidGear()
@@ -215,7 +215,9 @@ def test(*args, crit: bool=False):
 with open("Gear_6.2_preBis.yaml", 'r') as stream:
     gear = yaml.safe_load(stream)
 # %%
+gear.keys()
 crit = 1
+
 best = test(gear['Weapon'], gear['Head'], gear['Body'], gear['Hands'],
             gear['Legs'], gear['Feet'], gear['Earrings'], gear['Necklace'],
             gear['Bracelets'], gear['Ring'], gear['Ring'], crit = crit)
@@ -227,9 +229,19 @@ damage = getAvgDamage(stat,crit)
 gain = damageGainOverBaseSet(damage,crit)
 
 
-stat, food['Name'], damage, gain
+
 
 # %%
 pd.DataFrame(best)
+stat, food['Name'], damage, gain
+
 # %%
+
+best[7]['Name']
 # %%
+test = get_set_from_etro('https://etro.gg/gearset/73f9f3af-2fa1-4871-85a3-a0f6adbb5e28')
+damage = getAvgDamage(test,crit)
+gain = damageGainOverBaseSet(damage,crit)
+
+test, damage, gain
+unmeldedRaidGear()

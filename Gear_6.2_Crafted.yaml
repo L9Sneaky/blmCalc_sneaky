@@ -11,7 +11,7 @@ Weapon:
   Slots: 2
   MaxStat: 272
   AM: True
-  
+
 Head:
 - Name: Rinascita Hood of Casting
   Type: Head
@@ -50,6 +50,7 @@ Hands:
   Slots: 2
   MaxStat: 165
   AM: True
+
 Legs:
 - Name: Rinascita Poleyns of Casting
   Type: Legs

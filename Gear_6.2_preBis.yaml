@@ -13,17 +13,17 @@ Weapon:
   AM: False
 
 Head:
-- Name: Rinascita Hood of Casting
+- Name: Lunar Envoys Hairpin of Casting
   Type: Head
-  ilvl: 610
-  Int: 190
-  DH: 116
-  Crit: 165
-  Det: 0
+  ilvl: 620
+  Int: 200
+  DH: 0
+  Crit: 168
+  Det: 118
   Sps: 0
   Slots: 2
-  MaxStat: 165
-  AM: True
+  MaxStat: 168
+  AM: False
 
 Body:
 - Name: Rinascita Coat of Casting
@@ -39,17 +39,17 @@ Body:
   AM: True
 
 Hands:
-- Name: Purgatory Armguards of Casting
+- Name: Rinascita Armguards of Casting
   Type: Hands
   ilvl: 610
   Int: 190
   DH: 116
-  Crit: 0
+  Crit: 165
   Det: 0
-  Sps: 165
+  Sps: 0
   Slots: 2
   MaxStat: 165
-  AM: False
+  AM: True
 
 Legs:
 - Name: Lunar Envoys Longkilt of Casting
@@ -65,56 +65,56 @@ Legs:
   AM: False
 
 Feet:
-- Name: Purgatory Boots of Casting
+- Name: Lunar Envoys Boots of Casting
   Type: Feet
-  ilvl: 610
-  Int: 190
-  DH: 116
-  Crit: 165
+  ilvl: 620
+  Int: 200
+  DH: 168
+  Crit: 118
   Det: 0
   Sps: 0
   Slots: 2
-  MaxStat: 165
+  MaxStat: 168
   AM: False
 
 Earrings:
-- Name: Rinascita Earring of Casting
+- Name: Abyssos Earrings of Casting
   Type: Earrings
-  ilvl: 610
-  Int: 149
-  DH: 91
-  Crit: 130
-  Det: 0
+  ilvl: 630
+  Int: 167
+  DH: 0
+  Crit: 95
+  Det: 136
   Sps: 0
-  Slots: 1
-  MaxStat: 130
-  AM: True
+  Slots: 2
+  MaxStat: 136
+  AM: False
 
 Necklace:
-- Name: Rinascita Necklace of Casting
+- Name: Augmented Lunar Envoys Necklace of Casting
   Type: Necklace
-  ilvl: 610
-  Int: 149
-  DH: 91
-  Crit: 0
-  Det: 0
-  Sps: 130
-  Slots: 1
-  MaxStat: 130
-  AM: True
+  ilvl: 630
+  Int: 167
+  DH: 0
+  Crit: 95
+  Det: 136
+  Sps: 0
+  Slots: 2
+  MaxStat: 136
+  AM: False
 
 Bracelets:
-- Name: Rinascita Bracelet of Casting
+- Name: Abyssos Amulet of Casting
   Type: Bracelets
-  ilvl: 610
-  Int: 149
-  DH: 130
-  Crit: 0
+  ilvl: 630
+  Int: 167
+  DH: 95
+  Crit: 136
   Det: 0
-  Sps: 91
-  Slots: 1
-  MaxStat: 130
-  AM: True
+  Sps: 0
+  Slots: 2
+  MaxStat: 136
+  AM: False
 
 Left Ring:
 - Name: Rinascita Ring of Casting

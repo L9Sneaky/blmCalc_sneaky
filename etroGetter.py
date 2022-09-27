@@ -21,7 +21,7 @@ def get_set_from_etro(url):
         print(f'Other error occurred: {err}')
 
     # return response
-    return_list['WD'] = 126
+    return_list['WD'] = response['totalParams'][20]['value']
     return_list['Int']=response['totalParams'][0]['value']
     return_list['DH']=response['totalParams'][3]['value']
     return_list['Crit']=response['totalParams'][4]['value']
@@ -31,6 +31,19 @@ def get_set_from_etro(url):
 
 
 
-# path = 'https://etro.gg/gearset/54c74fd7-f9b6-4c1b-9440-87c4f2e6e62b'
-# a = get_set_from_etro(path)
-# a
+# %%
+
+# %%
+# import coreapi
+#
+# # Initialize a client & load the schema document
+# client = coreapi.Client()
+# schema = client.get("https://etro.gg/api/docs/")
+# def get_gear(url):
+#     gearset = urlparse(url).path.split('/')[2]
+#     # Interact with the API endpoint
+#     action = ["gearsets", "read"]
+#     params = {
+#         "id": gearset,
+#     }
+#     return client.action(schema, action, params=params)
