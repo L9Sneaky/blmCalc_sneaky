@@ -13,9 +13,11 @@ import yaml
 baseStat = {'WD': 0, 'Int': 447, 'DH': 400,
             'Crit': 400, 'Det': 390, 'Sps': 400}
 
+
 statKeys = ['DH', 'Crit', 'Det', 'Sps']
 
-gearType = ['Weapon', 'Head', 'Body', 'Hand', 'Legs', 'Feet', 'Earing','Necklace', 'Bracelet', 'Left Ring', 'Right Ring']
+gearType = pd.DataFrame({'Type': ['Weapon', 'Head', 'Body', 'Hands', 'Legs', 'Feet', 'Earrings','Necklace','Bracelets', 'Ring']})
+gearType = gearType.reset_index().set_index('Type')
 
 # %%
 foodDic=[
@@ -212,15 +214,14 @@ def test(*args, crit: bool=False):
     return bestgear
 
 # %%
-with open("Gear_6.2_preBis.yaml", 'r') as stream:
+with open("Gear_6.2.yaml", 'r') as stream:
     gear = yaml.safe_load(stream)
 # %%
-gear.keys()
-crit = 1
-
-best = test(gear['Weapon'], gear['Head'], gear['Body'], gear['Hands'],
-            gear['Legs'], gear['Feet'], gear['Earrings'], gear['Necklace'],
-            gear['Bracelets'], gear['Ring'], gear['Ring'], crit = crit)
+crit = 0
+gearset = []
+for i in gear.keys():
+    gearset.append(gear[i])
+best = test(*gearset, crit = crit)
 
 stato = getGearStat(baseStat.copy(), best)
 food = findBestFood(stato)
@@ -233,17 +234,19 @@ gain = damageGainOverBaseSet(damage,crit)
 
 # %%
 bestgear = pd.DataFrame(best)
-bestgear
-bestgear['ilvl'].mean()
-stat, food['Name'], damage, gain
-
+bestgear['#'] = bestgear['Type'].map(gearType['index'])
+bestgear = bestgear.sort_values('#').set_index('#')
+bestgear.columns
+bestgear = bestgear[['Name','Type','ilvl','WD','Int','DH','Crit','Det','Sps']]
 # %%
-
+bestgear
+bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain,2)
+# %%
 best[7]['Name']
 # %%
-test = get_set_from_etro('https://etro.gg/gearset/73f9f3af-2fa1-4871-85a3-a0f6adbb5e28')
+test = get_set_from_etro('https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7')
 damage = getAvgDamage(test,crit)
 gain = damageGainOverBaseSet(damage,crit)
 
-test, damage, gain
+test, damage, round(gain,2)
 unmeldedRaidGear()

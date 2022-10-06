@@ -224,31 +224,31 @@ Right Ring:
   MaxStat: 136
   AM: False
 
-Tome Ring:
-- Name: Lunar Envoys Ring of Casting
-  Type: Ring
-  ilvl: 620
-  Int: 158
-  DH: 133
-  Crit: 0
-  Det: 93
-  Sps: 0
-  Slots: 2
-  MaxStat: 133
-  AM: False
+# Tome Ring:
+# - Name: Lunar Envoys Ring of Casting
+#   Type: Ring
+#   ilvl: 620
+#   Int: 158
+#   DH: 133
+#   Crit: 0
+#   Det: 93
+#   Sps: 0
+#   Slots: 2
+#   MaxStat: 133
+#   AM: False
 
-Crafted Ring:
-- Name: Rinascita Ring of Casting
-  Type: Ring
-  ilvl: 610
-  Int: 149
-  DH: 0
-  Crit: 130
-  Det: 0
-  Sps: 91
-  Slots: 1
-  MaxStat: 130
-  AM: True
+# Crafted Ring:
+# - Name: Rinascita Ring of Casting
+#   Type: Ring
+#   ilvl: 610
+#   Int: 149
+#   DH: 0
+#   Crit: 130
+#   Det: 0
+#   Sps: 91
+#   Slots: 1
+#   MaxStat: 130
+#   AM: True
 
 Weapon:
 - Name: Abyssos Rod
