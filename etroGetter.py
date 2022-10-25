@@ -21,7 +21,7 @@ def get_set_from_etro(url):
         print(f'Other error occurred: {err}')
 
     # return response
-    return_list['WD'] = response['totalParams'][20]['value']
+    return_list['WD']=response['totalParams'][20]['value']
     return_list['Int']=response['totalParams'][0]['value']
     return_list['DH']=response['totalParams'][3]['value']
     return_list['Crit']=response['totalParams'][4]['value']

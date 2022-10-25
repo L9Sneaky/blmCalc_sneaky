@@ -1,12 +1,9 @@
-import yaml
-import pandas as pd
-from main import getEveryMeld, getAllMeldOption
-# %%
-with open("Gear_6.2_preBis.yaml", 'r') as stream:
-    gear = yaml.safe_load(stream)
+import torch
 
-gear1 = []
-for i in gear.keys():
-    gear1.append(gear[i][0])
-    # print(gear[i][0])
-df = pd.DataFrame(gear1)
+print(torch.cuda.is_available())
+print(torch.cuda.device_count())
+
+print(torch.cuda.current_device())
+
+print(torch.cuda.get_device_name(0))
+print(torch.cuda.get_device_name(1))

@@ -1,4 +1,4 @@
-# %%.keys(t['Type'].unique())
+# %%
 import itertools
 from dpsCalc import Damage
 from finalCalc import finalResult2
@@ -8,47 +8,47 @@ import pickle
 import numpy as np
 from heapq import nlargest
 import yaml
+
 # %%
 
 baseStat = {'WD': 0, 'Int': 447, 'DH': 400,
             'Crit': 400, 'Det': 390, 'Sps': 400}
 
-
 statKeys = ['DH', 'Crit', 'Det', 'Sps']
 
-gearType = pd.DataFrame({'Type': ['Weapon', 'Head', 'Body', 'Hands', 'Legs', 'Feet', 'Earrings','Necklace','Bracelets', 'Ring']})
+gearType = pd.DataFrame({'Type': ['Weapon', 'Head', 'Body', 'Hands', 'Legs', 'Feet', 'Earrings', 'Necklace', 'Bracelets', 'Ring']})
 gearType = gearType.reset_index().set_index('Type')
 
 # %%
-foodDic=[
-        {'Name': 'Carrot Pudding',
-        'DH': 0, 'Crit': 1.1, 'Det': 1.1, 'Sps': 0,
-        'MaxDH': 0, 'MaxCrit': 58, 'MaxDet': 97, 'MaxSps': 0},
-        {'Name': 'Garlean Pizza',
-        'DH': 0, 'Crit': 1.1, 'Det': 0, 'Sps': 1.1,
-        'MaxDH': 0, 'MaxCrit': 97, 'MaxDet': 0, 'MaxSps': 58},
-        {'Name': 'Melon Pie',
-        'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
-        'MaxDH': 97, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 90},
-        {'Name': 'Piennolo Tomato Salad',
-        'DH': 0, 'Crit': 0, 'Det': 1.1, 'Sps': 1.1,
-        'MaxDH': 0, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 97}
-        ]
+foodDic = [
+    {'Name': 'Carrot Pudding',
+     'DH': 0, 'Crit': 1.1, 'Det': 1.1, 'Sps': 0,
+     'MaxDH': 0, 'MaxCrit': 58, 'MaxDet': 97, 'MaxSps': 0},
+    {'Name': 'Garlean Pizza',
+     'DH': 0, 'Crit': 1.1, 'Det': 0, 'Sps': 1.1,
+     'MaxDH': 0, 'MaxCrit': 97, 'MaxDet': 0, 'MaxSps': 58},
+    {'Name': 'Melon Pie',
+     'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
+     'MaxDH': 97, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 90},
+    {'Name': 'Piennolo Tomato Salad',
+     'DH': 0, 'Crit': 0, 'Det': 1.1, 'Sps': 1.1,
+     'MaxDH': 0, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 97}
+]
 
 
 # %%
 
-def getAvgDamage(GearStat,crit: bool=False):
-    if crit:
-        hasBrd=1
-        hasDrg=1
-        hasSch=1
-        hasDnc=1
+def getAvgDamage(GearStat, c: bool = False):
+    if c:
+        hasBrd = 1
+        hasDrg = 1
+        hasSch = 1
+        hasDnc = 1
     else:
-        hasBrd=0
-        hasDrg=0
-        hasSch=0
-        hasDnc=0
+        hasBrd = 0
+        hasDrg = 0
+        hasSch = 0
+        hasDnc = 0
     firePps, thunderPps = finalResult2(GearStat['Sps'])
     fireDamage = Damage(firePps, GearStat['WD'], 115, GearStat['Int'], GearStat['Det'],
                         GearStat['Crit'], GearStat['DH'], 400, 400, hasBrd, hasDrg, hasSch, hasDnc, 5)
@@ -67,12 +67,14 @@ def getGearStat(charStat, gear):
                 pass
     return tempCharStat
 
+
 def getAllMeldOption(num=0):
     posibleMeldSets = []
     p = itertools.combinations_with_replacement(statKeys, r=num)
     for i in p:
         posibleMeldSets.append([*i])
     return posibleMeldSets
+
 
 def getEveryMeld(Gear):
     baseMeldStat = {'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
@@ -84,7 +86,7 @@ def getEveryMeld(Gear):
         if AM:
             meldSlot = min(meldSlot + 1, 5)
             avalableMelds = []
-            a = itertools.product(getAllMeldOption(meldSlot), getAllMeldOption(5-meldSlot))
+            a = itertools.product(getAllMeldOption(meldSlot), getAllMeldOption(5 - meldSlot))
             for i in a:
                 avalableMelds.append([*i[0], *i[1]])
         for option in range(len(avalableMelds)):
@@ -123,9 +125,9 @@ def getEveryMeld(Gear):
                 tempGearStat[stat] += tempStat[stat]
 
             if (tempGearStat['DH'] > tempGearStat['MaxStat']
-                or tempGearStat['Crit'] > tempGearStat['MaxStat']
-                or tempGearStat['Det'] > tempGearStat['MaxStat']
-                or tempGearStat['Sps'] > tempGearStat['MaxStat']):
+                    or tempGearStat['Crit'] > tempGearStat['MaxStat']
+                    or tempGearStat['Det'] > tempGearStat['MaxStat']
+                    or tempGearStat['Sps'] > tempGearStat['MaxStat']):
                 pass
             else:
                 del tempGearStat["Slots"]
@@ -135,17 +137,19 @@ def getEveryMeld(Gear):
             # print(len(meldedGear))
     return meldedGear
 
-def getHighiestStats(stat1,n=2):
+
+def getHighestStats(stat1, n=2):
     stat = statsToArray(stat1)[2:6]
     return [stat.index(i) for i in sorted(stat, reverse=True)][:n]
 
+
 def findBestFood(stat1):
     best = 0
-    a = getHighiestStats(stat1)
-    first = 'Max'+statKeys[a[0]]
-    second = 'Max'+statKeys[a[1]]
+    a = getHighestStats(stat1)
+    first = 'Max' + statKeys[a[0]]
+    second = 'Max' + statKeys[a[1]]
     for i in range(len(foodDic)):
-        if(foodDic[i][first] == 97 and foodDic[i][second] == 58):
+        if (foodDic[i][first] == 97 and foodDic[i][second] == 58):
             best = foodDic[i]
     if best == 0:
         for i in range(len(foodDic)):
@@ -153,25 +157,30 @@ def findBestFood(stat1):
                 best = foodDic[i]
     return best
 
+
 def statWithFood(Gear, Food):
     tempGear = Gear.copy()
     tempStat = {'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
     for stat in statKeys:
         tempStat[stat] = Gear[stat] * Food[stat]
-        if tempStat[stat] > Food['Max'+stat]:
-            tempStat[stat] = Food['Max'+stat]
+        if tempStat[stat] > Food['Max' + stat]:
+            tempStat[stat] = Food['Max' + stat]
         tempGear[stat] += tempStat[stat]
     return tempGear
+
 
 def unmeldedRaidGear():
     path = 'https://etro.gg/gearset/31b99419-45ea-43b9-9e99-fd5b611006d4'
     return get_set_from_etro(path)
 
+
 baseset = unmeldedRaidGear()
 
-def damageGainOverBaseSet(stat, crit: bool=False):
-    _, tpps = getAvgDamage(baseset,crit)
-    return ((stat[1]/tpps)-1)*100
+
+def damageGainOverBaseSet(stat, crit: bool = False):
+    _, tpps = getAvgDamage(baseset, crit)
+    return ((stat[1] / tpps) - 1) * 100
+
 
 def getGearNameList(gear):
     names = []
@@ -179,17 +188,20 @@ def getGearNameList(gear):
         names.append(gear[g]['Name'])
     return names
 
+
 def statsToArray(stat: dict):
     statlist = []
     for g in stat.keys():
         statlist.append(stat[g])
     return statlist
 
+
 def all_equal(iterator):
     return len(set(iterator)) <= 1
 
+
 # %%
-def test(*args, crit: bool=False):
+def test(*args, crit: bool = False):
     crit = 1 if crit else 0
     bestgear = []
     for seq in args:
@@ -202,8 +214,8 @@ def test(*args, crit: bool=False):
             copy.append(item[i])
 
             stat = getGearStat(baseStat.copy(), copy)
-            damage = getAvgDamage(stat,crit)
-            gain = damageGainOverBaseSet(damage,crit)
+            damage = getAvgDamage(stat, crit)
+            gain = damageGainOverBaseSet(damage, crit)
             temp2.append(stat['Crit'])
             temp.append(gain)
 
@@ -213,40 +225,40 @@ def test(*args, crit: bool=False):
             bestgear.append(item[np.argmax(temp)])
     return bestgear
 
+
 # %%
-with open("Gear_6.2.yaml", 'r') as stream:
+with open("Gear_6.2_preBis.yaml", 'r') as stream:
     gear = yaml.safe_load(stream)
+
+# for b in gear.keys():
+#     print(type(gear[b]))
 # %%
-crit = 0
-gearset = []
-for i in gear.keys():
-    gearset.append(gear[i])
-best = test(*gearset, crit = crit)
+crit = 1
+gs = []
+for b in gear.keys():
+    gs.append(gear[b])
+best = test(*gs, crit=crit)
 
 stato = getGearStat(baseStat.copy(), best)
 food = findBestFood(stato)
 stat = statWithFood(stato, food)
-damage = getAvgDamage(stat,crit)
-gain = damageGainOverBaseSet(damage,crit)
-
-
-
+damage = getAvgDamage(stat, crit)
+gain = damageGainOverBaseSet(damage, crit)
 
 # %%
 bestgear = pd.DataFrame(best)
 bestgear['#'] = bestgear['Type'].map(gearType['index'])
 bestgear = bestgear.sort_values('#').set_index('#')
 bestgear.columns
-bestgear = bestgear[['Name','Type','ilvl','WD','Int','DH','Crit','Det','Sps']]
+bestgear = bestgear[['Name', 'Type', 'ilvl', 'WD', 'Int', 'DH', 'Crit', 'Det', 'Sps']]
 # %%
 bestgear
-bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain,2)
 # %%
-best[7]['Name']
+(bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain, 2))
 # %%
-test = get_set_from_etro('https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7')
-damage = getAvgDamage(test,crit)
-gain = damageGainOverBaseSet(damage,crit)
+crit = 1
+gear = get_set_from_etro('https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7')
+damage = getAvgDamage(gear, crit)
+gain = damageGainOverBaseSet(damage, crit)
 
-test, damage, round(gain,2)
-unmeldedRaidGear()
+gear, damage, gain

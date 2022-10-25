@@ -51,6 +51,20 @@ Weapon :
     MaxStat: 999
     AM: True
 
+  - id: relic ew
+    Name: Windswept Rod
+    Type: Weapon
+    ilvl: 615
+    WD: 122
+    Int: 321
+    DH: 0
+    Crit: 275
+    Det: 0
+    Sps: 193
+    Slots: 2
+    MaxStat: 275
+    AM: False
+
 Head :
   - id: 35295
     Name: Asphodelos Headgear of Casting
