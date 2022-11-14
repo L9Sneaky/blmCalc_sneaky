@@ -6,8 +6,7 @@ from requests.exceptions import HTTPError
 def get_set_from_etro(url):
     if(url == ""):
         return ""
-
-    return_list = {}
+    return_list = {'WD': 0, 'Int': 0, 'DH': 0, 'Crit': 0, 'Det': 0, 'Sps': 0}
     gearset = urlparse(url).path.split('/')[2]
     new_url = 'https://etro.gg/api/gearsets/'+gearset+'/'
 
@@ -21,12 +20,24 @@ def get_set_from_etro(url):
         print(f'Other error occurred: {err}')
 
     # return response
-    return_list['WD']=response['totalParams'][20]['value']
-    return_list['Int']=response['totalParams'][0]['value']
-    return_list['DH']=response['totalParams'][3]['value']
-    return_list['Crit']=response['totalParams'][4]['value']
-    return_list['Det']=response['totalParams'][5]['value']
-    return_list['Sps']=response['totalParams'][6]['value']
+    for i in response['totalParams']:
+        if i['name'] == 'Weapon Damage':
+            return_list['WD']=i['value']
+
+        if i['name'] == 'INT':
+            return_list['Int']=i['value']
+
+        if i['name'] == 'DH':
+            return_list['DH']=i['value']
+
+        if i['name'] == 'CRT':
+            return_list['Crit']=i['value']
+
+        if i['name'] == 'DET':
+            return_list['Det']=i['value']
+
+        if i['name'] == 'SPS':
+            return_list['Sps']=i['value']
     return return_list
 
 

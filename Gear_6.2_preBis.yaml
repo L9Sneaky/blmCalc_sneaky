@@ -26,30 +26,43 @@ Weapon:
   AM: False
 
 Head:
-- Name: Lunar Envoys Hairpin of Casting
-  Type: Head
-  ilvl: 620
-  Int: 200
+# - Name: Lunar Envoys Hairpin of Casting
+#   Type: Head
+#   ilvl: 620
+#   Int: 200
+#   DH: 0
+#   Crit: 168
+#   Det: 118
+#   Sps: 0
+#   Slots: 2
+#   MaxStat: 168
+#   AM: False
+- Name: Abyssos Surcoat of Casting
+  Type: Body
+  ilvl: 630
+  Int: 336
   DH: 0
-  Crit: 168
-  Det: 118
+  Crit: 273
+  Det: 191
   Sps: 0
   Slots: 2
-  MaxStat: 168
+  MaxStat: 273
   AM: False
 
+
 Body:
-- Name: Rinascita Coat of Casting
+- Name: Lunar Envoys Justaucorps of Casting
   Type: Body
-  ilvl: 610
-  Int: 301
-  DH: 0
+  ilvl: 620
+  Int: 318
+  DH: 268
   Crit: 0
-  Det: 262
-  Sps: 183
+  Det: 0
+  Sps: 188
   Slots: 2
-  MaxStat: 262
-  AM: True
+  MaxStat: 268
+  AM: False
+
 
 Hands:
 - Name: Abyssos Armguards of Casting
@@ -78,16 +91,16 @@ Legs:
   AM: False
 
 Feet:
-- Name: Lunar Envoys Boots of Casting
+- Name: Abyssos Boots of Casting
   Type: Feet
-  ilvl: 620
-  Int: 200
-  DH: 168
-  Crit: 118
+  ilvl: 630
+  Int: 211
+  DH: 120
+  Crit: 0
   Det: 0
-  Sps: 0
+  Sps: 172
   Slots: 2
-  MaxStat: 168
+  MaxStat: 172
   AM: False
 
 Earrings:

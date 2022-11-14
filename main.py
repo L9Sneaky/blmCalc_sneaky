@@ -6,7 +6,6 @@ from etroGetter import get_set_from_etro
 import pandas as pd
 import pickle
 import numpy as np
-from heapq import nlargest
 import yaml
 
 # %%
@@ -54,7 +53,7 @@ def getAvgDamage(GearStat, c: bool = False):
                         GearStat['Crit'], GearStat['DH'], 400, 400, hasBrd, hasDrg, hasSch, hasDnc, 5)
     thunderDamage = Damage(thunderPps, GearStat['WD'], 115, GearStat['Int'], GearStat['Det'],
                            GearStat['Crit'], GearStat['DH'], 400, 400, hasBrd, hasDrg, hasSch, hasDnc, 5)
-    return fireDamage, thunderDamage
+    return round(fireDamage, 2), round(thunderDamage, 2)
 
 
 def getGearStat(charStat, gear):
@@ -230,9 +229,6 @@ def test(*args, crit: bool = False):
 with open("Gear_6.2_preBis.yaml", 'r') as stream:
     gear = yaml.safe_load(stream)
 
-# for b in gear.keys():
-#     print(type(gear[b]))
-# %%
 crit = 1
 gs = []
 for b in gear.keys():
@@ -245,7 +241,6 @@ stat = statWithFood(stato, food)
 damage = getAvgDamage(stat, crit)
 gain = damageGainOverBaseSet(damage, crit)
 
-# %%
 bestgear = pd.DataFrame(best)
 bestgear['#'] = bestgear['Type'].map(gearType['index'])
 bestgear = bestgear.sort_values('#').set_index('#')
@@ -253,12 +248,21 @@ bestgear.columns
 bestgear = bestgear[['Name', 'Type', 'ilvl', 'WD', 'Int', 'DH', 'Crit', 'Det', 'Sps']]
 # %%
 bestgear
+
 # %%
-(bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain, 2))
+('ilvl: '+str(round(bestgear['ilvl'].mean(), 2)), stat, food['Name'], damage, 'gain: ' + str(round(gain, 2)))
 # %%
+## https://etro.gg/
 crit = 1
 gear = get_set_from_etro('https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7')
 damage = getAvgDamage(gear, crit)
 gain = damageGainOverBaseSet(damage, crit)
 
-gear, damage, gain
+(gear, damage, gain)
+# %%
+crit = 1
+gear = get_set_from_etro('https://etro.gg/gearset/d6c0b7f7-21c4-451c-88f0-ddb867bd19d3')
+damage = getAvgDamage(gear, crit)
+gain = damageGainOverBaseSet(damage, crit)
+
+(gear, damage, gain)
