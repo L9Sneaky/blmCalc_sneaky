@@ -229,7 +229,7 @@ def test(*args, crit: bool = False):
 with open("Gear_6.2_preBis.yaml", 'r') as stream:
     gear = yaml.safe_load(stream)
 
-crit = 1
+crit = 0
 gs = []
 for b in gear.keys():
     gs.append(gear[b])
@@ -252,7 +252,7 @@ bestgear
 # %%
 ('ilvl: '+str(round(bestgear['ilvl'].mean(), 2)), stat, food['Name'], damage, 'gain: ' + str(round(gain, 2)))
 # %%
-## https://etro.gg/
+## https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7
 crit = 1
 gear = get_set_from_etro('https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7')
 damage = getAvgDamage(gear, crit)

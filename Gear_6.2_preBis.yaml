@@ -37,18 +37,17 @@ Head:
 #   Slots: 2
 #   MaxStat: 168
 #   AM: False
-- Name: Abyssos Surcoat of Casting
-  Type: Body
+- Name: Abyssos Helm of Casting
+  Type: Head
   ilvl: 630
-  Int: 336
-  DH: 0
-  Crit: 273
-  Det: 191
-  Sps: 0
+  Int: 211
+  DH: 172
+  Crit: 0
+  Det: 0
+  Sps: 120
   Slots: 2
-  MaxStat: 273
+  MaxStat: 172
   AM: False
-
 
 Body:
 - Name: Lunar Envoys Justaucorps of Casting
