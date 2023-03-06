@@ -1,80 +1,105 @@
 Weapon:
-- Name: Windswept Rod
+# - Name: Manderville Rod
+#   Type: Weapon
+#   ilvl: 615
+#   WD: 122
+#   Int: 321
+#   DH: 0
+#   Crit: 275
+#   Det: 0
+#   Sps: 275
+#   Slots: 2
+#   MaxStat: 275
+#   AM: False
+
+- Name: Augmented Lunar Envoys Staff
   Type: Weapon
-  ilvl: 615
-  WD: 122
-  Int: 321
-  DH: 0
-  Crit: 275
-  Det: 0
-  Sps: 193
+  ilvl: 630
+  WD: 125
+  Int: 348
+  DH: 198
+  Crit: 0
+  Det: 283
+  Sps: 0
   Slots: 2
-  MaxStat: 275
+  MaxStat: 283
   AM: False
 
 Head:
-- Name: Lunar Envoys Hairpin of Casting
+# - Name: Lunar Envoys Hairpin of Casting
+#   Type: Head
+#   ilvl: 620
+#   Int: 200
+#   DH: 0
+#   Crit: 168
+#   Det: 118
+#   Sps: 0
+#   Slots: 2
+#   MaxStat: 168
+#   AM: False
+- Name: Abyssos Helm of Casting
   Type: Head
-  ilvl: 620
-  Int: 200
-  DH: 0
-  Crit: 168
-  Det: 118
-  Sps: 0
+  ilvl: 630
+  Int: 211
+  DH: 172
+  Crit: 0
+  Det: 0
+  Sps: 120
   Slots: 2
-  MaxStat: 168
+  MaxStat: 172
   AM: False
 
 Body:
-- Name: Rinascita Coat of Casting
+- Name: Lunar Envoys Justaucorps of Casting
   Type: Body
-  ilvl: 610
-  Int: 301
-  DH: 0
-  Crit: 0
-  Det: 262
-  Sps: 183
-  Slots: 2
-  MaxStat: 262
-  AM: True
-
-Hands:
-- Name: Rinascita Armguards of Casting
-  Type: Hands
-  ilvl: 610
-  Int: 190
-  DH: 116
-  Crit: 165
-  Det: 0
-  Sps: 0
-  Slots: 2
-  MaxStat: 165
-  AM: True
-
-Legs:
-- Name: Lunar Envoys Longkilt of Casting
-  Type: Legs
   ilvl: 620
   Int: 318
-  DH: 0
-  Crit: 268
-  Det: 188
-  Sps: 0
+  DH: 268
+  Crit: 0
+  Det: 0
+  Sps: 188
   Slots: 2
   MaxStat: 268
   AM: False
 
-Feet:
-- Name: Lunar Envoys Boots of Casting
-  Type: Feet
-  ilvl: 620
-  Int: 200
-  DH: 168
-  Crit: 118
-  Det: 0
+
+Hands:
+- Name: Abyssos Armguards of Casting
+  Type: Hands
+  ilvl: 630
+  Int: 211
+  DH: 0
+  Crit: 172
+  Det: 120
   Sps: 0
   Slots: 2
-  MaxStat: 168
+  MaxStat: 172
+  AM: False
+
+Legs:
+- Name: Augmented Lunar Envoys Longkilt of Casting
+  Type: Legs
+  ilvl: 630
+  Int: 336
+  DH: 0
+  Crit: 273
+  Det: 191
+  Sps: 0
+  Slots: 2
+  MaxStat: 273
+  AM: False
+
+Feet:
+- Name: Abyssos Boots of Casting
+  Type: Feet
+  ilvl: 630
+  Int: 211
+  DH: 120
+  Crit: 0
+  Det: 0
+  Sps: 172
+  Slots: 2
+  MaxStat: 172
   AM: False
 
 Earrings:
@@ -117,40 +142,27 @@ Bracelets:
   AM: False
 
 Left Ring:
-- Name: Rinascita Ring of Casting
+- Name: Augmented Lunar Envoys Ring of Casting
   Type: Ring
-  ilvl: 610
-  Int: 149
-  DH: 0
-  Crit: 130
-  Det: 0
-  Sps: 91
-  Slots: 1
-  MaxStat: 130
-  AM: True
+  ilvl: 630
+  Int: 167
+  DH: 136
+  Crit: 0
+  Det: 95
+  Sps: 0
+  Slots: 2
+  MaxStat: 136
+  AM: False
 
 Right Ring:
-- Name: Rinascita Ring of Casting
+- Name: Abyssos Ring of Casting
   Type: Ring
-  ilvl: 610
-  Int: 149
+  ilvl: 630
+  Int: 167
   DH: 0
-  Crit: 130
+  Crit: 136
   Det: 0
-  Sps: 91
-  Slots: 1
-  MaxStat: 130
-  AM: True
-
-Ring:
-- Name: Rinascita Ring of Casting
-  Type: Ring
-  ilvl: 610
-  Int: 149
-  DH: 0
-  Crit: 130
-  Det: 0
-  Sps: 91
-  Slots: 1
-  MaxStat: 130
-  AM: True
+  Sps: 95
+  Slots: 2
+  MaxStat: 136
+  AM: False

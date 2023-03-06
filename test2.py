@@ -1,12 +1,14 @@
-import yaml
-import pandas as pd
-from main import getEveryMeld, getAllMeldOption
-# %%
-with open("Gear_6.2_preBis.yaml", 'r') as stream:
-    gear = yaml.safe_load(stream)
+import coreapi
 
-gear1 = []
-for i in gear.keys():
-    gear1.append(gear[i][0])
-    # print(gear[i][0])
-df = pd.DataFrame(gear1)
+# Initialize a client & load the schema document
+client = coreapi.Client()
+schema = client.get("https://etro.gg/api/docs/")
+
+# Interact with the API endpoint
+action = ["auth", "discord > login > create"]
+params = {
+    "access_token": ...,
+    "code": ...,
+    "id_token": ...,
+}
+result = client.action(schema, action, params=params)

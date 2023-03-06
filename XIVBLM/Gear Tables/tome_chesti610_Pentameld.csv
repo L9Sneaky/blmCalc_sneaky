@@ -1,0 +1,11 @@
+Name,Slot,Ilvl,Unique,Meld Slots,Overmeld,Primary,Secondary
+Rinascita Hood of Casting,Head,610,FALSE,2,TRUE,Crit,DH
+Lunar Envoy's Justaucorps of Casting,Chest,620,TRUE,2,FALSE,DH,SS
+Rinascita Armguards of Casting,Hands,610,FALSE,2,TRUE,Crit,DH
+Rinascita Poleyns of Casting,Legs,610,FALSE,2,TRUE,Crit,Det
+Rinascita Shoes of Casting,Feet,610,FALSE,2,TRUE,SS,Det
+Rinascita Earring of Casting,Ear,610,FALSE,1,TRUE,Crit,DH
+Rinascita Necklace of Casting,Neck,610,FALSE,1,TRUE,SS,DH
+Rinascita Bracelet of Casting,Wrist,610,FALSE,1,TRUE,DH,SS
+Rinascita Ring of Casting,Finger,610,FALSE,1,TRUE,Crit,SS
+Windswept Rod,Weapon,615,TRUE,2,FALSE,Crit,SS
