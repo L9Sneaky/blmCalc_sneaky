@@ -1,10 +1,9 @@
-# %%.keys(t['Type'].unique())
+# %%
 import itertools
 from dpsCalc import Damage
 from finalCalc import finalResult2
 from etroGetter import get_set_from_etro
 import pandas as pd
-import pickle
 import numpy as np
 from heapq import nlargest
 import yaml
@@ -217,7 +216,7 @@ def test(*args, crit: bool=False):
 with open("Gear_6.2.yaml", 'r') as stream:
     gear = yaml.safe_load(stream)
 # %%
-crit = 0
+crit = 1
 gearset = []
 for i in gear.keys():
     gearset.append(gear[i])
@@ -239,14 +238,6 @@ bestgear = bestgear.sort_values('#').set_index('#')
 bestgear.columns
 bestgear = bestgear[['Name','Type','ilvl','WD','Int','DH','Crit','Det','Sps']]
 # %%
-bestgear
-bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain,2)
+print(bestgear)
+print(bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain,2))
 # %%
-best[7]['Name']
-# %%
-test = get_set_from_etro('https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7')
-damage = getAvgDamage(test,crit)
-gain = damageGainOverBaseSet(damage,crit)
-
-test, damage, round(gain,2)
-unmeldedRaidGear()
