@@ -1,0 +1,25 @@
+Name,Slot,Ilvl,Unique,Meld Slots,Overmeld,Primary,Secondary
+Moonward Armlets of Casting,Hands,570,TRUE,2,FALSE,Crit,SS
+Moonward Boots of Casting,Feet,570,TRUE,2,FALSE,SS,Det
+Moonward Bottoms of Casting,Legs,570,TRUE,2,FALSE,DH,Crit
+Moonward Bracelet of Casting,Wrist,570,TRUE,1,FALSE,DH,SS
+Moonward Earrings of Casting,Ear,570,TRUE,1,FALSE,Det,Crit
+Moonward Hairpin of Casting,Head,570,TRUE,2,FALSE,Crit,Det
+Moonward Necklace of Casting,Neck,570,TRUE,1,FALSE,SS,DH
+Moonward Ring of Casting,Finger,570,TRUE,1,FALSE,Crit,Det
+Moonward Rod of Casting,Weapon,570,TRUE,2,FALSE,Crit,SS
+Moonward Top of Casting,Chest,570,TRUE,2,FALSE,Det,DH
+Eternal Dark Bracelets of Casting,Wrist,580,TRUE,1,FALSE,Crit,Det
+Eternal Dark Earrings of Casting,Ear,580,TRUE,1,FALSE,DH,Det
+Eternal Dark Necklace of Casting,Neck,580,TRUE,1,FALSE,Crit,SS
+Eternal Dark Ring of Casting,Finger,580,TRUE,1,FALSE,SS,Det
+Limbo Amulet of Casting,Wrist,580,TRUE,1,FALSE,Crit,DH
+Limbo Chiton of Casting,Chest,580,TRUE,2,FALSE,DH,SS
+Limbo Earrings of Casting,Ear,580,TRUE,1,FALSE,Det,Crit
+Limbo Gaiters of Casting,Feet,580,TRUE,2,FALSE,Det,DH
+Limbo Headgear of Casting,Head,580,TRUE,2,FALSE,SS,Det
+Limbo Necklace of Casting,Neck,580,TRUE,1,FALSE,Det,SS
+Limbo Ring of Casting,Finger,580,TRUE,1,FALSE,DH,SS
+Limbo Trousers of Casting,Legs,580,TRUE,2,FALSE,Crit,Det
+Limbo Wristbands of Casting,Hands,580,TRUE,2,FALSE,Crit,DH
+Rod of Divine Light,Weapon,580,TRUE,2,FALSE,Det,DH

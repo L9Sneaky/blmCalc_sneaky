@@ -2,7 +2,7 @@
 import itertools
 from dpsCalc import Damage
 from finalCalc import finalResult2
-from etroGetter import get_set_from_etro
+from etroGetter import get_set_from_etro, get_set_from_etro2
 import pandas as pd
 import pickle
 import numpy as np
@@ -30,8 +30,8 @@ foodDic = [
      'DH': 1.1, 'Crit': 0, 'Det': 1.1, 'Sps': 0,
      'MaxDH': 97, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 90},
     {'Name': 'Piennolo Tomato Salad',
-     'DH': 0, 'Crit': 0, 'Det': 1.1, 'Sps': 1.1,
-     'MaxDH': 0, 'MaxCrit': 0, 'MaxDet': 58, 'MaxSps': 97}
+     'DH': 1.1, 'Crit': 0, 'Det': 0, 'Sps': 1.1,
+     'MaxDH': 58, 'MaxCrit': 0, 'MaxDet': 0, 'MaxSps': 97}
 ]
 
 
@@ -169,11 +169,12 @@ def statWithFood(Gear, Food):
 
 
 def unmeldedRaidGear():
-    path = 'https://etro.gg/gearset/31b99419-45ea-43b9-9e99-fd5b611006d4'
-    return get_set_from_etro(path)
+    # path = 'https://etro.gg/gearset/31b99419-45ea-43b9-9e99-fd5b611006d4'
+    path = 'https://etro.gg/gearset/bdf03606-6cf5-41fb-ad39-fe5a58ca7e72'
+    return get_set_from_etro2(path)
 
-
-baseset = unmeldedRaidGear()
+base_temp = unmeldedRaidGear()
+baseset = base_temp.copy()
 
 
 def damageGainOverBaseSet(stat, crit: bool = False):
@@ -226,10 +227,10 @@ def test(*args, crit: bool = False):
 
 
 # %%
-with open("Gear_6.2_preBis.yaml", 'r') as stream:
+with open('Gear_6.2.yaml', 'r') as stream:
     gear = yaml.safe_load(stream)
 
-crit = 0
+crit = 1
 gs = []
 for b in gear.keys():
     gs.append(gear[b])
@@ -247,22 +248,9 @@ bestgear = bestgear.sort_values('#').set_index('#')
 bestgear.columns
 bestgear = bestgear[['Name', 'Type', 'ilvl', 'WD', 'Int', 'DH', 'Crit', 'Det', 'Sps']]
 # %%
-bestgear
+print(bestgear)
 
 # %%
-('ilvl: '+str(round(bestgear['ilvl'].mean(), 2)), stat, food['Name'], damage, 'gain: ' + str(round(gain, 2)))
-# %%
-## https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7
-crit = 1
-gear = get_set_from_etro('https://etro.gg/gearset/adf47704-f967-4d8f-b8d3-6daf999f7cb7')
-damage = getAvgDamage(gear, crit)
-gain = damageGainOverBaseSet(damage, crit)
+print('ilvl: '+str(round(bestgear['ilvl'].mean(), 2)), stat, food['Name'], damage, 'gain: ' + str(round(gain, 2)))
 
-(gear, damage, gain)
 # %%
-crit = 1
-gear = get_set_from_etro('https://etro.gg/gearset/d6c0b7f7-21c4-451c-88f0-ddb867bd19d3')
-damage = getAvgDamage(gear, crit)
-gain = damageGainOverBaseSet(damage, crit)
-
-(gear, damage, gain)

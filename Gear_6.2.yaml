@@ -23,6 +23,7 @@ Body:
   MaxStat: 273
   AM: False
 
+
 Bracelets:
 - Name: Augmented Lunar Envoys Bracelets of Casting
   Type: Bracelets
@@ -251,7 +252,20 @@ Right Ring:
 #   AM: True
 
 Weapon:
-- Name: Abyssos Rod
+# - Name: Abyssos Rod
+#   Type: Weapon
+#   ilvl: 635
+#   WD: 126
+#   Int: 358
+#   DH: 0
+#   Crit: 201
+#   Det: 0
+#   Sps: 287
+#   Slots: 2
+#   MaxStat: 287
+#   AM: False
+
+- Name: Ultimate Omega Rod
   Type: Weapon
   ilvl: 635
   WD: 126
@@ -260,7 +274,7 @@ Weapon:
   Crit: 201
   Det: 0
   Sps: 287
-  Slots: 2
+  Slots: 3
   MaxStat: 287
   AM: False
 
@@ -275,4 +289,17 @@ Weapon:
 #   Sps: 0
 #   Slots: 2
 #   MaxStat: 283
+#   AM: False
+
+# - Name: Flamecloaked Rod
+#   Type: Weapon
+#   ilvl: 625
+#   WD: 124
+#   Int: 339
+#   DH: 196
+#   Crit: 0
+#   Det: 280
+#   Sps: 0
+#   Slots: 2
+#   MaxStat: 280
 #   AM: False

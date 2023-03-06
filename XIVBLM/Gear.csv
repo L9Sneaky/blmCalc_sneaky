@@ -1,0 +1,121 @@
+"","Slot","Name","Materia","Unique","WD","Int","DH","Crit","Det","SS"
+"1","Weapon","Augmented Lunar Envoy's Staff","DH+DH",TRUE,125,348,270,0,283,0
+"2","Weapon","Augmented Lunar Envoy's Staff","DH+Crit",TRUE,125,348,234,36,283,0
+"3","Weapon","Augmented Lunar Envoy's Staff","DH+SS",TRUE,125,348,234,0,283,36
+"4","Weapon","Augmented Lunar Envoy's Staff","Crit+Crit",TRUE,125,348,198,72,283,0
+"5","Weapon","Augmented Lunar Envoy's Staff","Crit+SS",TRUE,125,348,198,36,283,36
+"6","Weapon","Augmented Lunar Envoy's Staff","SS+SS",TRUE,125,348,198,0,283,72
+"7","Weapon","Abyssos Rod","DH+DH",TRUE,126,358,72,201,0,287
+"8","Weapon","Abyssos Rod","DH+Crit",TRUE,126,358,36,237,0,287
+"9","Weapon","Abyssos Rod","DH+Det",TRUE,126,358,36,201,36,287
+"10","Weapon","Abyssos Rod","Crit+Crit",TRUE,126,358,0,273,0,287
+"11","Weapon","Abyssos Rod","Crit+Det",TRUE,126,358,0,237,36,287
+"12","Weapon","Abyssos Rod","Det+Det",TRUE,126,358,0,201,72,287
+"13","Head","Augmented Lunar Envoy's Hairpin of Casting","DH+DH",TRUE,0,211,72,172,120,0
+"14","Head","Augmented Lunar Envoy's Hairpin of Casting","DH+Det",TRUE,0,211,36,172,156,0
+"15","Head","Augmented Lunar Envoy's Hairpin of Casting","DH+SS",TRUE,0,211,36,172,120,36
+"16","Head","Augmented Lunar Envoy's Hairpin of Casting","Det+Det",TRUE,0,211,0,172,172,0
+"17","Head","Augmented Lunar Envoy's Hairpin of Casting","Det+SS",TRUE,0,211,0,172,156,36
+"18","Head","Augmented Lunar Envoy's Hairpin of Casting","SS+SS",TRUE,0,211,0,172,120,72
+"19","Head","Abyssos Helm of Casting","Crit+Crit",TRUE,0,211,172,72,0,120
+"20","Head","Abyssos Helm of Casting","Crit+Det",TRUE,0,211,172,36,36,120
+"21","Head","Abyssos Helm of Casting","Crit+SS",TRUE,0,211,172,36,0,156
+"22","Head","Abyssos Helm of Casting","Det+Det",TRUE,0,211,172,0,72,120
+"23","Head","Abyssos Helm of Casting","Det+SS",TRUE,0,211,172,0,36,156
+"24","Head","Abyssos Helm of Casting","SS+SS",TRUE,0,211,172,0,0,172
+"25","Chest","Augmented Lunar Envoy's Justaucorps of Casting","Crit+Crit",TRUE,0,336,273,72,0,191
+"26","Chest","Augmented Lunar Envoy's Justaucorps of Casting","Crit+Det",TRUE,0,336,273,36,36,191
+"27","Chest","Augmented Lunar Envoy's Justaucorps of Casting","Crit+SS",TRUE,0,336,273,36,0,227
+"28","Chest","Augmented Lunar Envoy's Justaucorps of Casting","Det+Det",TRUE,0,336,273,0,72,191
+"29","Chest","Augmented Lunar Envoy's Justaucorps of Casting","Det+SS",TRUE,0,336,273,0,36,227
+"30","Chest","Augmented Lunar Envoy's Justaucorps of Casting","SS+SS",TRUE,0,336,273,0,0,263
+"31","Chest","Abyssos Surcoat of Casting","DH+DH",TRUE,0,336,72,273,191,0
+"32","Chest","Abyssos Surcoat of Casting","DH+Det",TRUE,0,336,36,273,227,0
+"33","Chest","Abyssos Surcoat of Casting","DH+SS",TRUE,0,336,36,273,191,36
+"34","Chest","Abyssos Surcoat of Casting","Det+Det",TRUE,0,336,0,273,263,0
+"35","Chest","Abyssos Surcoat of Casting","Det+SS",TRUE,0,336,0,273,227,36
+"36","Chest","Abyssos Surcoat of Casting","SS+SS",TRUE,0,336,0,273,191,72
+"37","Hands","Augmented Lunar Envoy's Gloves of Casting","DH+DH",TRUE,0,211,172,0,0,172
+"38","Hands","Augmented Lunar Envoy's Gloves of Casting","DH+Crit",TRUE,0,211,156,36,0,172
+"39","Hands","Augmented Lunar Envoy's Gloves of Casting","DH+Det",TRUE,0,211,156,0,36,172
+"40","Hands","Augmented Lunar Envoy's Gloves of Casting","Crit+Crit",TRUE,0,211,120,72,0,172
+"41","Hands","Augmented Lunar Envoy's Gloves of Casting","Crit+Det",TRUE,0,211,120,36,36,172
+"42","Hands","Augmented Lunar Envoy's Gloves of Casting","Det+Det",TRUE,0,211,120,0,72,172
+"43","Hands","Abyssos Armguards of Casting","DH+DH",TRUE,0,211,72,172,120,0
+"44","Hands","Abyssos Armguards of Casting","DH+Det",TRUE,0,211,36,172,156,0
+"45","Hands","Abyssos Armguards of Casting","DH+SS",TRUE,0,211,36,172,120,36
+"46","Hands","Abyssos Armguards of Casting","Det+Det",TRUE,0,211,0,172,172,0
+"47","Hands","Abyssos Armguards of Casting","Det+SS",TRUE,0,211,0,172,156,36
+"48","Hands","Abyssos Armguards of Casting","SS+SS",TRUE,0,211,0,172,120,72
+"49","Legs","Augmented Lunar Envoy's Longkilt of Casting","DH+DH",TRUE,0,336,72,273,191,0
+"50","Legs","Augmented Lunar Envoy's Longkilt of Casting","DH+Det",TRUE,0,336,36,273,227,0
+"51","Legs","Augmented Lunar Envoy's Longkilt of Casting","DH+SS",TRUE,0,336,36,273,191,36
+"52","Legs","Augmented Lunar Envoy's Longkilt of Casting","Det+Det",TRUE,0,336,0,273,263,0
+"53","Legs","Augmented Lunar Envoy's Longkilt of Casting","Det+SS",TRUE,0,336,0,273,227,36
+"54","Legs","Augmented Lunar Envoy's Longkilt of Casting","SS+SS",TRUE,0,336,0,273,191,72
+"55","Legs","Abyssos Culottes of Casting","DH+DH",TRUE,0,336,263,0,0,273
+"56","Legs","Abyssos Culottes of Casting","DH+Crit",TRUE,0,336,227,36,0,273
+"57","Legs","Abyssos Culottes of Casting","DH+Det",TRUE,0,336,227,0,36,273
+"58","Legs","Abyssos Culottes of Casting","Crit+Crit",TRUE,0,336,191,72,0,273
+"59","Legs","Abyssos Culottes of Casting","Crit+Det",TRUE,0,336,191,36,36,273
+"60","Legs","Abyssos Culottes of Casting","Det+Det",TRUE,0,336,191,0,72,273
+"61","Feet","Augmented Lunar Envoy's Boots of Casting","Crit+Crit",TRUE,0,211,172,172,0,0
+"62","Feet","Augmented Lunar Envoy's Boots of Casting","Crit+Det",TRUE,0,211,172,156,36,0
+"63","Feet","Augmented Lunar Envoy's Boots of Casting","Crit+SS",TRUE,0,211,172,156,0,36
+"64","Feet","Augmented Lunar Envoy's Boots of Casting","Det+Det",TRUE,0,211,172,120,72,0
+"65","Feet","Augmented Lunar Envoy's Boots of Casting","Det+SS",TRUE,0,211,172,120,36,36
+"66","Feet","Augmented Lunar Envoy's Boots of Casting","SS+SS",TRUE,0,211,172,120,0,72
+"67","Feet","Abyssos Boots of Casting","DH+DH",TRUE,0,211,172,0,0,172
+"68","Feet","Abyssos Boots of Casting","DH+Crit",TRUE,0,211,156,36,0,172
+"69","Feet","Abyssos Boots of Casting","DH+Det",TRUE,0,211,156,0,36,172
+"70","Feet","Abyssos Boots of Casting","Crit+Crit",TRUE,0,211,120,72,0,172
+"71","Feet","Abyssos Boots of Casting","Crit+Det",TRUE,0,211,120,36,36,172
+"72","Feet","Abyssos Boots of Casting","Det+Det",TRUE,0,211,120,0,72,172
+"73","Ear","Augmented Lunar Envoy's Earring of Casting","DH+DH",TRUE,0,167,72,0,95,136
+"74","Ear","Augmented Lunar Envoy's Earring of Casting","DH+Crit",TRUE,0,167,36,36,95,136
+"75","Ear","Augmented Lunar Envoy's Earring of Casting","DH+Det",TRUE,0,167,36,0,131,136
+"76","Ear","Augmented Lunar Envoy's Earring of Casting","Crit+Crit",TRUE,0,167,0,72,95,136
+"77","Ear","Augmented Lunar Envoy's Earring of Casting","Crit+Det",TRUE,0,167,0,36,131,136
+"78","Ear","Augmented Lunar Envoy's Earring of Casting","Det+Det",TRUE,0,167,0,0,136,136
+"79","Ear","Abyssos Earrings of Casting","DH+DH",TRUE,0,167,72,95,136,0
+"80","Ear","Abyssos Earrings of Casting","DH+Crit",TRUE,0,167,36,131,136,0
+"81","Ear","Abyssos Earrings of Casting","DH+SS",TRUE,0,167,36,95,136,36
+"82","Ear","Abyssos Earrings of Casting","Crit+Crit",TRUE,0,167,0,136,136,0
+"83","Ear","Abyssos Earrings of Casting","Crit+SS",TRUE,0,167,0,131,136,36
+"84","Ear","Abyssos Earrings of Casting","SS+SS",TRUE,0,167,0,95,136,72
+"85","Neck","Augmented Lunar Envoy's Necklace of Casting","DH+DH",TRUE,0,167,72,95,136,0
+"86","Neck","Augmented Lunar Envoy's Necklace of Casting","DH+Crit",TRUE,0,167,36,131,136,0
+"87","Neck","Augmented Lunar Envoy's Necklace of Casting","DH+SS",TRUE,0,167,36,95,136,36
+"88","Neck","Augmented Lunar Envoy's Necklace of Casting","Crit+Crit",TRUE,0,167,0,136,136,0
+"89","Neck","Augmented Lunar Envoy's Necklace of Casting","Crit+SS",TRUE,0,167,0,131,136,36
+"90","Neck","Augmented Lunar Envoy's Necklace of Casting","SS+SS",TRUE,0,167,0,95,136,72
+"91","Neck","Abyssos Choker of Casting","DH+DH",TRUE,0,167,136,0,0,136
+"92","Neck","Abyssos Choker of Casting","DH+Crit",TRUE,0,167,131,36,0,136
+"93","Neck","Abyssos Choker of Casting","DH+Det",TRUE,0,167,131,0,36,136
+"94","Neck","Abyssos Choker of Casting","Crit+Crit",TRUE,0,167,95,72,0,136
+"95","Neck","Abyssos Choker of Casting","Crit+Det",TRUE,0,167,95,36,36,136
+"96","Neck","Abyssos Choker of Casting","Det+Det",TRUE,0,167,95,0,72,136
+"97","Wrist","Augmented Lunar Envoy's Bracelets of Casting","DH+DH",TRUE,0,167,72,0,95,136
+"98","Wrist","Augmented Lunar Envoy's Bracelets of Casting","DH+Crit",TRUE,0,167,36,36,95,136
+"99","Wrist","Augmented Lunar Envoy's Bracelets of Casting","DH+Det",TRUE,0,167,36,0,131,136
+"100","Wrist","Augmented Lunar Envoy's Bracelets of Casting","Crit+Crit",TRUE,0,167,0,72,95,136
+"101","Wrist","Augmented Lunar Envoy's Bracelets of Casting","Crit+Det",TRUE,0,167,0,36,131,136
+"102","Wrist","Augmented Lunar Envoy's Bracelets of Casting","Det+Det",TRUE,0,167,0,0,136,136
+"103","Wrist","Abyssos Amulet of Casting","DH+DH",TRUE,0,167,136,136,0,0
+"104","Wrist","Abyssos Amulet of Casting","DH+Det",TRUE,0,167,131,136,36,0
+"105","Wrist","Abyssos Amulet of Casting","DH+SS",TRUE,0,167,131,136,0,36
+"106","Wrist","Abyssos Amulet of Casting","Det+Det",TRUE,0,167,95,136,72,0
+"107","Wrist","Abyssos Amulet of Casting","Det+SS",TRUE,0,167,95,136,36,36
+"108","Wrist","Abyssos Amulet of Casting","SS+SS",TRUE,0,167,95,136,0,72
+"109","Finger","Augmented Lunar Envoy's Ring of Casting","Crit+Crit",TRUE,0,167,136,72,95,0
+"110","Finger","Augmented Lunar Envoy's Ring of Casting","Crit+Det",TRUE,0,167,136,36,131,0
+"111","Finger","Augmented Lunar Envoy's Ring of Casting","Crit+SS",TRUE,0,167,136,36,95,36
+"112","Finger","Augmented Lunar Envoy's Ring of Casting","Det+Det",TRUE,0,167,136,0,136,0
+"113","Finger","Augmented Lunar Envoy's Ring of Casting","Det+SS",TRUE,0,167,136,0,131,36
+"114","Finger","Augmented Lunar Envoy's Ring of Casting","SS+SS",TRUE,0,167,136,0,95,72
+"115","Finger","Abyssos Ring of Casting","DH+DH",TRUE,0,167,72,136,0,95
+"116","Finger","Abyssos Ring of Casting","DH+Det",TRUE,0,167,36,136,36,95
+"117","Finger","Abyssos Ring of Casting","DH+SS",TRUE,0,167,36,136,0,131
+"118","Finger","Abyssos Ring of Casting","Det+Det",TRUE,0,167,0,136,72,95
+"119","Finger","Abyssos Ring of Casting","Det+SS",TRUE,0,167,0,136,36,131
+"120","Finger","Abyssos Ring of Casting","SS+SS",TRUE,0,167,0,136,0,136

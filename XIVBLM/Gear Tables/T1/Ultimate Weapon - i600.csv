@@ -1,0 +1,22 @@
+Name,Slot,Ilvl,Unique,Meld Slots,Overmeld,Primary,Secondary
+Augmented Radiant's Mail of Casting,Chest,600,TRUE,2,FALSE,DH,SS
+Asphodelos Chiton of Casting,Chest,600,TRUE,2,FALSE,Crit,Det
+Augmented Radiant's Bracelet of Casting,Wrist,600,TRUE,2,FALSE,Crit,DH
+Asphodelos Amulet of Casting,Wrist,600,TRUE,2,FALSE,SS,Det
+Augmented Radiant's Earrings of Casting,Ear,600,TRUE,2,FALSE,Det,Crit
+Asphodelos Earrings of Casting,Ear,600,TRUE,2,FALSE,DH,SS
+Augmented Radiant's Greaves of Casting,Feet,600,TRUE,2,FALSE,Crit,DH
+Asphodelos Gaiters of Casting,Feet,600,TRUE,2,FALSE,DH,SS
+Augmented Radiant's Gloves of Casting,Hands,600,TRUE,2,FALSE,SS,DH
+Asphodelos Wristbands of Casting,Hands,600,TRUE,2,FALSE,Crit,Det
+Augmented Radiant's Visor of Casting,Head,600,TRUE,2,FALSE,SS,Det
+Asphodelos Headgear of Casting,Head,600,TRUE,2,FALSE,Crit,DH
+Augmented Radiant's Hose of Casting,Legs,600,TRUE,2,FALSE,Det,Crit
+Asphodelos Trousers of Casting,Legs,600,TRUE,2,FALSE,SS,Det
+Augmented Radiant's Choker of Casting,Neck,600,TRUE,2,FALSE,Det,SS
+Asphodelos Necklace of Casting,Neck,600,TRUE,2,FALSE,Crit,DH
+Augmented Radiant's Ring of Casting,Finger,600,TRUE,2,FALSE,Crit,DH
+Asphodelos Ring of Casting,Finger,600,TRUE,2,FALSE,Det,SS
+Radiant's Ring of Casting,Finger,590,TRUE,2,FALSE,Crit,DH
+Augmented Radiant's Scepter,Weapon,600,TRUE,2,FALSE,DH,Det
+Ultimate Weapon,Weapon,605,TRUE,3,FALSE,SS,Crit

@@ -1,0 +1,26 @@
+Name,Slot,Ilvl,Unique,Meld Slots,Overmeld,Primary,Secondary
+Moonward Ring of Casting,Finger,570,TRUE,1,FALSE,Crit,Det
+Eternal Dark Bracelets of Casting,Wrist,580,TRUE,1,FALSE,Crit,Det
+Eternal Dark Earrings of Casting,Ear,580,TRUE,1,FALSE,DH,Det
+Eternal Dark Necklace of Casting,Neck,580,TRUE,1,FALSE,Crit,SS
+Eternal Dark Ring of Casting,Finger,580,TRUE,1,FALSE,SS,Det
+Limbo Amulet of Casting,Wrist,580,TRUE,1,FALSE,Crit,DH
+Limbo Chiton of Casting,Chest,580,TRUE,2,FALSE,DH,SS
+Limbo Earrings of Casting,Ear,580,TRUE,1,FALSE,Det,Crit
+Limbo Gaiters of Casting,Feet,580,TRUE,2,FALSE,Det,DH
+Limbo Headgear of Casting,Head,580,TRUE,2,FALSE,SS,Det
+Limbo Necklace of Casting,Neck,580,TRUE,1,FALSE,Det,SS
+Limbo Ring of Casting,Finger,580,TRUE,1,FALSE,DH,SS
+Limbo Trousers of Casting,Legs,580,TRUE,2,FALSE,Crit,Det
+Limbo Wristbands of Casting,Hands,580,TRUE,2,FALSE,Crit,DH
+Rod of Divine Light,Weapon,580,TRUE,2,FALSE,Det,DH
+Classical Signifer's Fingerless Gloves,Hands,580,FALSE,2,TRUE,SS,Det
+Classical Signifer's Caligae,Feet,580,FALSE,2,TRUE,SS,Crit
+Classical Signifer's Culottes,Legs,580,FALSE,2,TRUE,DH,Det
+Classical Wristband of Casting,Wrist,580,FALSE,1,TRUE,Det,SS
+Classical Earrings of Casting,Ear,580,FALSE,1,TRUE,Crit,SS
+Classical Signifer's Horns,Head,580,FALSE,2,TRUE,Crit,DH
+Classical Choker of Casting,Neck,580,FALSE,1,TRUE,DH,Crit
+Classical Ring of Casting,Finger,580,FALSE,1,TRUE,Crit,Det
+Classical Longpole,Weapon,580,FALSE,2,TRUE,Crit,SS
+Ornate Classical Signifer's Chiton,Chest,580,FALSE,5,FALSE,Det,DH

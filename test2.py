@@ -1,9 +1,14 @@
-import torch
+import coreapi
 
-print(torch.cuda.is_available())
-print(torch.cuda.device_count())
+# Initialize a client & load the schema document
+client = coreapi.Client()
+schema = client.get("https://etro.gg/api/docs/")
 
-print(torch.cuda.current_device())
-
-print(torch.cuda.get_device_name(0))
-print(torch.cuda.get_device_name(1))
+# Interact with the API endpoint
+action = ["auth", "discord > login > create"]
+params = {
+    "access_token": ...,
+    "code": ...,
+    "id_token": ...,
+}
+result = client.action(schema, action, params=params)
