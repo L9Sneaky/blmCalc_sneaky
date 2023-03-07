@@ -1,3 +1,4 @@
+.libPaths(c("/home/hp/personal/blmCalc_sneaky/XIVBLM", .libPaths()))
 library(XIVBLM)
 
 GearFile<-file.choose()

@@ -51,7 +51,7 @@ def Gearframe_Generate(InputSet, MajorMateriaValue=36, MinorMateriaValue=12):
                 Insert.loc[i, MateriaRows[Insert.loc[i, 'Meld Slots'] + 2:5]] = MinorMateriaValue
             else:
                 MajorMeldRows = MateriaRows[:Insert.loc[i, 'Meld Slots']]
-                Insert.loc[i, MajorMeldRows] = MajorMateriaValue
+                Insert.iloc[i, MajorMeldRows+1] = MajorMateriaValue
 
         Insert = Insert[['Slot', 'Idx', 'Ilvl', 'StatCap', 'Name', 'Unique', 'WD', 'Int', 'DH', 'Crit', 'Det', 'SS',
                          'MateriaId1', 'MateriaId2', 'MateriaId3', 'MateriaId4', 'MateriaId5']]

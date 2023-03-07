@@ -1,35 +1,33 @@
 import numpy as np
+import random
 
-def StatWeightGearSet(MateriaFrame, DHWeight=np.random.rand(), CritWeight=np.random.rand(),
-                      DetWeight=np.random.rand(), SSWeight=np.random.rand()):
+def StatWeightGearSet(materia_frame, DHWeight=random.random(), CritWeight=random.random(),
+                         DetWeight=random.random(), SSWeight=random.random()):
+  
+    slots = np.unique(materia_frame['Slot'])
+    gear_set = []
     
-    Slots = np.unique(MateriaFrame['Slot'])
-    Set = np.array([], dtype=np.int64)
-    for slot in Slots:
-        Items = MateriaFrame[MateriaFrame['Slot'] == slot]
-        Items['Weights'] = DHWeight*Items['DH'] + CritWeight*Items['Crit'] + DetWeight*Items['Det'] + SSWeight*Items['SS']
-        Weight_Max = np.max(Items['Weights'])
-        Set = np.append(Set, int(Items.loc[Items['Weights'] == Weight_Max].index[0]))
-
-    Set = Set.astype(np.int64)
-    Slots = Slots[0:-1]
-    Slots = np.append(Slots, 'Finger1')
-    Set = np.append(Set, 0)
-    Set = Set.astype(np.int64)
-    Names = dict(zip(MateriaFrame.index, MateriaFrame['Name']))
-    Unique = dict(zip(MateriaFrame.index, MateriaFrame['Unique']))
+    for slot in slots:
+        items = materia_frame[materia_frame['Slot'] == slot]
+        items['Weights'] = (DHWeight*items['DH'] + CritWeight*items['Crit'] +
+                            DetWeight*items['Det'] + SSWeight*items['SS'])
+        weight_max = np.max(items['Weights'])
+        gear_set.append(items.index[np.argmin(np.abs(items['Weights'] - weight_max))])
     
-    if Unique[Set[-1]]:
-        Items = MateriaFrame.drop(index=Set[-1])
-        Items['Weights'] = DHWeight*Items['DH'] + CritWeight*Items['Crit'] + DetWeight*Items['Det'] + SSWeight*Items['SS']
-        Weight_Max = np.max(Items['Weights'])
-        Set[-1] = int(Items.loc[Items['Weights'] == Weight_Max].index[0])
+    gear_set = [int(x) for x in gear_set]
+    slots = slots[0:len(slots)-1]
+    slots = np.append(slots, 'Finger1')
+    gear_set = dict(zip(slots, gear_set))
+    
+    if materia_frame.loc[gear_set['Finger1'], 'Unique']:
+        items = items[items['Name'] != materia_frame.loc[gear_set['Finger1'], 'Name']]
+    
+    items['Weights'] = (DHWeight*items['DH'] + CritWeight*items['Crit'] +
+                        DetWeight*items['Det'] + SSWeight*items['SS'])
+    weight_max = np.max(items['Weights'])
+    gear_set['Finger2'] = int(items.index[np.argmin(np.abs(items['Weights'] - weight_max))])
+    
+    del items, CritWeight, DetWeight, DHWeight, slot, slots, SSWeight, weight_max
+    return list(gear_set.values())
 
-    Set[-1] = int(Set[-1])
-    Set[-2] = int(Set[-2])
-    Set = np.append(Set, int(Items.loc[Items['Weights'] == Weight_Max].index[0]))
-    Names[''] = 'Base'
-    Names[Set[-1]] = 'Base'
-    Names[Set[-2]] = 'Base'
-    GearSetFrame = MateriaFrame.loc[Set].rename(index=Names)
-    return GearSetFrame
+
