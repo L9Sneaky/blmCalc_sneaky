@@ -3,7 +3,7 @@ import numpy as np
 def FoodFrame(Menu, minIlvl):
     Food = Menu[Menu['Ilvl'] >= minIlvl].copy()
     Food['Remove'] = np.nan
-
+    Food = Food.reset_index(drop=True)
     for i in range(len(Food)):
         cond1 = Food['DH'] >= Food.loc[i, 'DH']
         cond2 = Food['Crit'] >= Food.loc[i, 'Crit']

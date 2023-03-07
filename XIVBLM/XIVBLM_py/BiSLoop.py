@@ -1,12 +1,14 @@
 import numpy as np
-from XIVBLM_py import Gear_Replace
+from XIVBLM_py.Gear_Replace import Gear_Replace, Gear_Replace_DPS
+from XIVBLM_py.FoodApply import food_apply
+
 def BiSLoop(MateriaFrame, Food, GearSet):
     MateriaFrame['DPS'] = np.nan
     Temp = 1
     GearDPS = 0
     
     while Temp > GearDPS:
-        GearDPS = float(Food.Apply(MateriaFrame, GearSet, Food)['DPS'])
+        GearDPS = float(food_apply(MateriaFrame, GearSet, Food)['DPS'])
         for i in range(MateriaFrame.shape[0]):
             MateriaFrame['DPS'][i] = Gear_Replace_DPS(MateriaFrame, Food, GearSet, i)
         Temp = np.nanmax(MateriaFrame['DPS'])

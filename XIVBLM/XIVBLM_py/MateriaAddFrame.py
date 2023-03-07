@@ -2,10 +2,11 @@ import pandas as pd
 import numpy as np
 
 def MateriaAddFrame(GearPiece):
-    Columns = GearPiece.tolist()
-    MateriaIDCols = [i for i in range(len(Columns)) if isinstance(Columns[i], str) and 'Materia' in Columns[i]]
+    Columns = GearPiece.keys()
+    # MateriaIDCols = [i for i in range(len(Columns)) if isinstance(Columns[i], str) and 'Materia' in Columns[i]]
+    MateriaIDCols = [i for i in range(len(Columns)) if 'Materia' in Columns[i]]
 
-    MValue = GearPiece.iloc[:, MateriaIDCols].values.astype(int)
+    MValue = GearPiece.iloc[MateriaIDCols].values.astype(int)
 
     GearPiece = GearPiece.drop(columns=Columns[MateriaIDCols])
     stats = [s for s in Columns if s not in ['Slot', 'Idx', 'Ilvl', 'StatCap', 'Name', 'Unique', 'WD', 'Int']]
@@ -30,8 +31,7 @@ def MateriaAddFrame(GearPiece):
     MateriaBase.drop_duplicates(subset=stats, inplace=True)
     MateriaBase.index = range(1, len(MateriaBase)+1)
     MateriaBase['Materia'] = MateriaBase['Materia'].str[1:]
-
-    GearPieceWithMateria = pd.merge(GearPiece, MateriaBase, on=None)
+    GearPieceWithMateria = pd.merge(GearPiece.to_frame().transpose(),  MateriaBase, on=['DH', 'Crit', 'Det', 'SS', 'MateriaId1', 'MateriaId2', 'MateriaId3', 'MateriaId4', 'MateriaId5'], how='left')
     StatCap = GearPieceWithMateria['StatCap']
 
     for stat in stats:

@@ -6,16 +6,16 @@ from XIVBLM_py.BiSLoop import BiSLoop
 from XIVBLM_py.ItemReturnString import ItemReturnString
 
 # Load gear file
-GearFile = "/home/hp/personal/blmCalc_sneaky/XIVBLM/Gear Tables/DSR_BIS.csv"
+GearFile = "XIVBLM\Gear Tables\DSR_BIS.csv"
 MateriaFrame = MateriaFrameGenerate(GearFile)
 GearFile = GearFile.replace('.csv', '')
 
 # Load food data
-Menu = pd.read_csv('Tables/Menu.csv')
+Menu = pd.read_csv('XIVBLM\Tables\Menu.csv')
 Food = FoodFrame(Menu=Menu, minIlvl=max(Menu['Ilvl']))
 
 # Load stat weights
-StatWeightChart = pd.read_csv("Tables\\StatWeightStart.csv")
+StatWeightChart = pd.read_csv("XIVBLM\Tables\StatWeightStart.csv")
 
 for i in range(len(StatWeightChart)):
     Set = StatWeightGearSet(MateriaFrame,

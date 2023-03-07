@@ -1,9 +1,9 @@
 import numpy as np
-from XIVBLM_py.DPS import dps
-from XIVBLM_py.GearStats import gear_stats
-from XIVBLM_py.GearIllegal import gear_illegal
+from XIVBLM_py.DPS import DPS
+from XIVBLM_py.GearStats import GearStats
+from XIVBLM_py.GearIllegal import Gear_Illegal
 def food_apply(materia_frame, gear_set, menu):
-    if gear_illegal(materia_frame, gear_set):
+    if Gear_Illegal(materia_frame, gear_set):
         return {
             'Food': 'Illegal',
             'WD': 0,
@@ -15,7 +15,7 @@ def food_apply(materia_frame, gear_set, menu):
             'DPS': 0
         }
 
-    base_stats = gear_stats(materia_frame, gear_set)
+    base_stats = GearStats(materia_frame, gear_set)
     menu['DPS'] = np.nan
 
     for i in range(len(menu)):
@@ -23,7 +23,7 @@ def food_apply(materia_frame, gear_set, menu):
         menu.iloc[i]['Crit'] = min(np.floor(1.1 * base_stats['Crit']), base_stats['Crit'] + menu.iloc[i]['Crit'])
         menu.iloc[i]['Det'] = min(np.floor(1.1 * base_stats['Det']), base_stats['Det'] + menu.iloc[i]['Det'])
         menu.iloc[i]['SS'] = min(np.floor(1.1 * base_stats['SS']), base_stats['SS'] + menu.iloc[i]['SS'])
-        menu.iloc[i]['DPS'] = dps(
+        menu.iloc[i]['DPS'] = DPS(
             WD=base_stats['WD'],
             Int=base_stats['Int'],
             DH=menu.iloc[i]['DH'],
