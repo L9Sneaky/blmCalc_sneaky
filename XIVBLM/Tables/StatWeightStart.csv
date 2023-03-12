@@ -1,4 +1,4 @@
-InitialDHWeight,InitialCritWeight,InitialDetWeight,InitialSSWeight,Weapon,Head,Chest,Gloves,Legs,Feet,Ear,Neck,Wrist,Finger 1,Finger 2,Food,WD,Int,DH,Crit,Det,SS,DPS
+InitialDHWeight,InitialCritWeight,InitialDetWeight,InitialSSWeight,Weapon,Head,Chest,Hands,Legs,Feet,Ear,Neck,Wrist,Finger1,Finger2,Food,WD,Int,DH,Crit,Det,SS,DPS
 6400,80,1,0,0,0,0,0,0,0,0,0,0,0,0,String,0,0,0,0,0,0,0
 6400,80,0,1,0,0,0,0,0,0,0,0,0,0,0,String,0,0,0,0,0,0,0
 6400,1,80,0,0,0,0,0,0,0,0,0,0,0,0,String,0,0,0,0,0,0,0

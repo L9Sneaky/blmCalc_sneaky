@@ -19,11 +19,11 @@ def food_apply(materia_frame, gear_set, menu):
     menu['DPS'] = np.nan
 
     for i in range(len(menu)):
-        menu.iloc[i]['DH'] = min(np.floor(1.1 * base_stats['DH']), base_stats['DH'] + menu.iloc[i]['DH'])
-        menu.iloc[i]['Crit'] = min(np.floor(1.1 * base_stats['Crit']), base_stats['Crit'] + menu.iloc[i]['Crit'])
-        menu.iloc[i]['Det'] = min(np.floor(1.1 * base_stats['Det']), base_stats['Det'] + menu.iloc[i]['Det'])
-        menu.iloc[i]['SS'] = min(np.floor(1.1 * base_stats['SS']), base_stats['SS'] + menu.iloc[i]['SS'])
-        menu.iloc[i]['DPS'] = DPS(
+        menu['DH'][i] = min(np.floor(1.1 * base_stats['DH']), base_stats['DH'] + menu.iloc[i]['DH'])
+        menu['Crit'][i] = min(np.floor(1.1 * base_stats['Crit']), base_stats['Crit'] + menu.iloc[i]['Crit'])
+        menu['Det'][i] = min(np.floor(1.1 * base_stats['Det']), base_stats['Det'] + menu.iloc[i]['Det'])
+        menu['SS'][i] = min(np.floor(1.1 * base_stats['SS']), base_stats['SS'] + menu.iloc[i]['SS'])
+        menu['DPS'][i] = DPS(
             WD=base_stats['WD'],
             Int=base_stats['Int'],
             DH=menu.iloc[i]['DH'],
