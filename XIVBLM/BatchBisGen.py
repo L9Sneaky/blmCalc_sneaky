@@ -38,6 +38,6 @@ for i in range(len(StatWeightChart)):
 
 StatWeightChart = StatWeightChart.sort_values(by=['DPS'], ascending=False)
 
-OutputName = f"GearSetOutcomes{GearFile}"
+OutputName = f"{GearFile}"
 StatWeightChart.to_csv(f"{OutputName} (Debug).csv", index=False)
 StatWeightChart[~StatWeightChart.iloc[:, 16:24].duplicated()].iloc[:, 4:24].to_csv(f"{OutputName}.csv", index=False)
