@@ -1,4 +1,5 @@
 import math as Math
+from XIVBLM_py.ppsCalc import ThunderPps, FirePps
 # Party buff things
 battleVoiceAvg = (15 / 120) * 0.2
 battleLitanyAvg = (15 / 120) * 0.1
@@ -19,8 +20,10 @@ baseSub = 400
 
 
 # Pulled from Orinx's Gear Comparison Sheet with slight modifications
-def Damage(Potency, WD, JobMod, MainStat, Det, Crit, DH, SS, TEN, hasBrd, hasDrg, hasSch, hasDnc, classNum):
-    MainStat = Math.floor(MainStat*(1+0.01*classNum))
+def Damage(WD, Int, DH, Crit, Det, SS=400, TEN=400, hasBrd=0, hasDrg=0, hasSch=0, hasDnc=0, classNum=1):
+    Potency = FirePps(SS)
+    JobMod = 115
+    MainStat = Math.floor(Int*(1+0.01*classNum))
     Damage = Math.floor(Potency*(WD+Math.floor(baseMain*JobMod/1000))*(100+Math.floor((MainStat-baseMain)*195/baseMain))/100)
     Damage = Math.floor(Damage*(1000+Math.floor(140*(Det-baseMain)/levelMod))/1000)
     Damage = Math.floor(Damage*(1000+Math.floor(100*(TEN-baseSub)/levelMod))/1000)

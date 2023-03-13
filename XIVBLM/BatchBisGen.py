@@ -1,4 +1,5 @@
 import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'
 from XIVBLM_py.MateriaFrameGenerate import MateriaFrameGenerate
 from XIVBLM_py.StatWeightGearGen import StatWeightGearSet
 from XIVBLM_py.BiSLoop import BiSLoop
@@ -25,7 +26,7 @@ for i in range(len(StatWeightChart)):
     print(f"Running set {i+1}/{len(StatWeightChart)}: DH={StatWeightChart['InitialDHWeight'][i]}, Crit={StatWeightChart['InitialCritWeight'][i]}, Det={StatWeightChart['InitialDetWeight'][i]}, SS={StatWeightChart['InitialSSWeight'][i]}")
     MateriaFrame = MateriaFrame.reset_index(drop=True)
     Set = BiSLoop(MateriaFrame, Food, Set)
-
+    # print(MateriaFrame.iloc[list(Set.values())])
     for slot in range(4, 15):
         StatWeightChart.iloc[i, slot] = ItemReturnString(MateriaFrame, Set[StatWeightChart.keys()[slot]])
 

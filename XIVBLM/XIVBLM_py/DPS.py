@@ -4,9 +4,10 @@ from XIVBLM_py.Crit import Crit_DPS
 from XIVBLM_py.Det import Det_DPS
 from XIVBLM_py.PPS import PPS
 from XIVBLM_py.DamagePerPotency import damage_per_potency
-
+from XIVBLM_py.ppsCalc import ThunderPps
 def DPS(WD, Int, DH, Crit, Det, SS):
     SelfEsteem = np.floor(100 * PPS(SS) * damage_per_potency(WD, np.floor(Int * 1.05)))
+    # SelfEsteem = np.floor(100 * ThunderPps(SS) * damage_per_potency(WD, np.floor(Int * 1.05)))
     SelfEsteem = np.floor(SelfEsteem * Det_DPS(Det) / 100)
     SelfEsteem = np.floor(1.3 * SelfEsteem)
     SelfEsteem = np.floor(1.2 * SelfEsteem)

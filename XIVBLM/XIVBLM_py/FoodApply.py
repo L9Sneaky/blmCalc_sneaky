@@ -1,5 +1,6 @@
 import numpy as np
 from XIVBLM_py.DPS import DPS
+from XIVBLM_py.dpsCalc import Damage
 from XIVBLM_py.GearStats import GearStats
 from XIVBLM_py.GearIllegal import Gear_Illegal
 def food_apply(materia_frame, gear_set, menu):
@@ -16,31 +17,31 @@ def food_apply(materia_frame, gear_set, menu):
         }
 
     base_stats = GearStats(materia_frame, gear_set)
-    menu['DPS'] = np.nan
+    copy_menu = menu.copy()
+    copy_menu['DPS'] = np.nan
 
     for i in range(len(menu)):
-        menu['Food'][i]= menu.iloc[i]['Food']
-        menu['DH'][i] = min(np.floor(1.1 * base_stats['DH']), base_stats['DH'] + menu.iloc[i]['DH'])
-        menu['Crit'][i] = min(np.floor(1.1 * base_stats['Crit']), base_stats['Crit'] + menu.iloc[i]['Crit'])
-        menu['Det'][i] = min(np.floor(1.1 * base_stats['Det']), base_stats['Det'] + menu.iloc[i]['Det'])
-        menu['SS'][i] = min(np.floor(1.1 * base_stats['SS']), base_stats['SS'] + menu.iloc[i]['SS'])
-        menu['DPS'][i] = DPS(
+        copy_menu['DH'][i] = min(np.floor(1.1 * base_stats['DH']), base_stats['DH'] + menu.iloc[i]['DH'])
+        copy_menu['Crit'][i] = min(np.floor(1.1 * base_stats['Crit']), base_stats['Crit'] + menu.iloc[i]['Crit'])
+        copy_menu['Det'][i] = min(np.floor(1.1 * base_stats['Det']), base_stats['Det'] + menu.iloc[i]['Det'])
+        copy_menu['SS'][i] = min(np.floor(1.1 * base_stats['SS']), base_stats['SS'] + menu.iloc[i]['SS'])
+        copy_menu['DPS'][i] = DPS(
             WD=base_stats['WD'],
             Int=base_stats['Int'],
-            DH=menu.iloc[i]['DH'],
-            Crit=menu.iloc[i]['Crit'],
-            Det=menu.iloc[i]['Det'],
-            SS=menu.iloc[i]['SS']
+            DH=copy_menu.iloc[i]['DH'],
+            Crit=copy_menu.iloc[i]['Crit'],
+            Det=copy_menu.iloc[i]['Det'],
+            SS=copy_menu.iloc[i]['SS']
         )
 
-    chef = menu['DPS'].idxmax()
+    chef = copy_menu['DPS'].idxmax()
     return {
-        'Food': menu.loc[chef, 'Food'],
+        'Food': copy_menu.loc[chef, 'Food'],
         'WD': base_stats['WD'],
         'Int': base_stats['Int'],
-        'DH': menu.loc[chef, 'DH'],
-        'Crit': menu.loc[chef, 'Crit'],
-        'Det': menu.loc[chef, 'Det'],
-        'SS': menu.loc[chef, 'SS'],
-        'DPS': menu.loc[chef, 'DPS']
+        'DH': copy_menu.loc[chef, 'DH'],
+        'Crit': copy_menu.loc[chef, 'Crit'],
+        'Det': copy_menu.loc[chef, 'Det'],
+        'SS': copy_menu.loc[chef, 'SS'],
+        'DPS': copy_menu.loc[chef, 'DPS']
     }

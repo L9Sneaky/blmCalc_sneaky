@@ -1,6 +1,6 @@
 # %%
 import itertools
-from dpsCalc import Damage
+from XIVBLM.XIVBLM_py.dpsCalc import Damage
 from finalCalc import finalResult2
 from etroGetter import get_set_from_etro, get_set_from_etro2
 import pandas as pd

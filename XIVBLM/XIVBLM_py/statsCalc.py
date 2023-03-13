@@ -1,5 +1,5 @@
 import math as Math
-from dpsCalc import CalcDHRate, CalcCritRate, CalcCritDamage
+from XIVBLM_py.dpsCalc import CalcDHRate, CalcCritRate, CalcCritDamage
 
 battleVoiceAvg = (15 / 120) * 0.2
 battleLitanyAvg = (15 / 120) * 0.1
