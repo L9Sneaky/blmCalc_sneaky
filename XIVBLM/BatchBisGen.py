@@ -6,10 +6,7 @@ from XIVBLM_py.ItemReturnString import ItemReturnString
 from XIVBLM_py.FoodFrame import FoodFrame
 from XIVBLM_py.FoodApply import food_apply
 
-
-
-
-GearFile = 'XIVBLM/Gear Tables/DSR_BIS.csv'
+GearFile = 'XIVBLM/Gear Tables/DSR_gear.csv'
 MateriaFrame = MateriaFrameGenerate(GearFile)
 GearFile = GearFile.replace('.csv', '')
 
@@ -29,7 +26,7 @@ for i in range(len(StatWeightChart)):
     MateriaFrame = MateriaFrame.reset_index(drop=True)
     Set = BiSLoop(MateriaFrame, Food, Set)
 
-    for slot in range(4, 14):
+    for slot in range(4, 15):
         StatWeightChart.iloc[i, slot] = ItemReturnString(MateriaFrame, Set[StatWeightChart.keys()[slot]])
 
     Attributes = food_apply(MateriaFrame, Set, Food)
@@ -38,6 +35,7 @@ for i in range(len(StatWeightChart)):
 
 StatWeightChart = StatWeightChart.sort_values(by=['DPS'], ascending=False)
 
-OutputName = f"{GearFile}"
+OutputName = f"{GearFile} GearSetOutcomes"
+file_name = GearFile.split('/')[-1]
 StatWeightChart.to_csv(f"{OutputName} (Debug).csv", index=False)
 StatWeightChart[~StatWeightChart.iloc[:, 16:24].duplicated()].iloc[:, 4:24].to_csv(f"{OutputName}.csv", index=False)
