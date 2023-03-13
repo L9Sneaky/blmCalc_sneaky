@@ -19,6 +19,7 @@ def food_apply(materia_frame, gear_set, menu):
     menu['DPS'] = np.nan
 
     for i in range(len(menu)):
+        menu['Food'][i]= menu.iloc[i]['Food']
         menu['DH'][i] = min(np.floor(1.1 * base_stats['DH']), base_stats['DH'] + menu.iloc[i]['DH'])
         menu['Crit'][i] = min(np.floor(1.1 * base_stats['Crit']), base_stats['Crit'] + menu.iloc[i]['Crit'])
         menu['Det'][i] = min(np.floor(1.1 * base_stats['Det']), base_stats['Det'] + menu.iloc[i]['Det'])
