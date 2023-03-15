@@ -23,7 +23,7 @@ def MateriaFrameGenerate(GearSetFilePath=None):
             set(MateriaFrame.loc[MateriaFrame['Det']>=MateriaFrame.loc[i, 'Det'], ].index)).intersection(
             set(MateriaFrame.loc[MateriaFrame['SS']>=MateriaFrame.loc[i, 'SS'], ].index)).intersection(
             set(MateriaFrame.loc[MateriaFrame['Slot']==MateriaFrame.loc[i, 'Slot'], ].index))
-        )
+            )
     
     MateriaFrame = MateriaFrame[MateriaFrame['Prune']==1]
     MateriaFrame = MateriaFrame.drop('Prune', axis=1).reset_index(drop=True)

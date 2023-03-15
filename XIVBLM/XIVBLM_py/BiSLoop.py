@@ -8,7 +8,7 @@ def BiSLoop(MateriaFrame, Food, GearSet):
     Temp = 1
     GearDPS = 0
     n = 0
-    conf = 100
+    conf = 50
     while(Temp > GearDPS):
         if n >= conf:
             print(f'n over {conf}')

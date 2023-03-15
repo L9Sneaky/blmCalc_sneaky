@@ -1,8 +1,9 @@
 # %%
 import itertools
-from XIVBLM.XIVBLM_py.dpsCalc import Damage
+from XIVBLM.XIVBLM_py.dpsCalc import Damage2
 from finalCalc import finalResult2
 from etroGetter import get_set_from_etro, get_set_from_etro2
+from XIVBLM.XIVBLM_py.ppsCalc import new_BLM_thunder_pps
 import pandas as pd
 import numpy as np
 import yaml
@@ -48,9 +49,9 @@ def getAvgDamage(GearStat, c: bool = False):
         hasSch = 0
         hasDnc = 0
     firePps, thunderPps = finalResult2(GearStat['Sps'])
-    fireDamage = Damage(firePps, GearStat['WD'], 115, GearStat['Int'], GearStat['Det'],
+    fireDamage = Damage2(firePps, GearStat['WD'], 115, GearStat['Int'], GearStat['Det'],
                         GearStat['Crit'], GearStat['DH'], 400, 400, hasBrd, hasDrg, hasSch, hasDnc, 5)
-    thunderDamage = Damage(thunderPps, GearStat['WD'], 115, GearStat['Int'], GearStat['Det'],
+    thunderDamage = Damage2(thunderPps, GearStat['WD'], 115, GearStat['Int'], GearStat['Det'],
                            GearStat['Crit'], GearStat['DH'], 400, 400, hasBrd, hasDrg, hasSch, hasDnc, 5)
     return round(fireDamage, 2), round(thunderDamage, 2)
 
@@ -247,6 +248,8 @@ bestgear = bestgear.sort_values('#').set_index('#')
 bestgear.columns
 bestgear = bestgear[['Name', 'Type', 'ilvl', 'WD', 'Int', 'DH', 'Crit', 'Det', 'Sps']]
 # %%
-print(bestgear)
-print(bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain,2))
+print(stat['Sps'])
+print(finalResult2(stat['Sps']))
+print(new_BLM_thunder_pps(stat['Sps']))
+# print(bestgear['ilvl'].mean(), stat, food['Name'], damage, round(gain,2))
 # %%

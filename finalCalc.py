@@ -1,5 +1,5 @@
 import math
-from XIVBLM.XIVBLM_py.ppsCalc import FirePps, ThunderPps
+from XIVBLM.XIVBLM_py.oldPpsCalc import FirePps, ThunderPps
 casterTax = 0.12
 
 

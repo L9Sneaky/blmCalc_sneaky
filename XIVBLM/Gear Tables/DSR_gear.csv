@@ -24,3 +24,34 @@ Manalis Dress Gloves of Casting,Hands,605,TRUE,2,FALSE,Crit,SS
 Manalis Trousers of Casting,Legs,605,TRUE,2,FALSE,Det,Crit
 Manalis Boots of Casting,Feet,605,TRUE,2,FALSE,SS,Det
 Manalis Ring of Casting,Finger,605,TRUE,1,FALSE,DH,Det
+Augmented Lunar Envoy's Hairpin of Casting,Head,605,TRUE,0,FALSE,Crit,Det
+Augmented Lunar Envoy's Justaucorps of Casting,Chest,605,TRUE,0,FALSE,DH,SS
+Augmented Lunar Envoy's Gloves of Casting,Hands,605,TRUE,0,FALSE,SS,DH
+Augmented Lunar Envoy's Longkilt of Casting,Legs,605,TRUE,0,FALSE,Crit,Det
+Augmented Lunar Envoy's Boots of Casting,Feet,605,TRUE,0,FALSE,DH,Crit
+Augmented Lunar Envoy's Earring of Casting,Ear,605,TRUE,0,FALSE,SS,Det
+Augmented Lunar Envoy's Necklace of Casting,Neck,605,TRUE,0,FALSE,Det,Crit
+Augmented Lunar Envoy's Bracelets of Casting,Wrist,605,TRUE,0,FALSE,SS,Det
+Augmented Lunar Envoy's Ring of Casting,Finger,605,TRUE,0,FALSE,DH,Det
+Abyssos Helm of Casting,Head,605,TRUE,0,FALSE,DH,SS
+Abyssos Surcoat of Casting,Chest,605,TRUE,0,FALSE,Crit,Det
+Abyssos Armguards of Casting,Hands,605,TRUE,0,FALSE,Crit,Det
+Abyssos Culottes of Casting,Legs,605,TRUE,0,FALSE,SS,DH
+Abyssos Boots of Casting,Feet,605,TRUE,0,FALSE,SS,DH
+Abyssos Earrings of Casting,Ear,605,TRUE,0,FALSE,Det,Crit
+Abyssos Choker of Casting,Neck,605,TRUE,0,FALSE,SS,DH
+Abyssos Amulet of Casting,Wrist,605,TRUE,0,FALSE,Crit,DH
+Abyssos Ring of Casting,Finger,605,TRUE,0,FALSE,Crit,SS
+Augmented Lunar Envoy's Staff,Weapon,605,TRUE,0,FALSE,Det,DH
+Abyssos Rod,Weapon,605,TRUE,0,FALSE,SS,Crit
+Rinascita Hood of Casting,Head,605,FALSE,0,TRUE,Crit,DH
+Rinascita Coat of Casting,Chest,605,FALSE,0,TRUE,Det,SS
+Rinascita Armguards of Casting,Hands,605,FALSE,0,TRUE,Crit,DH
+Rinascita Poleyns of Casting,Legs,605,FALSE,0,TRUE,Crit,Det
+Rinascita Shoes of Casting,Feet,605,FALSE,0,TRUE,SS,Det
+Rinascita Earring of Casting,Ear,605,FALSE,0,TRUE,Crit,DH
+Rinascita Necklace of Casting,Neck,605,FALSE,0,TRUE,SS,DH
+Rinascita Bracelet of Casting,Wrist,605,FALSE,0,TRUE,DH,SS
+Rinascita Ring of Casting,Finger,605,FALSE,0,TRUE,Crit,SS
+Rinascita Rod,Weapon,605,FALSE,0,TRUE,SS,Crit
+Windswept Rod,Weapon,605,TRUE,0,FALSE,Crit,SS

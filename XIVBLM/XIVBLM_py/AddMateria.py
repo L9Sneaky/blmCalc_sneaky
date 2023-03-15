@@ -9,6 +9,7 @@ def MateriaAddFrame(GearPiece):
     GearPiece = GearPiece.drop(columns=MateriaIDCols)
     stats = [col for col in Columns if col not in ['Slot', 'Idx', 'Ilvl', 'StatCap', 'Name', 'Unique', 'WD', 'Int', *MateriaIDCols]]
     numstats = len(stats)
+    MaxStatValue=GearPiece[stats].values.max()
 
     MateriaBase = pd.DataFrame({'Materia': stats})
     MateriaBase[stats] = np.diag(np.zeros(numstats))

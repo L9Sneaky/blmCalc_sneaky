@@ -1,6 +1,6 @@
 import numpy as np
-from XIVBLM_py.DPS import DPS
-from XIVBLM_py.dpsCalc import Damage
+# from XIVBLM_py.DPS import DPS
+from XIVBLM_py.dpsCalc import DPS
 from XIVBLM_py.GearStats import GearStats
 from XIVBLM_py.GearIllegal import Gear_Illegal
 def food_apply(materia_frame, gear_set, menu):
