@@ -8,7 +8,7 @@ def BiSLoop(MateriaFrame, Food, GearSet):
     Temp = 1
     GearDPS = 0
     n = 0
-    conf = 50
+    conf = 6
     while(Temp > GearDPS):
         if n >= conf:
             print(f'n over {conf}')
@@ -21,4 +21,4 @@ def BiSLoop(MateriaFrame, Food, GearSet):
         NewPiece = MateriaFrame.loc[MateriaFrame['DPS'] == Temp].sample(n=1).index[0]
         GearSet = Gear_Replace(MateriaFrame, Food, GearSet, NewPiece)
         n += 1
-    return GearSet
+    return GearSet, n >= conf

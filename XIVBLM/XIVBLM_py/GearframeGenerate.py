@@ -43,7 +43,10 @@ def Gearframe_Generate(InputSet, MajorMateriaValue=36, MinorMateriaValue=12):
             Insert.loc[i, 'WD'] = WDValues.loc[ilvl,StatType]
             Insert.loc[i, 'Int'] = MainStatValues.loc[ilvl,StatType]
             Insert.loc[i, Insert.loc[i, 'Primary']] = CapValue
-            Insert.loc[i, Insert.loc[i, 'Secondary']] = SecondaryMinorValues.loc[ilvl,StatType]
+            if Insert.loc[i, 'Name'] == 'Amazing Manderville Rod':
+                Insert.loc[i, Insert.loc[i, 'Secondary']] = CapValue
+            else:
+                Insert.loc[i, Insert.loc[i, 'Secondary']] = SecondaryMinorValues.loc[ilvl,StatType]
 
             if Insert.loc[i, 'Overmeld']:
                 MajorMeldRows = MateriaRows[:Insert.loc[i, 'Meld Slots'] + 1]

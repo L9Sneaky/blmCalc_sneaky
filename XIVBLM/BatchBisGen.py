@@ -15,17 +15,23 @@ Menu = pd.read_csv('XIVBLM/Tables/Menu.csv')
 Food = FoodFrame(Menu=Menu, minIlvl=max(Menu.Ilvl))
 
 StatWeightChart = pd.read_csv('XIVBLM/Tables/StatWeightStart.csv')
-
-for i in range(len(StatWeightChart)):
+StatWeightChart['Gain'] = 0
+baseDPS = 8147.13
+nSkipped = 0
+runs = len(StatWeightChart)
+for i in range(runs):
     Set = StatWeightGearSet(MateriaFrame,
                             DHWeight=StatWeightChart['InitialDHWeight'][i],
                             CritWeight=StatWeightChart['InitialCritWeight'][i],
                             DetWeight=StatWeightChart['InitialDetWeight'][i],
                             SSWeight=StatWeightChart['InitialSSWeight'][i])
-
-    print(f"Running set {i+1}/{len(StatWeightChart)}: DH={StatWeightChart['InitialDHWeight'][i]}, Crit={StatWeightChart['InitialCritWeight'][i]}, Det={StatWeightChart['InitialDetWeight'][i]}, SS={StatWeightChart['InitialSSWeight'][i]}")
+    print(f"Running set {i+1}/{runs}: DH={StatWeightChart['InitialDHWeight'][i]}, Crit={StatWeightChart['InitialCritWeight'][i]}, Det={StatWeightChart['InitialDetWeight'][i]}, SS={StatWeightChart['InitialSSWeight'][i]}")
     MateriaFrame = MateriaFrame.reset_index(drop=True)
-    Set = BiSLoop(MateriaFrame, Food, Set)
+    Set, skip = BiSLoop(MateriaFrame, Food, Set)
+    if skip:
+        StatWeightChart.iloc[i, 4:23] = 'Skipped'
+        nSkipped += 1
+        continue
     # print(MateriaFrame.iloc[list(Set.values())])
     for slot in range(4, 15):
         StatWeightChart.iloc[i, slot] = ItemReturnString(MateriaFrame, Set[StatWeightChart.keys()[slot]])
@@ -33,10 +39,13 @@ for i in range(len(StatWeightChart)):
     Attributes = food_apply(MateriaFrame, Set, Food)
     for slot in range(15, 23):
         StatWeightChart.iloc[i, slot] = Attributes[StatWeightChart.keys()[slot]]
+    
+    StatWeightChart.loc[i, 'Gain'] = str(((Attributes['DPS']/baseDPS)-1)*100)[:5] + '%'
 
-StatWeightChart = StatWeightChart.sort_values(by=['DPS'], ascending=False)
+# StatWeightChart = StatWeightChart.sort_values(by=['Gain'], ascending=False)
 
 OutputName = f"{GearFile} GearSetOutcomes"
 file_name = GearFile.split('/')[-1]
 StatWeightChart.to_csv(f"{OutputName} (Debug).csv", index=False)
 StatWeightChart[~StatWeightChart.iloc[:, 16:24].duplicated()].iloc[:, 4:24].to_csv(f"{OutputName}.csv", index=False)
+print(f"Skipped {nSkipped} sets")

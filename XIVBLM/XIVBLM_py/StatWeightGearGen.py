@@ -1,8 +1,8 @@
 import numpy as np
 import random
 
-def StatWeightGearSet(materia_frame, DHWeight=random.random(), CritWeight=random.random(),
-                         DetWeight=random.random(), SSWeight=random.random()):
+def StatWeightGearSet(materia_frame, DHWeight=random.randint(-1, 1000000), CritWeight=random.randint(-1, 1000000),
+                         DetWeight=random.randint(-1, 1000000), SSWeight=random.randint(-1, 1000000)):
   
     slots = np.unique(materia_frame['Slot'])
     gear_set = []
