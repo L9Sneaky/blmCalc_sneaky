@@ -1,0 +1,12 @@
+Name,Slot,Ilvl,Unique,Meld Slots,Overmeld,Primary,Secondary
+Diadochos Rod,Weapon,640,FALSE,2,TRUE,SS,Crit
+Voidcast Rod,Weapon,645,TRUE,2,FALSE,Crit,SS
+Diadochos Beret,Head,640,FALSE,2,TRUE,SS,Det
+Diadochos Coat,Chest,640,FALSE,2,TRUE,Crit,Det
+Diadochos Armlets,Hands,640,FALSE,2,TRUE,Crit,DH
+Diadochos Bottoms,Legs,640,False,2,TRUE,DH,Crit
+Diadochos Boots,Feet,640,FALSE,2,TRUE,Crit,SS
+Diadochos Earring,Ear,640,FALSE,1,TRUE,Det,DH
+Diadochos Choker,Neck,640,FALSE,1,TRUE,Crit,Det
+Diadochos Wristband,Wrist,640,FALSE,1,TRUE,DH,SS
+Diadochos Ring,Finger,640,FALSE,1,TRUE,Crit,SS

@@ -7,7 +7,8 @@ from XIVBLM_py.ItemReturnString import ItemReturnString
 from XIVBLM_py.FoodFrame import FoodFrame
 from XIVBLM_py.FoodApply import food_apply
 
-GearFile = 'XIVBLM/Gear Tables/DSR_gear.csv'
+
+GearFile = 'XIVBLM/6.4/Crafted Gear.csv'
 MateriaFrame = MateriaFrameGenerate(GearFile)
 GearFile = GearFile.replace('.csv', '')
 
