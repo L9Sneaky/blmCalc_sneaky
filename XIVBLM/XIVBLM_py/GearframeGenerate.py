@@ -50,8 +50,8 @@ def Gearframe_Generate(InputSet, MajorMateriaValue=36, MinorMateriaValue=12):
 
             if Insert.loc[i, 'Overmeld']:
                 MajorMeldRows = MateriaRows[:Insert.loc[i, 'Meld Slots'] + 1]
-                Insert.loc[i, MajorMeldRows] = MajorMateriaValue
-                Insert.loc[i, MateriaRows[Insert.loc[i, 'Meld Slots'] + 2:5]] = MinorMateriaValue
+                Insert.iloc[i, MajorMeldRows+1] = MajorMateriaValue
+                Insert.iloc[i, MateriaRows[Insert.loc[i, 'Meld Slots'] + 1 :] + 1] = MinorMateriaValue
             else:
                 MajorMeldRows = MateriaRows[:Insert.loc[i, 'Meld Slots']]
                 Insert.iloc[i, MajorMeldRows+1] = MajorMateriaValue

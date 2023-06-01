@@ -22,3 +22,18 @@ def BiSLoop(MateriaFrame, Food, GearSet):
         GearSet = Gear_Replace(MateriaFrame, Food, GearSet, NewPiece)
         n += 1
     return GearSet, n >= conf
+
+# def BiSLoop(MateriaFrame,Food,GearSet):
+#   MateriaFrame['DPS'] = np.nan
+#   Temp = 1
+#   GearDPS = 0
+#   while Temp > GearDPS:
+#     GearDPS = Food.Apply(MateriaFrame,GearSet,Food)['DPS']
+#     for i in range(0,MateriaFrame.shape[0]):
+#       MateriaFrame['DPS'][i] = Gear_Replace_DPS(MateriaFrame,Food,GearSet,i)
+#     Temp = MateriaFrame['DPS'].max()
+#     print(Temp)
+#     NewPiece = MateriaFrame['DPS'][MateriaFrame['DPS'] == Temp]
+#     NewPiece = NewPiece.iloc[np.random.randint(0,len(NewPiece),1)]
+#     GearSet = Gear_Replace(MateriaFrame,Food,GearSet,NewPiece)
+#   return GearSet

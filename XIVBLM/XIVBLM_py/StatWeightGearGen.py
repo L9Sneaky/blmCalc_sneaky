@@ -23,8 +23,8 @@ def StatWeightGearSet(materia_frame, DHWeight=random.randint(-1, 1000000), CritW
     slots = np.array(a)
     gear_set = dict(zip(slots, gear_set))
     
+    items = materia_frame[materia_frame['Slot'] == 'Finger']
     if materia_frame.loc[gear_set['Finger1'], 'Unique']:
-        items = materia_frame[materia_frame['Slot'] == 'Finger']
         items = items[items['Name'] != materia_frame.loc[gear_set['Finger1'], 'Name']]
     
     items['Weights'] = (DHWeight*items['DH'] + CritWeight*items['Crit'] +
