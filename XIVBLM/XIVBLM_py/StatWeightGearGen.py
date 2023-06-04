@@ -1,9 +1,16 @@
 import numpy as np
 import random
 
-def StatWeightGearSet(materia_frame, DHWeight=random.randint(-1, 1000000), CritWeight=random.randint(-1, 1000000),
-                         DetWeight=random.randint(-1, 1000000), SSWeight=random.randint(-1, 1000000)):
-  
+def StatWeightGearSet(materia_frame, DHWeight=np.random.uniform(-1, 1000000), CritWeight=np.random.uniform(-1, 1000000),
+                         DetWeight=np.random.uniform(-1, 1000000), SSWeight=np.random.uniform(-1, 1000000)):
+    
+    if DetWeight == None or CritWeight == None or DHWeight == None or SSWeight == None:
+        
+        DHWeight = np.random.uniform(-1, 1000000)
+        CritWeight = np.random.uniform(-1, 1000000)
+        DetWeight = np.random.uniform(-1, 1000000)
+        SSWeight = np.random.uniform(-1, 1000000)
+
     slots = np.unique(materia_frame['Slot'])
     gear_set = []
     
@@ -33,7 +40,7 @@ def StatWeightGearSet(materia_frame, DHWeight=random.randint(-1, 1000000), CritW
     gear_set['Finger2'] = int(items.index[np.argmin(np.abs(items['Weights'] - weight_max))])
     gear_set = {key: gear_set[key] for key in sorted(gear_set)}
 
-    del items, CritWeight, DetWeight, DHWeight, slot, slots, SSWeight, weight_max
-    return gear_set
+    # del items, CritWeight, DetWeight, DHWeight, slot, slots, SSWeight, weight_max
+    return gear_set, DHWeight, CritWeight, DetWeight, SSWeight
 
 

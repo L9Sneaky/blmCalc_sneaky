@@ -17,7 +17,7 @@ def BiSLoop(MateriaFrame, Food, GearSet):
         for i in range(len(MateriaFrame)):
             MateriaFrame.loc[i, 'DPS'] = Gear_Replace_DPS(MateriaFrame, Food, GearSet, i)
         Temp = max(MateriaFrame['DPS'])
-        print(f'n:{n} - Temp: {Temp} - GearDPS: {GearDPS}')
+        # print(f'n:{n} - Temp: {Temp} - GearDPS: {GearDPS}')
         NewPiece = MateriaFrame.loc[MateriaFrame['DPS'] == Temp].sample(n=1).index[0]
         GearSet = Gear_Replace(MateriaFrame, Food, GearSet, NewPiece)
         n += 1

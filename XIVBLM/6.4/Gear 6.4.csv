@@ -1,0 +1,20 @@
+Name,Slot,Ilvl,Unique,Meld Slots,Overmeld,Primary,Secondary
+Rod of Ascension,Weapon,665,TRUE,2,FALSE,Crit,SS
+Ascension Turban,Head,660,TRUE,2,FALSE,SS,Det
+Ascension Robe,Chest,660,TRUE,2,FALSE,SS,DH
+Ascension Gloves,Hands,660,TRUE,2,FALSE,Crit,Det
+Ascension Longkilt,Legs,660,TRUE,2,FALSE,DH,Crit
+Ascension Sandals,Feet,660,TRUE,2,FALSE,Det,SS
+Ascension Earring,Ear,660,TRUE,2,FALSE,Crit,Det
+Ascension Necklace,Neck,660,TRUE,2,FALSE,DH,SS
+Ascension Bracelet,Wrist,660,TRUE,2,FALSE,Crit,Det
+Ascension Ring,Finger,660,TRUE,2,FALSE,Crit,Det
+Aug Credendum Circlet,Head,660,TRUE,2,FALSE,Crit,DH
+Aug Credendum Surcoat,Chest,660,TRUE,2,FALSE,Crit,Det
+Aug Credendum Gauntlets,Hands,660,TRUE,2,FALSE,SS,DH
+Aug Credendum Hose,Legs,660,TRUE,2,FALSE,Det,SS
+Aug Credendum Sollerets,Feet,660,TRUE,2,FALSE,DH,Crit
+Aug Credendum Earrings,Ear,660,TRUE,2,FALSE,SS,DH
+Aug Credendum Necklace,Neck,660,TRUE,2,FALSE,Det,Crit
+Aug Credendum Bracelets,Wrist,660,TRUE,2,FALSE,Det,SS
+Aug Credendum Ring,Finger,660,TRUE,2,FALSE,DH,SS

@@ -47,7 +47,7 @@ def new_BLM_thunder_pps(sps):
 
     potency = 4 * (F4_rotation + f_proc_num * fast_f3_b3) + xeno_p + mf_p + thunder_p
     time = n_cycles * 120
-    return potency / time
+    return potency , time
 
 def GcdCalc(gcd, sps, llFlag):
     time = round(1000 * (85 if llFlag else 100) * (gcd * (1000 - np.floor(130 * (sps - 400) / 1900)) / 1000) / 1000) / 100
