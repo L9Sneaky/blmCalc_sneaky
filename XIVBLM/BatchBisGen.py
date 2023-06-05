@@ -28,7 +28,7 @@ StatWeightChart_new = pd.DataFrame(columns=StatWeightChart.columns)
 StatWeightChart['Gain'] = 0
 baseDPS = 12656.52
 nSkipped = 0
-runs = 10000
+runs = 1000000
 MateriaFrame = MateriaFrame.reset_index(drop=True)
 
 for i in range(runs):
@@ -44,10 +44,10 @@ for i in range(runs):
                             SSWeight=SSWeight)
     else:
         # np.random.seed(random.randint(0, 100000))
-        DHWeight = np.random.randint(-50, 100)
-        CritWeight = np.random.randint(-50, 100)
-        DetWeight = np.random.randint(-50, 100)
-        SSWeight = np.random.randint(-50, 100)
+        DHWeight = np.random.randint(-50, 250)
+        CritWeight = np.random.randint(-50, 250)
+        DetWeight = np.random.randint(-50, 250)
+        SSWeight = np.random.randint(-50, 250)
         Set, _, _, _, _ = StatWeightGearSet(MateriaFrame,
                             DHWeight=DHWeight,
                             CritWeight=CritWeight,
@@ -76,7 +76,7 @@ for i in range(runs):
     ChartDict['Gain'] = str(((Attributes['DPS']/baseDPS)-1)*100)[:5] + '%'
 
     StatWeightChart_new = StatWeightChart_new.append(ChartDict, ignore_index=True)
-    StatWeightChart_new = StatWeightChart_new.drop_duplicates(subset=StatWeightChart_new.columns[4:24], keep='first')
+    StatWeightChart_new = StatWeightChart_new.drop_duplicates(subset=StatWeightChart_new.columns, keep='first')
     StatWeightChart_new = StatWeightChart_new.sort_values(by=['DPS'], ascending=False)
     StatWeightChart_new = StatWeightChart_new[StatWeightChart_new['Gain'] != 0]
     StatWeightChart_new.to_csv(f"{OutputName} (Debug).csv", index=False)
