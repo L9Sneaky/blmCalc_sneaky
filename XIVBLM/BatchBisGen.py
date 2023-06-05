@@ -12,7 +12,7 @@ from XIVBLM_py.SortSet import SortSet
 from XIVBLM_py.SortSet import DftoSet
 
 
-GearFile = 'XIVBLM/6.4/Gear 6.4.csv'
+GearFile = 'XIVBLM/6.4/Crafted Gear.csv'
 MateriaFrame = MateriaFrameGenerate(GearFile)
 GearFile = GearFile.replace('.csv', '')
 
@@ -76,7 +76,7 @@ for i in range(runs):
     ChartDict['Gain'] = str(((Attributes['DPS']/baseDPS)-1)*100)[:5] + '%'
 
     StatWeightChart_new = StatWeightChart_new.append(ChartDict, ignore_index=True)
-    StatWeightChart_new = StatWeightChart_new.drop_duplicates(subset=StatWeightChart_new.columns, keep='first')
+    StatWeightChart_new = StatWeightChart_new.drop_duplicates(subset=StatWeightChart_new.columns[4:23], keep='first')
     StatWeightChart_new = StatWeightChart_new.sort_values(by=['DPS'], ascending=False)
     StatWeightChart_new = StatWeightChart_new[StatWeightChart_new['Gain'] != 0]
     StatWeightChart_new.to_csv(f"{OutputName} (Debug).csv", index=False)

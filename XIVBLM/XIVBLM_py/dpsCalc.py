@@ -1,6 +1,6 @@
 import numpy as np
-from XIVBLM_py.oldPpsCalc import FirePps, ThunderPps
-from XIVBLM_py.ppsCalc import new_BLM_thunder_pps as newBLMthunder
+from oldPpsCalc import FirePps, ThunderPps
+from ppsCalc import new_BLM_thunder_pps as newBLMthunder
 # Party buff things
 battleVoiceAvg = (15 / 120) * 0.2
 battleLitanyAvg = (15 / 120) * 0.1
@@ -58,12 +58,9 @@ def CalcDamage(Potency, Multiplier, CritDamageMult, CritRate, DHRate):
     return Damage * NormalRate + CritDamage * (CritRate - CritDHRate) + DHDamage * (DHRate - CritDHRate) + CritDHDamage * CritDHRate
 
 
-# WD = 132
-# Int = 3375
-# Dh= 2121
-# Crit = 1600
-# Det = 778
-# Ss = 1671
-# print("acual = 13406.50")
-# print(ThunderPps(Ss))
-# print(DPS(WD, Int, Dh, Crit, Det, Ss))
+def GenTuncatedTables():
+    return np.trunc(np.array([FirePps(i) for i in range(400, 2695)]))
+# print(CalcCritRate(400))
+# print(CalcCritDamage(400))
+
+print(GenTuncatedTables())
