@@ -1,6 +1,5 @@
 import numpy as np
-from oldPpsCalc import FirePps, ThunderPps
-from ppsCalc import new_BLM_thunder_pps as newBLMthunder
+from XIVBLM_py.oldPpsCalc import FirePps, ThunderPps
 # Party buff things
 battleVoiceAvg = (15 / 120) * 0.2
 battleLitanyAvg = (15 / 120) * 0.1
@@ -57,10 +56,55 @@ def CalcDamage(Potency, Multiplier, CritDamageMult, CritRate, DHRate):
     
     return Damage * NormalRate + CritDamage * (CritRate - CritDHRate) + DHDamage * (DHRate - CritDHRate) + CritDHDamage * CritDHRate
 
+def GcdCalc(gcd, sps, llFlag):
+    time = round((85 if llFlag else 100) * (gcd * (1000 - np.floor(130 * (sps - 400) / 1900)) / 1000) / 1000) / 100
+    return time
 
-def GenTuncatedTables():
-    return np.trunc(np.array([FirePps(i) for i in range(400, 2695)]))
-# print(CalcCritRate(400))
-# print(CalcCritDamage(400))
+def GenCritRateTables():
+    Critrate = {}
+    for i in range(baseSub, 2700):
+        rate = f"{np.round(CalcCritRate(i)*100,2)}%"
+        if rate not in list(Critrate.keys()):
+            Critrate[rate] = i
+    return {v: k for k, v in Critrate.items()}
 
-print(GenTuncatedTables())
+def GenCritDamageTables():
+    CritDamage = {}
+    for i in range(baseSub, 2700):
+        rate = f"{np.round(CalcCritDamage(i)*100,2)}%"
+        if rate not in list(CritDamage.keys()):
+            CritDamage[rate] = i
+    return {v: k for k, v in CritDamage.items()}
+
+def GenDHRateTables():
+    DHRate = {}
+    for i in range(baseSub, 2700):
+        rate = f"{np.round(CalcDHRate(i)*100,2)}%"
+        if rate not in list(DHRate.keys()):
+            DHRate[rate] = i
+    return {v: k for k, v in DHRate.items()}
+
+def GenDetDamageTables():
+    DetDamage = {}
+    for i in range(baseMain, 2700):
+        rate = f"{np.round(CalcDetDamage(i),4)}"
+        if rate not in list(DetDamage.keys()):
+            DetDamage[rate] = i
+    return {v: k for k, v in DetDamage.items()}
+
+def GenSpsTable():
+    Sps = {}
+    for i in range(400, 2700):
+        rate = f"{GcdCalc(2500, i, False)}"
+        if rate not in list(Sps.keys()):
+            Sps[rate] = i
+    return {v: k for k, v in Sps.items()}
+
+def TablesCompare():
+    cd = GenCritDamageTables()
+    cr = GenCritRateTables()
+    dhr = GenDHRateTables()
+    dd = GenDetDamageTables()
+    sps = GenSpsTable()
+    return {"Crit": cr, "DH": dhr, "Det": dd, "SS": sps}
+

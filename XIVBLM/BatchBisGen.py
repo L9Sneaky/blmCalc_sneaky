@@ -8,11 +8,11 @@ from XIVBLM_py.BiSLoop import BiSLoop
 from XIVBLM_py.ItemReturnString import ItemReturnString
 from XIVBLM_py.FoodFrame import FoodFrame
 from XIVBLM_py.FoodApply import food_apply
-from XIVBLM_py.SortSet import SortSet
-from XIVBLM_py.SortSet import DftoSet
+from XIVBLM_py.SortSet import SortSet, DftoSet
+from XIVBLM_py.dpsCalc import TablesCompare
 
 
-GearFile = 'XIVBLM/6.4/Crafted Gear.csv'
+GearFile = 'XIVBLM/6.4/Gear 6.4.csv'
 MateriaFrame = MateriaFrameGenerate(GearFile)
 GearFile = GearFile.replace('.csv', '')
 
@@ -22,6 +22,7 @@ file_name = GearFile.split('/')[-1]
 Menu = pd.read_csv('XIVBLM/Tables/Menu.csv')
 Food = FoodFrame(Menu=Menu, minIlvl=max(Menu.Ilvl))
 
+statTable = TablesCompare()
 
 StatWeightChart = pd.read_csv('XIVBLM/Tables/StatWeightStart.csv')
 StatWeightChart_new = pd.DataFrame(columns=StatWeightChart.columns)
@@ -75,10 +76,11 @@ for i in range(runs):
     
     ChartDict['Gain'] = str(((Attributes['DPS']/baseDPS)-1)*100)[:5] + '%'
 
-    StatWeightChart_new = StatWeightChart_new.append(ChartDict, ignore_index=True)
-    StatWeightChart_new = StatWeightChart_new.drop_duplicates(subset=StatWeightChart_new.columns[4:23], keep='first')
-    StatWeightChart_new = StatWeightChart_new.sort_values(by=['DPS'], ascending=False)
-    StatWeightChart_new = StatWeightChart_new[StatWeightChart_new['Gain'] != 0]
-    StatWeightChart_new.to_csv(f"{OutputName} (Debug).csv", index=False)
-    StatWeightChart_new[~StatWeightChart_new.iloc[:, 16:24].duplicated()].iloc[:, 4:24].to_csv(f"{OutputName}.csv", index=False)
+    if (ChartDict['DH'] in statTable['DH']) + (ChartDict['Crit'] in statTable['Crit']) + (ChartDict['Det'] in statTable['Det']) + (ChartDict['SS'] in statTable['SS']) >= 3:
+        StatWeightChart_new = StatWeightChart_new.append(ChartDict, ignore_index=True)
+        StatWeightChart_new = StatWeightChart_new.drop_duplicates(subset=StatWeightChart_new.columns[4:23], keep='first')
+        StatWeightChart_new = StatWeightChart_new.sort_values(by=['DPS'], ascending=False)
+        StatWeightChart_new = StatWeightChart_new[StatWeightChart_new['Gain'] != 0]
+        StatWeightChart_new.to_csv(f"{OutputName} (Debug).csv", index=False)
+        StatWeightChart_new[~StatWeightChart_new.iloc[:, 16:24].duplicated()].iloc[:, 4:24].to_csv(f"{OutputName}.csv", index=False)
 print(f"Skipped {nSkipped} sets")
