@@ -29,7 +29,7 @@ StatWeightChart_new = pd.DataFrame(columns=StatWeightChart.columns)
 StatWeightChart['Gain'] = 0
 baseDPS = 12656.52
 nSkipped = 0
-runs = 1000000
+runs = 100
 MateriaFrame = MateriaFrame.reset_index(drop=True)
 
 for i in range(runs):
@@ -45,10 +45,10 @@ for i in range(runs):
                             SSWeight=SSWeight)
     else:
         # np.random.seed(random.randint(0, 100000))
-        DHWeight = np.random.randint(-50, 250)
-        CritWeight = np.random.randint(-50, 250)
-        DetWeight = np.random.randint(-50, 250)
-        SSWeight = np.random.randint(-50, 250)
+        DHWeight = np.random.randint(-250, 250)
+        CritWeight = np.random.randint(-250, 250)
+        DetWeight = np.random.randint(-250, 250)
+        SSWeight = np.random.randint(-250, 250)
         Set, _, _, _, _ = StatWeightGearSet(MateriaFrame,
                             DHWeight=DHWeight,
                             CritWeight=CritWeight,
